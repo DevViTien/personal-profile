@@ -1,0 +1,42 @@
+{
+  "name": "Nguyễn Bùi Nam Trường",
+  "slug": "TruongNBN",
+  "title": "Frontend Developer",
+  "email": "truongnbn.main@gmail.com",
+  "phone": "0327663738",
+  "bio": "Chào mừng bạn đến với trang cá nhân của tôi! Tôi là một lập trình viên Frontend với đam mê xây dựng các ứng dụng web đẹp và hiệu quả. Tôi chuyên về Next.js, Tailwind CSS và TypeScript.",
+  "avatarUrl": "/assets/avatar.jpg",
+  "socialLinks": {
+    "github": "https://github.com/devvitien",
+    "facebook": "https://www.facebook.com/nguyenbuinamtruong",
+    "linkedin": "",
+    "twitter": ""
+  },
+  "skills": [
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Tailwind CSS",
+    "Node.js"
+  ],
+  "experience": [
+    {
+      "title": "Vị trí Công việc",
+      "company": "Tên Công Ty",
+      "startDate": "Tháng Năm",
+      "endDate": "Tháng Năm (hoặc Hiện tại)",
+      "description": "Mô tả ngắn về trách nhiệm và thành tựu của bạn tại vị trí này."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Tên Dự Án",
+      "description": "Mô tả ngắn về dự án, mục tiêu và các tính năng chính.",
+      "technologies": ["Next.js", "Tailwind CSS", "TypeScript"],
+      "imageUrl": "/images/project_placeholder.png",
+      "liveUrl": "https://example.com",
+      "sourceUrl": "https://github.com/yourusername/project"
+    }
+  ]
+}
