@@ -29,13 +29,14 @@ export default function ProfileCard() {
   return (
     <div className="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-6 w-full max-w-sm mx-auto">
       <div className="flex flex-col items-center">
+        {" "}
         {avatarUrl ? (
           <div className="relative w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-gray-200 dark:border-gray-700">
             <Image
               src={avatarUrl}
               alt={name || "User Avatar"}
-              layout="fill"
-              objectFit="cover"
+              fill
+              className="object-cover"
             />
           </div>
         ) : (

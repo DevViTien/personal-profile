@@ -4,9 +4,12 @@
 
 ## Công nghệ sử dụng
 
-- **Next.js:** Framework React cho phép xây dựng các ứng dụng web nhanh chóng và tối ưu SEO.
-- **Tailwind CSS:** Framework CSS tiện ích giúp xây dựng giao diện người dùng một cách linh hoạt và hiệu quả.
+- **Next.js 15.3.2:** Framework React với App Router cho phép xây dựng các ứng dụng web nhanh chóng và tối ưu SEO.
+- **React 19:** Library JavaScript để xây dựng giao diện người dùng hiện đại.
+- **Tailwind CSS v4:** Framework CSS tiện ích với PostCSS để xây dựng giao diện responsive và dark mode.
 - **TypeScript:** Ngôn ngữ lập trình giúp tăng cường tính chặt chẽ và dễ bảo trì cho mã nguồn.
+- **Heroicons:** Thư viện icon SVG đẹp và nhất quán cho React.
+- **ESLint:** Tool kiểm tra chất lượng code với Next.js config.
 
 ## Mục tiêu
 
@@ -18,13 +21,33 @@
 
 ## Kiến trúc dự án
 
-- **`src/app`**: Chứa các trang chính của ứng dụng (ví dụ: `page.tsx`, `layout.tsx`).
-- **`src/components`**: Chứa các UI component tái sử dụng (ví dụ: Header, Footer, ProjectCard).
-- **`src/constants`**: Chứa các hằng số, dữ liệu tĩnh (ví dụ: thông tin cá nhân, danh sách dự án).
-- **`src/ui`**: Chứa các thành phần giao diện người dùng (UI) như button, input, modal.
-- **`src/contexts`**: Chứa các context để quản lý trạng thái toàn cục (ví dụ: ThemeContext, AuthContext).
-- **`src/utils`**: Chứa các hàm tiện ích, helper functions (ví dụ: format date, validate email).
-- **`public`**: Chứa các tài sản tĩnh như hình ảnh, icon.
+### Cấu trúc thư mục hiện tại
+
+- **`src/app`**: Chứa các trang chính của ứng dụng sử dụng Next.js App Router
+  - `layout.tsx`: Root layout với AppProvider, Header, Sidebar, Footer
+  - `page.tsx`: Trang chủ (đang cơ bản)
+  - `about/page.tsx`: Trang giới thiệu (placeholder)
+  - `projects/page.tsx`: Trang dự án (placeholder)  
+  - `contact/page.tsx`: Trang liên hệ (placeholder)
+  - `globals.css`: CSS toàn cục với Tailwind imports
+
+- **`src/components`**: Chứa các UI component tái sử dụng
+  - `layout/`: Header, Footer, Sidebar, ThemeToggleButton
+  - `cards/`: ProfileCard component
+
+- **`src/constants`**: Chứa dữ liệu tĩnh
+  - `profileData.json`: Thông tin cá nhân, skills, experience, projects
+
+- **`src/contexts`**: Context management cho state toàn cục
+  - `AppProvider.tsx`: Provider tổng hợp
+  - `ThemeContext.tsx`: Quản lý dark/light mode
+  - `ProfileContext.tsx`: Quản lý dữ liệu profile
+
+- **`src/assets`**: Tài nguyên tĩnh (avatar.jpg)
+
+- **`public`**: Tài sản tĩnh public (assets/avatar.jpg)
+
+### Tính năng đã triển khai
 
 ## Thông tin Dev
 

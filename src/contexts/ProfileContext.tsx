@@ -8,44 +8,7 @@ import React, {
   useEffect,
 } from "react";
 import profileDataJson from "@/constants/profileData.json";
-
-interface SocialLinks {
-  github?: string;
-  linkedin?: string;
-  twitter?: string;
-  facebook?: string;
-}
-
-interface Experience {
-  title: string;
-  company: string;
-  startDate: string;
-  endDate: string;
-  description: string;
-}
-
-interface Project {
-  title: string;
-  description: string;
-  technologies: string[];
-  imageUrl?: string;
-  liveUrl?: string;
-  sourceUrl?: string;
-}
-
-interface ProfileData {
-  name?: string;
-  slug?: string;
-  title?: string;
-  email?: string;
-  phone?: string;
-  bio?: string;
-  avatarUrl?: string;
-  socialLinks?: SocialLinks;
-  skills?: string[];
-  experience?: Experience[];
-  projects?: Project[];
-}
+import { ProfileData } from "@/types/profile";
 
 interface ProfileContextType {
   profileData: ProfileData | null;
