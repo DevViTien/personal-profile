@@ -1,7 +1,9 @@
 "use client";
 
 import { useContext } from "react";
+import Link from "next/link";
 import { ProfileContext } from "@/contexts/ProfileContext";
+import { downloadCV } from "@/utils/downloadUtils";
 import Image from "next/image";
 import {
   AcademicCapIcon,
@@ -12,11 +14,19 @@ import {
   PhoneIcon,
   SparklesIcon,
   CodeBracketIcon,
+  ArrowDownTrayIcon,
+  ChatBubbleLeftRightIcon,
 } from "@heroicons/react/24/outline";
 
 export default function AboutPage() {
   const profileContext = useContext(ProfileContext);
   const { profileData, loading } = profileContext || {};
+
+  const handleDownloadCV = () => {
+    if (profileData?.cvUrl) {
+      downloadCV(profileData.cvUrl, profileData.name);
+    }
+  };
 
   if (loading) {
     return (
@@ -341,14 +351,27 @@ export default function AboutPage() {
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center space-x-2">
               <SparklesIcon className="w-5 h-5 text-blue-500" />
               <span>Hành động nhanh</span>
-            </h3>
+            </h3>{" "}
             <div className="space-y-3">
-              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus-ring">
-                Tải CV
-              </button>
-              <button className="w-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-white px-4 py-3 rounded-lg font-medium transition-all duration-200 focus-ring">
-                Liên hệ
-              </button>
+              <button
+                onClick={handleDownloadCV}
+                disabled={!profileData?.cvUrl}
+                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white px-4 py-3 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none disabled:shadow-lg focus-ring flex items-center justify-center space-x-2"
+                title={profileData?.cvUrl ? "Tải xuống CV" : "CV chưa có sẵn"}
+                aria-label={
+                  profileData?.cvUrl ? "Tải xuống CV" : "CV chưa có sẵn"
+                }
+              >
+                <ArrowDownTrayIcon className="w-4 h-4" />
+                <span>Tải CV</span>
+              </button>{" "}
+              <Link
+                href="/contact"
+                className="w-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-white px-4 py-3 rounded-lg font-medium transition-all duration-200 focus-ring flex items-center justify-center space-x-2"
+              >
+                <ChatBubbleLeftRightIcon className="w-4 h-4" />
+                <span>Liên hệ</span>
+              </Link>
             </div>
           </section>
         </div>

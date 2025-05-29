@@ -13,6 +13,7 @@
   },
   "bio": "Chào mừng bạn đến với trang cá nhân của tôi! Tôi là một lập trình viên Frontend với đam mê xây dựng các ứng dụng web đẹp và hiệu quả. Tôi chuyên về Next.js, Tailwind CSS và TypeScript.",
   "avatarUrl": "/assets/avatar.jpg",
+  "cvUrl": "/assets/cv-nguyen-bui-nam-truong.pdf",
   "socialLinks": {
     "github": "https://github.com/devvitien",
     "facebook": "https://www.facebook.com/nguyenbuinamtruong",

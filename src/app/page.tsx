@@ -4,10 +4,22 @@ import { useContext } from "react";
 import { ProfileContext } from "@/contexts/ProfileContext";
 import ProfileCard from "@/components/cards/ProfileCard";
 import Image from "next/image";
+import Link from "next/link";
+import { downloadCV } from "@/utils/downloadUtils";
+import { 
+  ArrowDownTrayIcon, 
+  ChatBubbleLeftRightIcon 
+} from "@heroicons/react/24/outline";
 
 export default function Home() {
   const profileContext = useContext(ProfileContext);
   const { profileData, loading } = profileContext || {};
+
+  const handleDownloadCV = () => {
+    if (profileData?.cvUrl) {
+      downloadCV(profileData.cvUrl, profileData.name);
+    }
+  };
 
   if (loading) {
     return (
@@ -64,30 +76,26 @@ export default function Home() {
 
             <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
               {bio || "Mô tả về bản thân sẽ xuất hiện tại đây."}
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus-ring">
+            </p>            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <button 
+                onClick={handleDownloadCV}
+                disabled={!profileData?.cvUrl}
+                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:transform-none disabled:shadow-lg focus-ring"
+                title={profileData?.cvUrl ? "Tải xuống CV" : "CV chưa có sẵn"}
+                aria-label={profileData?.cvUrl ? "Tải xuống CV" : "CV chưa có sẵn"}
+              >
                 <span className="flex items-center justify-center space-x-2">
                   <span>Xem CV của tôi</span>
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    />
-                  </svg>
+                  <ArrowDownTrayIcon className="w-4 h-4" />
                 </span>
               </button>
-              <button className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 focus-ring">
-                Liên hệ với tôi
-              </button>
+              <Link 
+                href="/contact"
+                className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 focus-ring flex items-center justify-center space-x-2"
+              >
+                <span>Liên hệ với tôi</span>
+                <ChatBubbleLeftRightIcon className="w-4 h-4" />
+              </Link>
             </div>
           </div>
 

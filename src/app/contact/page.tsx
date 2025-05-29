@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { ProfileContext } from "@/contexts/ProfileContext";
 import {
   EnvelopeIcon,
@@ -22,6 +22,14 @@ export default function ContactPage() {
     subject: "",
     message: "",
   });
+
+  // Smooth scroll to top when component mounts (user navigated here)
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   if (loading) {
     return (

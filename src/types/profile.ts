@@ -47,6 +47,7 @@ export interface ProfileData {
   address: Address;
   bio: string;
   avatarUrl: string;
+  cvUrl: string;
   socialLinks: SocialLinks;
   education: Education[];
   skills: SkillCategory[];
