@@ -9,16 +9,35 @@ export default function ThemeToggleButton() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 dark:focus:ring-offset-gray-800"
+      className="relative p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus-ring transition-all duration-200 group"
       aria-label={
-        theme === "light" ? "Switch to dark mode" : "Switch to light mode"
+        theme === "light" ? "Chuyển sang chế độ tối" : "Chuyển sang chế độ sáng"
+      }
+      title={
+        theme === "light" ? "Chuyển sang chế độ tối" : "Chuyển sang chế độ sáng"
       }
     >
-      {theme === "light" ? (
-        <MoonIcon className="h-6 w-6" />
-      ) : (
-        <SunIcon className="h-6 w-6" />
-      )}
+      <div className="relative w-5 h-5 overflow-hidden">
+        <SunIcon
+          className={`absolute inset-0 w-5 h-5 transition-all duration-300 transform ${
+            theme === "light"
+              ? "rotate-0 scale-100 opacity-100"
+              : "rotate-90 scale-0 opacity-0"
+          }`}
+        />
+        <MoonIcon
+          className={`absolute inset-0 w-5 h-5 transition-all duration-300 transform ${
+            theme === "dark"
+              ? "rotate-0 scale-100 opacity-100"
+              : "-rotate-90 scale-0 opacity-0"
+          }`}
+        />
+      </div>
+      {/* Tooltip for desktop - positioned below button */}
+      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 text-xs font-medium text-white bg-gray-900 dark:bg-gray-700 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+        {theme === "light" ? "Chế độ tối" : "Chế độ sáng"}
+        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-b-2 border-transparent border-b-gray-900 dark:border-b-gray-700"></div>
+      </div>
     </button>
   );
 }
