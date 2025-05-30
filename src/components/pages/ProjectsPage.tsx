@@ -77,10 +77,7 @@ export default function ProjectsPage() {
     let totalMonths = 0;
     experience.forEach((exp: ExperienceItem) => {
       const startDate = new Date(exp.startDate.split("/").reverse().join("-"));
-      const endDate =
-        exp.endDate === "hiện nay" ||
-        exp.endDate === "Present" ||
-        exp.endDate === "वर्तमान"
+      const endDate = ["hiện nay", "present", "वर्तमान", "至今"].includes(exp.endDate)
           ? new Date()
           : new Date(exp.endDate.split("/").reverse().join("-"));
       const diffTime = Math.abs(endDate.getTime() - startDate.getTime());
