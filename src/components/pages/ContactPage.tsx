@@ -10,8 +10,11 @@ import {
   ChatBubbleLeftRightIcon,
   UserIcon,
   SparklesIcon,
+  ExclamationTriangleIcon,
+  CheckCircleIcon,
 } from "@heroicons/react/24/outline";
 import { FaGithub, FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { sendContactEmail, checkRateLimit, type ContactFormData } from "@/utils/emailService";
 
 /**
  * ContactPage Component - Trang liên hệ
@@ -26,6 +29,13 @@ export default function ContactPage() {
     subject: "",
     message: "",
   });
+  
+  // States cho email sending
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
 
   // Smooth scroll to top when component mounts (user navigated here)
   useEffect(() => {
@@ -93,13 +103,47 @@ export default function ContactPage() {
       [e.target.name]: e.target.value,
     });
   };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission - you can integrate with email service here
-    console.log("Form submitted:", formData);
-    alert("Cảm ơn bạn đã gửi tin nhắn! Tôi sẽ phản hồi sớm nhất có thể.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    
+    // Clear previous status
+    setSubmitStatus({ type: null, message: '' });
+      // Kiểm tra rate limit
+    const rateLimitResult = checkRateLimit();
+    if (!rateLimitResult.allowed) {
+      setSubmitStatus({
+        type: 'error',
+        message: `Bạn đã gửi quá nhiều tin nhắn. Vui lòng đợi ${rateLimitResult.timeLeft} phút trước khi gửi lại.`
+      });
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      const result = await sendContactEmail(formData as ContactFormData);
+      
+      if (result.success) {
+        setSubmitStatus({
+          type: 'success',
+          message: result.message
+        });
+        // Reset form on success
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setSubmitStatus({
+          type: 'error',
+          message: result.message
+        });
+      }    } catch (error) {
+      console.error('Contact form submission error:', error);
+      setSubmitStatus({
+        type: 'error',
+        message: 'Có lỗi không mong muốn xảy ra. Vui lòng thử lại sau.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const socialIcons = [
@@ -292,9 +336,27 @@ export default function ContactPage() {
               <h2 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
                 Gửi tin nhắn
               </h2>
-            </div>
+            </div>            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Status Message */}
+              {submitStatus.type && (
+                <div
+                  className={`p-4 rounded-lg lg:rounded-xl border ${
+                    submitStatus.type === 'success'
+                      ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800 text-green-800 dark:text-green-200'
+                      : 'bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800 text-red-800 dark:text-red-200'
+                  } transition-all duration-200`}
+                >
+                  <div className="flex items-center space-x-3">
+                    {submitStatus.type === 'success' ? (
+                      <CheckCircleIcon className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
+                    ) : (
+                      <ExclamationTriangleIcon className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0" />
+                    )}
+                    <p className="text-sm font-medium">{submitStatus.message}</p>
+                  </div>
+                </div>
+              )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label
@@ -371,14 +433,26 @@ export default function ContactPage() {
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg lg:rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none transition-all duration-200 hover:border-gray-400 dark:hover:border-gray-500"
                   placeholder="Nội dung tin nhắn của bạn..."
                 />
-              </div>
-
-              <button
+              </div>              <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 lg:py-4 px-6 rounded-lg lg:rounded-xl transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus-ring"
+                disabled={isSubmitting}
+                className={`w-full font-semibold py-3 lg:py-4 px-6 rounded-lg lg:rounded-xl transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg focus-ring ${
+                  isSubmitting
+                    ? 'bg-gray-400 dark:bg-gray-600 cursor-not-allowed'
+                    : 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 hover:shadow-xl transform hover:-translate-y-0.5'
+                } text-white`}
               >
-                <PaperAirplaneIcon className="w-5 h-5" />
-                <span>Gửi tin nhắn</span>
+                {isSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <span>Đang gửi...</span>
+                  </>
+                ) : (
+                  <>
+                    <PaperAirplaneIcon className="w-5 h-5" />
+                    <span>Gửi tin nhắn</span>
+                  </>
+                )}
               </button>
             </form>
           </div>
