@@ -1,0 +1,32 @@
+{
+  "navigation": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "projects": "Dự án",
+    "contact": "Liên hệ"
+  },
+  "theme": {
+    "light": "Chế độ sáng",
+    "dark": "Chế độ tối",
+    "toggleToLight": "Chuyển sang chế độ sáng",
+    "toggleToDark": "Chuyển sang chế độ tối"
+  },
+  "language": {
+    "selectLanguage": "Chọn ngôn ngữ",
+    "currentLanguage": "Ngôn ngữ hiện tại"
+  },
+  "common": {
+    "loading": "Đang tải...",
+    "error": "Lỗi",
+    "success": "Thành công",
+    "portfolio": "Portfolio"
+  },
+  "profile": {
+    "welcome": "Chào mừng",
+    "downloadCV": "Tải CV",
+    "skills": "Kỹ năng",
+    "experience": "Kinh nghiệm",
+    "education": "Học vấn",
+    "contact": "Liên hệ"
+  }
+}

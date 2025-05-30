@@ -2,13 +2,14 @@
 
 import { useContext } from "react";
 import { ProfileContext } from "@/contexts/ProfileContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import ProfileCard from "@/components/cards/ProfileCard";
 import Image from "next/image";
 import Link from "next/link";
 import { downloadCV } from "@/utils/downloadUtils";
-import { 
-  ArrowDownTrayIcon, 
-  ChatBubbleLeftRightIcon 
+import {
+  ArrowDownTrayIcon,
+  ChatBubbleLeftRightIcon
 } from "@heroicons/react/24/outline";
 
 /**
@@ -17,6 +18,7 @@ import {
  */
 export default function HomePage() {
   const profileContext = useContext(ProfileContext);
+  const { t } = useLanguage();
   const { profileData, loading } = profileContext || {};
 
   const handleDownloadCV = () => {
@@ -84,7 +86,7 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button 
+              <button
                 onClick={handleDownloadCV}
                 disabled={!profileData?.cvUrl}
                 className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:transform-none disabled:shadow-lg focus-ring"
@@ -95,12 +97,11 @@ export default function HomePage() {
                   <span>Xem CV của tôi</span>
                   <ArrowDownTrayIcon className="w-4 h-4" />
                 </span>
-              </button>
-              <Link 
+              </button>              <Link
                 href="/contact"
                 className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 focus-ring flex items-center justify-center space-x-2"
               >
-                <span>Liên hệ với tôi</span>
+                <span>{t.profile.contact}</span>
                 <ChatBubbleLeftRightIcon className="w-4 h-4" />
               </Link>
             </div>
@@ -129,9 +130,8 @@ export default function HomePage() {
           className="bg-white dark:bg-gray-800 rounded-xl lg:rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300"
         >
           <div className="flex items-center space-x-3 mb-6">
-            <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full"></div>
-            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
-              Kỹ năng chuyên môn
+            <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full"></div>            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
+              {t.profile.skills}
             </h3>
           </div>
 

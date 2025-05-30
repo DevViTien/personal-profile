@@ -1,20 +1,21 @@
 "use client";
 
 import { useTheme } from "@/contexts/ThemeContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 
 export default function ThemeToggleButton() {
   const { theme, toggleTheme } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <button
       onClick={toggleTheme}
-      className="relative p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus-ring transition-all duration-200 group"
-      aria-label={
-        theme === "light" ? "Chuyển sang chế độ tối" : "Chuyển sang chế độ sáng"
+      className="relative p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus-ring transition-all duration-200 group"      aria-label={
+        theme === "light" ? t.theme.toggleToDark : t.theme.toggleToLight
       }
       title={
-        theme === "light" ? "Chuyển sang chế độ tối" : "Chuyển sang chế độ sáng"
+        theme === "light" ? t.theme.toggleToDark : t.theme.toggleToLight
       }
     >
       <div className="relative w-5 h-5 overflow-hidden">
@@ -35,7 +36,7 @@ export default function ThemeToggleButton() {
       </div>
       {/* Tooltip for desktop - positioned below button */}
       <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 text-xs font-medium text-white bg-gray-900 dark:bg-gray-700 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
-        {theme === "light" ? "Chế độ tối" : "Chế độ sáng"}
+        {theme === "light" ? t.theme.dark : t.theme.light}
         <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-b-2 border-transparent border-b-gray-900 dark:border-b-gray-700"></div>
       </div>
     </button>
