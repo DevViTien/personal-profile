@@ -4,6 +4,7 @@ import { useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ProfileContext } from "@/contexts/ProfileContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { downloadCV } from "@/utils/downloadUtils";
 import {
   EnvelopeIcon,
@@ -17,6 +18,7 @@ import {
 
 export default function ProfileCard() {
   const profileContext = useContext(ProfileContext);
+  const { t } = useLanguage();
 
   if (profileContext?.loading) {
     return (
@@ -37,9 +39,10 @@ export default function ProfileCard() {
   if (profileContext?.error) {
     return (
       <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 shadow-lg rounded-xl p-6 w-full max-w-sm mx-auto">
+        {" "}
         <div className="text-center">
           <UserIcon className="w-12 h-12 mx-auto mb-2 text-red-400" />
-          <p className="text-sm">Không thể tải thông tin profile</p>
+          <p className="text-sm">{t.errors.loadingFailed}</p>
         </div>
       </div>
     );
@@ -81,13 +84,13 @@ export default function ProfileCard() {
             <UserIcon className="w-16 h-16" />
           </div>
         )}
-        {/* Name & Title */}
+        {/* Name & Title */}{" "}
         <div className="text-center mb-6">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
-            {name || "Tên của bạn"}
+            {name || "Your Name"}
           </h2>
           <p className="text-sm text-blue-600 dark:text-blue-400 font-medium bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded-full">
-            {title || "Chức vụ của bạn"}
+            {title || t.profile.currentPosition}
           </p>
         </div>
         {/* Contact Information */}
@@ -134,18 +137,20 @@ export default function ProfileCard() {
             onClick={handleDownloadCV}
             disabled={!cvUrl}
             className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white px-4 py-2.5 rounded-lg font-medium transition-all duration-200 focus-ring shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none disabled:shadow-lg flex items-center justify-center space-x-2"
-            title={cvUrl ? "Tải xuống CV" : "CV chưa có sẵn"}
-            aria-label={cvUrl ? "Tải xuống CV" : "CV chưa có sẵn"}
+            title={cvUrl ? t.profile.downloadCV : "CV chưa có sẵn"}
+            aria-label={cvUrl ? t.profile.downloadCV : "CV chưa có sẵn"}
           >
+            {" "}
             <ArrowDownTrayIcon className="w-4 h-4" />
-            <span>Tải CV</span>
+            <span>{t.actions.download}</span>
           </button>{" "}
           <Link
             href="/contact"
             className="w-full border border-blue-600 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 dark:border-blue-400 dark:text-blue-400 px-4 py-2.5 rounded-lg font-medium transition-all duration-200 focus-ring flex items-center justify-center space-x-2 hover:border-blue-700 dark:hover:border-blue-300"
           >
+            {" "}
             <ChatBubbleLeftRightIcon className="w-4 h-4" />
-            <span>Liên hệ</span>
+            <span>{t.profile.contact}</span>
           </Link>
         </div>
       </div>

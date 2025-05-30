@@ -3,6 +3,7 @@
 import { useContext } from "react";
 import Link from "next/link";
 import { ProfileContext } from "@/contexts/ProfileContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   CalendarIcon,
   BuildingOfficeIcon,
@@ -26,6 +27,7 @@ interface ExperienceItem {
  */
 export default function ProjectsPage() {
   const profileContext = useContext(ProfileContext);
+  const { t } = useLanguage();
   const { profileData, loading } = profileContext || {};
 
   if (loading) {
@@ -76,7 +78,9 @@ export default function ProjectsPage() {
     experience.forEach((exp: ExperienceItem) => {
       const startDate = new Date(exp.startDate.split("/").reverse().join("-"));
       const endDate =
-        exp.endDate === "hiện nay"
+        exp.endDate === "hiện nay" ||
+        exp.endDate === "Present" ||
+        exp.endDate === "वर्तमान"
           ? new Date()
           : new Date(exp.endDate.split("/").reverse().join("-"));
       const diffTime = Math.abs(endDate.getTime() - startDate.getTime());
@@ -99,12 +103,14 @@ export default function ProjectsPage() {
           <div className="space-y-4">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Kinh nghiệm
+                {t.pages.projects.title}
               </span>
-              <span className="block mt-2">làm việc</span>
+              <span className="block mt-2">
+                {t.pages.projects.workExperience}
+              </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Hành trình phát triển sự nghiệp và các dự án tôi đã tham gia
+              {t.pages.projects.projectTimeline}
             </p>
           </div>
 
@@ -118,7 +124,7 @@ export default function ProjectsPage() {
                 </div>
               </div>
               <div className="text-sm font-medium text-gray-600 dark:text-gray-400 text-center">
-                Vị trí công việc
+                {t.pages.projects.currentPosition}
               </div>
             </div>
 
@@ -130,7 +136,7 @@ export default function ProjectsPage() {
                 </div>
               </div>
               <div className="text-sm font-medium text-gray-600 dark:text-gray-400 text-center">
-                Năm kinh nghiệm
+                {t.pages.projects.experienceYears}
               </div>
             </div>
 
@@ -146,7 +152,7 @@ export default function ProjectsPage() {
                 </div>
               </div>
               <div className="text-sm font-medium text-gray-600 dark:text-gray-400 text-center">
-                Dự án tham gia
+                {t.pages.projects.projectDetails}
               </div>
             </div>
           </div>
@@ -190,7 +196,7 @@ export default function ProjectsPage() {
                   <div>
                     <h4 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 flex items-center space-x-2">
                       <CodeBracketIcon className="w-5 h-5 text-green-500" />
-                      <span>Dự án tham gia</span>
+                      <span>{t.pages.projects.projectDetails}</span>
                     </h4>
                     <div className="grid grid-cols-1 gap-4">
                       {exp.projects.map(
@@ -222,7 +228,7 @@ export default function ProjectsPage() {
         <div className="flex items-center space-x-3 mb-6 lg:mb-8">
           <div className="w-2 h-8 bg-gradient-to-b from-purple-500 to-purple-600 rounded-full"></div>
           <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
-            Công nghệ đã sử dụng
+            {t.pages.projects.technologies}
           </h2>
         </div>
 
@@ -261,23 +267,23 @@ export default function ProjectsPage() {
 
         <div className="relative space-y-6">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
-            Quan tâm đến hợp tác?
+            {t.pages.contact.getInTouch}
           </h2>
           <p className="text-lg sm:text-xl opacity-90 max-w-2xl mx-auto">
-            Tôi luôn sẵn sàng thảo luận về các cơ hội mới và dự án thú vị
+            {t.pages.contact.responseTime}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Link
               href="/contact"
               className="bg-white text-blue-600 hover:bg-gray-100 px-6 lg:px-8 py-3 lg:py-4 rounded-lg lg:rounded-xl font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus-ring"
             >
-              Liên hệ với tôi
+              {t.pages.contact.title}
             </Link>
             <a
               href="mailto:truongnbn.main@gmail.com"
               className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-6 lg:px-8 py-3 lg:py-4 rounded-lg lg:rounded-xl font-medium transition-all duration-200 transform hover:-translate-y-0.5 focus-ring"
             >
-              Gửi email ngay
+              {t.pages.contact.send}
             </a>
           </div>
         </div>

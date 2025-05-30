@@ -2,6 +2,7 @@
 
 import { useContext, useState, useEffect } from "react";
 import { ProfileContext } from "@/contexts/ProfileContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   EnvelopeIcon,
   PhoneIcon,
@@ -14,7 +15,11 @@ import {
   CheckCircleIcon,
 } from "@heroicons/react/24/outline";
 import { FaGithub, FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { sendContactEmail, checkRateLimit, type ContactFormData } from "@/utils/emailService";
+import {
+  sendContactEmail,
+  checkRateLimit,
+  type ContactFormData,
+} from "@/utils/emailService";
 
 /**
  * ContactPage Component - Trang liên hệ
@@ -22,6 +27,7 @@ import { sendContactEmail, checkRateLimit, type ContactFormData } from "@/utils/
  */
 export default function ContactPage() {
   const profileContext = useContext(ProfileContext);
+  const { t } = useLanguage();
   const { profileData, loading } = profileContext || {};
   const [formData, setFormData] = useState({
     name: "",
@@ -29,13 +35,13 @@ export default function ContactPage() {
     subject: "",
     message: "",
   });
-  
+
   // States cho email sending
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
-    type: 'success' | 'error' | null;
+    type: "success" | "error" | null;
     message: string;
-  }>({ type: null, message: '' });
+  }>({ type: null, message: "" });
 
   // Smooth scroll to top when component mounts (user navigated here)
   useEffect(() => {
@@ -103,43 +109,49 @@ export default function ContactPage() {
       [e.target.name]: e.target.value,
     });
   };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Clear previous status
-    setSubmitStatus({ type: null, message: '' });
-      // Kiểm tra rate limit
+    setSubmitStatus({ type: null, message: "" });
+
+    // Kiểm tra rate limit
     const rateLimitResult = checkRateLimit();
     if (!rateLimitResult.allowed) {
       setSubmitStatus({
-        type: 'error',
-        message: `Bạn đã gửi quá nhiều tin nhắn. Vui lòng đợi ${rateLimitResult.timeLeft} phút trước khi gửi lại.`
+        type: "error",
+        message: t.pages.contact.rateLimit.replace(
+          "{timeLeft}",
+          (rateLimitResult.timeLeft || 0).toString()
+        ),
       });
       return;
     }
-    
+
     setIsSubmitting(true);
-    
+
     try {
       const result = await sendContactEmail(formData as ContactFormData);
-      
+
       if (result.success) {
         setSubmitStatus({
-          type: 'success',
-          message: result.message
+          type: "success",
+          message: t.pages.contact.messageSent,
         });
         // Reset form on success
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
         setSubmitStatus({
-          type: 'error',
-          message: result.message
+          type: "error",
+          message: t.pages.contact.messageError,
         });
-      }    } catch (error) {
-      console.error('Contact form submission error:', error);
+      }
+    } catch (error) {
+      console.error("Contact form submission error:", error);
       setSubmitStatus({
-        type: 'error',
-        message: 'Có lỗi không mong muốn xảy ra. Vui lòng thử lại sau.'
+        type: "error",
+        message: t.pages.contact.unexpectedError,
       });
     } finally {
       setIsSubmitting(false);
@@ -184,13 +196,12 @@ export default function ContactPage() {
           <div className="space-y-4">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Liên hệ
+                {t.pages.contact.title}
               </span>
-              <span className="block mt-2">với tôi</span>
+              <span className="block mt-2">{t.pages.contact.getInTouch}</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Hãy kết nối và thảo luận về các cơ hội hợp tác. Tôi luôn sẵn sàng
-              lắng nghe những ý tưởng mới!
+              {t.pages.contact.responseTime}
             </p>
           </div>
 
@@ -200,11 +211,11 @@ export default function ContactPage() {
               <div className="flex items-center justify-center space-x-3 mb-2">
                 <ChatBubbleLeftRightIcon className="w-6 h-6 text-blue-500" />
                 <span className="text-sm font-bold text-blue-600 dark:text-blue-400">
-                  Phản hồi nhanh
+                  {t.pages.contact.fastResponse}
                 </span>
               </div>
               <p className="text-xs text-gray-600 dark:text-gray-400 text-center">
-                Trong 24h
+                {t.pages.contact.fastResponseDesc}
               </p>
             </div>
 
@@ -212,11 +223,11 @@ export default function ContactPage() {
               <div className="flex items-center justify-center space-x-3 mb-2">
                 <UserIcon className="w-6 h-6 text-green-500" />
                 <span className="text-sm font-bold text-green-600 dark:text-green-400">
-                  Hỗ trợ cá nhân
+                  {t.pages.contact.personalSupport}
                 </span>
               </div>
               <p className="text-xs text-gray-600 dark:text-gray-400 text-center">
-                Tư vấn 1:1
+                {t.pages.contact.personalSupportDesc}
               </p>
             </div>
 
@@ -224,11 +235,11 @@ export default function ContactPage() {
               <div className="flex items-center justify-center space-x-3 mb-2">
                 <SparklesIcon className="w-6 h-6 text-purple-500" />
                 <span className="text-sm font-bold text-purple-600 dark:text-purple-400">
-                  Ý tưởng sáng tạo
+                  {t.pages.contact.creativeIdeas}
                 </span>
               </div>
               <p className="text-xs text-gray-600 dark:text-gray-400 text-center">
-                Giải pháp tối ưu
+                {t.pages.contact.creativeIdeasDesc}
               </p>
             </div>
           </div>
@@ -242,7 +253,7 @@ export default function ContactPage() {
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full"></div>
               <h2 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
-                Thông tin liên hệ
+                {t.pages.contact.contactInfo}
               </h2>
             </div>
 
@@ -253,7 +264,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
-                    Email
+                    {t.pages.contact.email}
                   </h3>
                   <a
                     href={`mailto:${email}`}
@@ -270,7 +281,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
-                    Điện thoại
+                    {t.pages.contact.phone}
                   </h3>
                   <a
                     href={`tel:${phone}`}
@@ -287,7 +298,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
-                    Địa chỉ
+                    {t.pages.contact.address}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                     {address?.short}
@@ -302,7 +313,7 @@ export default function ContactPage() {
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-2 h-8 bg-gradient-to-b from-purple-500 to-purple-600 rounded-full"></div>
               <h2 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
-                Mạng xã hội
+                {t.pages.contact.socialLinks}
               </h2>
             </div>
 
@@ -334,25 +345,29 @@ export default function ContactPage() {
             <div className="flex items-center space-x-3 mb-6 lg:mb-8">
               <div className="w-2 h-8 bg-gradient-to-b from-green-500 to-green-600 rounded-full"></div>
               <h2 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
-                Gửi tin nhắn
+                {t.pages.contact.sendMessage}
               </h2>
-            </div>            <form onSubmit={handleSubmit} className="space-y-6">
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
               {/* Status Message */}
               {submitStatus.type && (
                 <div
                   className={`p-4 rounded-lg lg:rounded-xl border ${
-                    submitStatus.type === 'success'
-                      ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800 text-green-800 dark:text-green-200'
-                      : 'bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800 text-red-800 dark:text-red-200'
+                    submitStatus.type === "success"
+                      ? "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800 text-green-800 dark:text-green-200"
+                      : "bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800 text-red-800 dark:text-red-200"
                   } transition-all duration-200`}
                 >
                   <div className="flex items-center space-x-3">
-                    {submitStatus.type === 'success' ? (
+                    {submitStatus.type === "success" ? (
                       <CheckCircleIcon className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
                     ) : (
                       <ExclamationTriangleIcon className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0" />
                     )}
-                    <p className="text-sm font-medium">{submitStatus.message}</p>
+                    <p className="text-sm font-medium">
+                      {submitStatus.message}
+                    </p>
                   </div>
                 </div>
               )}
@@ -363,7 +378,7 @@ export default function ContactPage() {
                     htmlFor="name"
                     className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    Họ và tên *
+                    {t.pages.contact.name} {t.pages.contact.requiredField}
                   </label>
                   <input
                     type="text"
@@ -373,7 +388,7 @@ export default function ContactPage() {
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg lg:rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200 hover:border-gray-400 dark:hover:border-gray-500"
-                    placeholder="Nhập họ và tên của bạn"
+                    placeholder={t.pages.contact.namePlaceholder}
                   />
                 </div>
 
@@ -382,7 +397,7 @@ export default function ContactPage() {
                     htmlFor="email"
                     className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    Email *
+                    {t.pages.contact.email} {t.pages.contact.requiredField}
                   </label>
                   <input
                     type="email"
@@ -392,7 +407,7 @@ export default function ContactPage() {
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg lg:rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200 hover:border-gray-400 dark:hover:border-gray-500"
-                    placeholder="Nhập email của bạn"
+                    placeholder={t.pages.contact.emailPlaceholder}
                   />
                 </div>
               </div>
@@ -402,7 +417,7 @@ export default function ContactPage() {
                   htmlFor="subject"
                   className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  Chủ đề *
+                  {t.pages.contact.subject} {t.pages.contact.requiredField}
                 </label>
                 <input
                   type="text"
@@ -412,7 +427,7 @@ export default function ContactPage() {
                   onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg lg:rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200 hover:border-gray-400 dark:hover:border-gray-500"
-                  placeholder="Chủ đề tin nhắn"
+                  placeholder={t.pages.contact.subjectPlaceholder}
                 />
               </div>
 
@@ -421,7 +436,7 @@ export default function ContactPage() {
                   htmlFor="message"
                   className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  Tin nhắn *
+                  {t.pages.contact.message} {t.pages.contact.requiredField}
                 </label>
                 <textarea
                   id="message"
@@ -431,26 +446,28 @@ export default function ContactPage() {
                   required
                   rows={6}
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg lg:rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none transition-all duration-200 hover:border-gray-400 dark:hover:border-gray-500"
-                  placeholder="Nội dung tin nhắn của bạn..."
+                  placeholder={t.pages.contact.messagePlaceholder}
                 />
-              </div>              <button
+              </div>
+
+              <button
                 type="submit"
                 disabled={isSubmitting}
                 className={`w-full font-semibold py-3 lg:py-4 px-6 rounded-lg lg:rounded-xl transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg focus-ring ${
                   isSubmitting
-                    ? 'bg-gray-400 dark:bg-gray-600 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 hover:shadow-xl transform hover:-translate-y-0.5'
+                    ? "bg-gray-400 dark:bg-gray-600 cursor-not-allowed"
+                    : "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 hover:shadow-xl transform hover:-translate-y-0.5"
                 } text-white`}
               >
                 {isSubmitting ? (
                   <>
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    <span>Đang gửi...</span>
+                    <span>{t.pages.contact.sending}</span>
                   </>
                 ) : (
                   <>
                     <PaperAirplaneIcon className="w-5 h-5" />
-                    <span>Gửi tin nhắn</span>
+                    <span>{t.pages.contact.send}</span>
                   </>
                 )}
               </button>
@@ -465,7 +482,7 @@ export default function ContactPage() {
           <div className="flex items-center space-x-3 mb-6 lg:mb-8">
             <div className="w-2 h-8 bg-gradient-to-b from-red-500 to-red-600 rounded-full"></div>
             <h2 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
-              Vị trí
+              {t.pages.contact.location}
             </h2>
           </div>
 
@@ -479,14 +496,14 @@ export default function ContactPage() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="rounded-lg lg:rounded-xl"
-              title="Bản đồ vị trí"
+              title={t.pages.contact.mapTitle}
             />
           </div>
 
           <div className="mt-6 p-4 lg:p-6 bg-red-50/50 dark:bg-red-900/10 rounded-lg lg:rounded-xl border border-red-100 dark:border-red-800">
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               <strong className="text-red-600 dark:text-red-400">
-                Địa chỉ đầy đủ:
+                {t.pages.contact.fullAddress}
               </strong>{" "}
               {address.full}
             </p>

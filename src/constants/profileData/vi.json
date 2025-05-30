@@ -1,0 +1,118 @@
+{
+  "name": "Nguyễn Bùi Nam Trường",
+  "slug": "TruongNBN",
+  "title": "Frontend Developer",
+  "email": "truongnbn.main@gmail.com",
+  "phone": "0327663738",
+  "gender": "Nam",
+  "birthDate": "16/05/2000",
+  "address": {
+    "full": "6 Hẻm 1/62/23 Bùi Xương Trạch, Khương Đình, Thanh Xuân, Hà Nội, Vietnam",
+    "short": "6 Hẻm 1/62/23 Bùi Xương Trạch, Thanh Xuân, Hà Nội",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d232.81411919042972!2d105.81977747479935!3d20.991598600000025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac8dca8cd4d1%3A0x951da39d67af948d!2zNiBI4bq7bSAxLzYyLzIzIELDuWkgWMawxqFuZyBUcuG6oWNoLCBLaMawxqFuZyDEkMOsbmgsIFRoYW5oIFh1w6JuLCBIw6AgTuG7mWksIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1748450167186!5m2!1sen!2s"
+  },
+  "bio": "Chào mừng bạn đến với trang cá nhân của tôi! Tôi là một lập trình viên Frontend với đam mê xây dựng các ứng dụng web đẹp và hiệu quả. Tôi chuyên về Next.js, Tailwind CSS và TypeScript.",
+  "avatarUrl": "/assets/avatar.jpg",
+  "cvUrl": "/assets/cv-nguyen-bui-nam-truong.pdf",
+  "socialLinks": {
+    "github": "https://github.com/devvitien",
+    "facebook": "https://www.facebook.com/nguyenbuinamtruong",
+    "linkedin": "",
+    "twitter": ""
+  },
+  "education": [
+    {
+      "period": "2018-2024",
+      "major": "Toán ứng dụng và Tin học",
+      "school": "Đại học Bách Khoa Hà Nội",
+      "description": "Hoàn thành chương trình bậc đại học tại Đại học Bách Khoa Hà Nội. Tốt nghiệp bằng khá ngành Toán ứng dụng và Tin học"
+    }
+  ],
+  "skills": [
+    {
+      "type": "Ngôn ngữ lập trình",
+      "data": [
+        "Javascript, TypeScripts: Có kinh nghiệm làm việc với các thư viện, framework như React, NextJS và Node.js.",
+        "C++: Hiểu biết về lập trình hướng đối tượng và cấu trúc dữ liệu."
+      ]
+    },
+    {
+      "type": "Công cụ và công nghệ",
+      "data": [
+        "Git: Sử dụng thành thạo để quản lý mã nguồn và làm việc nhóm.",
+        "HTML/CSS: Phát triển giao diện người dùng cho các ứng dụng web.",
+        "React: Xây dựng các ứng dụng web tương tác.",
+        "Node.js: Phát triển backend cho các ứng dụng web."
+      ]
+    },
+    {
+      "type": "Kỹ năng phát triển phần mềm",
+      "data": [
+        "Phát triển phần mềm Agile: Hiểu biết cơ bản về quy trình phát triển phần mềm Agile và Scrum.",
+        "Kiểm thử phần mềm: Kinh nghiệm viết và thực hiện các bài kiểm thử đơn vị và kiểm thử tích hợp.",
+        "Tối ưu hóa mã: Khả năng phân tích và tối ưu hóa hiệu suất mã nguồn."
+      ]
+    },
+    {
+      "type": "Kỹ năng mềm",
+      "data": [
+        "Làm việc nhóm: Khả năng làm việc hiệu quả trong nhóm, đóng góp ý kiến và hỗ trợ đồng nghiệp. Giải quyết vấn đề: Tư duy logic và khả năng phân tích, giải quyết các vấn đề kỹ thuật.",
+        "Giao tiếp: Kỹ năng giao tiếp tốt, cả bằng văn bản và lời nói, để làm việc hiệu quả với đồng nghiệp và khách hàng.",
+        "Tư duy sáng tạo: Khả năng đưa ra các giải pháp sáng tạo và đột phá cho các vấn đề phức tạp."
+      ]
+    },
+    {
+      "type": "Ngôn ngữ",
+      "data": ["Tiếng Anh: B1 - Vstep, có thể đọc viết và giao tiếp cơ bản"]
+    }
+  ],
+  "experience": [
+    {
+      "startDate": "01/2021",
+      "endDate": "07/2024",
+      "title": "Sinh viên thực tập - Chuyên viên lập trình",
+      "company": "CÔNG TY CỔ PHẦN BKAV",
+      "projects": [
+        "Phát triển phần mềm: 6 tháng tham gia phát triển phần mềm trình duyệt, sử dụng Chromium. (C++)",
+        "Frontend developer: 3 năm tham gia phát triển phần mềm quản lý công việc (từ khi bắt đầu dự án cho đến khi sản phẩm có người dùng). Công việc: xây dựng giao diên cho trang web và mobile app. Sử dụng ReactJS, ReactNative"
+      ]
+    },
+    {
+      "startDate": "04/2024",
+      "endDate": "07/2024",
+      "title": "Freelancer",
+      "company": "none",
+      "projects": [
+        "Frontend developer: Text-To-Speech website. Kết quả: https://speechconvert.com/"
+      ]
+    },
+    {
+      "startDate": "10/2024",
+      "endDate": "hiện nay",
+      "title": "Frontend developer",
+      "company": "CÔNG TY CỔ PHẦN VCCORP",
+      "projects": ["Hệ thông dự án Quản lý Nội dung (CMS)"]
+    }
+  ],
+  "awards": [
+    {
+      "year": "2014",
+      "description": "Huy chương Bạc thi duyên hải môn Toán"
+    },
+    {
+      "year": "2015",
+      "description": "Giải Nhất học sinh giỏi cấp tỉnh môn Toán"
+    },
+    {
+      "year": "2014",
+      "description": "Giải khuyến khích học sinh giỏi cấp quốc gia môn Toán"
+    }
+  ],
+  "hobbies": [
+    "Thích tìm hiểu các công nghệ mới trong lĩnh vực công nghệ thông tin.",
+    "Thích ngồi làm việc máy tính 1 mình",
+    "Thích đọc và viết thơ.",
+    "Thích chơi cờ vua, xem các giải cờ vua.",
+    "Thích xem phim, chơi game."
+  ]
+}

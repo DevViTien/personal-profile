@@ -3,6 +3,7 @@
 import { useContext } from "react";
 import Link from "next/link";
 import { ProfileContext } from "@/contexts/ProfileContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { downloadCV } from "@/utils/downloadUtils";
 import Image from "next/image";
 import {
@@ -24,6 +25,7 @@ import {
  */
 export default function AboutPage() {
   const profileContext = useContext(ProfileContext);
+  const { t } = useLanguage();
   const { profileData, loading } = profileContext || {};
 
   const handleDownloadCV = () => {
@@ -96,18 +98,19 @@ export default function AboutPage() {
         <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
           <div className="lg:col-span-2 space-y-6 text-center lg:text-left">
             <div className="space-y-4">
+              {" "}
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Giới thiệu
+                  {t.pages.about.title}
                 </span>
-                <span className="block mt-2">về tôi</span>
+                <span className="block mt-2">{t.pages.about.introduction}</span>
               </h1>
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300">
-                Tìm hiểu thêm về hành trình và đam mê của tôi
+                {t.pages.about.story}
               </p>
-            </div>
+            </div>{" "}
             <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              {bio || "Mô tả chi tiết về bản thân sẽ xuất hiện tại đây."}
+              {bio || t.profile.aboutMe}
             </p>
           </div>
 
@@ -131,25 +134,27 @@ export default function AboutPage() {
           {/* Personal Information */}
           <section className="bg-white dark:bg-gray-800 rounded-xl lg:rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full"></div>
+              <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full"></div>{" "}
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
-                Thông tin cá nhân
+                {t.pages.contact.contactInfo}
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               <div className="space-y-6">
                 <div className="group">
+                  {" "}
                   <label className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                    Họ và tên
+                    {t.pages.contact.name}
                   </label>
                   <p className="text-lg font-medium text-gray-900 dark:text-white mt-1">
                     {name || "Chưa cập nhật"}
                   </p>
                 </div>
                 <div className="group">
+                  {" "}
                   <label className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                    Chức danh
+                    {t.profile.currentPosition}
                   </label>
                   <p className="text-lg font-medium text-gray-900 dark:text-white mt-1">
                     {title || "Chưa cập nhật"}
@@ -176,9 +181,9 @@ export default function AboutPage() {
                 </div>
                 <div className="group">
                   <div className="flex items-center space-x-2 mb-1">
-                    <EnvelopeIcon className="w-4 h-4 text-blue-500" />
+                    <EnvelopeIcon className="w-4 h-4 text-blue-500" />{" "}
                     <label className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                      Email
+                      {t.pages.contact.email}
                     </label>
                   </div>
                   <a
@@ -190,9 +195,9 @@ export default function AboutPage() {
                 </div>
                 <div className="group">
                   <div className="flex items-center space-x-2 mb-1">
-                    <PhoneIcon className="w-4 h-4 text-blue-500" />
+                    <PhoneIcon className="w-4 h-4 text-blue-500" />{" "}
                     <label className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                      Điện thoại
+                      {t.pages.contact.phone}
                     </label>
                   </div>
                   <a
@@ -207,9 +212,9 @@ export default function AboutPage() {
 
             <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
               <div className="flex items-center space-x-2 mb-2">
-                <MapPinIcon className="w-4 h-4 text-blue-500" />
+                <MapPinIcon className="w-4 h-4 text-blue-500" />{" "}
                 <label className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                  Địa chỉ
+                  {t.pages.contact.address}
                 </label>
               </div>
               <p className="text-lg font-medium text-gray-900 dark:text-white">
@@ -221,9 +226,9 @@ export default function AboutPage() {
           {/* Skills Section */}
           <section className="bg-white dark:bg-gray-800 rounded-xl lg:rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-2 h-8 bg-gradient-to-b from-purple-500 to-purple-600 rounded-full"></div>
+              <div className="w-2 h-8 bg-gradient-to-b from-purple-500 to-purple-600 rounded-full"></div>{" "}
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
-                Kỹ năng chuyên môn
+                {t.profile.expertise}
               </h2>
             </div>
 
@@ -265,9 +270,9 @@ export default function AboutPage() {
           {/* Education Section */}
           <section className="bg-white dark:bg-gray-800 rounded-xl lg:rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-2 h-8 bg-gradient-to-b from-green-500 to-green-600 rounded-full"></div>
+              <div className="w-2 h-8 bg-gradient-to-b from-green-500 to-green-600 rounded-full"></div>{" "}
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
-                Học vấn
+                {t.profile.education}
               </h2>
             </div>
 
@@ -302,9 +307,9 @@ export default function AboutPage() {
           {awards && awards.length > 0 && (
             <section className="bg-white dark:bg-gray-800 rounded-xl lg:rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-2 h-6 bg-gradient-to-b from-yellow-500 to-yellow-600 rounded-full"></div>
+                <div className="w-2 h-6 bg-gradient-to-b from-yellow-500 to-yellow-600 rounded-full"></div>{" "}
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-                  Giải thưởng
+                  {t.profile.achievements}
                 </h2>
               </div>
 
@@ -332,9 +337,9 @@ export default function AboutPage() {
           {hobbies && hobbies.length > 0 && (
             <section className="bg-white dark:bg-gray-800 rounded-xl lg:rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-2 h-6 bg-gradient-to-b from-red-500 to-red-600 rounded-full"></div>
+                <div className="w-2 h-6 bg-gradient-to-b from-red-500 to-red-600 rounded-full"></div>{" "}
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-                  Sở thích
+                  {t.profile.interests}
                 </h2>
               </div>
 
@@ -353,29 +358,34 @@ export default function AboutPage() {
 
           {/* Quick Actions */}
           <section className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 rounded-xl lg:rounded-2xl p-6 shadow-lg border border-blue-100 dark:border-gray-700">
+            {" "}
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center space-x-2">
               <SparklesIcon className="w-5 h-5 text-blue-500" />
-              <span>Hành động nhanh</span>
+              <span>{t.actions.getStarted}</span>
             </h3>
             <div className="space-y-3">
               <button
                 onClick={handleDownloadCV}
                 disabled={!profileData?.cvUrl}
                 className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white px-4 py-3 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none disabled:shadow-lg focus-ring flex items-center justify-center space-x-2"
-                title={profileData?.cvUrl ? "Tải xuống CV" : "CV chưa có sẵn"}
+                title={
+                  profileData?.cvUrl ? t.profile.downloadCV : "CV chưa có sẵn"
+                }
                 aria-label={
-                  profileData?.cvUrl ? "Tải xuống CV" : "CV chưa có sẵn"
+                  profileData?.cvUrl ? t.profile.downloadCV : "CV chưa có sẵn"
                 }
               >
+                {" "}
                 <ArrowDownTrayIcon className="w-4 h-4" />
-                <span>Tải CV</span>
+                <span>{t.actions.download}</span>
               </button>
               <Link
                 href="/contact"
                 className="w-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-white px-4 py-3 rounded-lg font-medium transition-all duration-200 focus-ring flex items-center justify-center space-x-2"
               >
+                {" "}
                 <ChatBubbleLeftRightIcon className="w-4 h-4" />
-                <span>Liên hệ</span>
+                <span>{t.profile.contact}</span>
               </Link>
             </div>
           </section>
