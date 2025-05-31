@@ -2,7 +2,7 @@
 # Build Settings
 [build]
   command = "npm run build"
-  publish = ".next"
+  publish = "out"
   
 [build.environment]
   NODE_VERSION = "20"

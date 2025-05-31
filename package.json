@@ -9,10 +9,10 @@
   },
   "engines": {
     "node": ">=20.0.0"
-  },
-  "scripts": {
+  },  "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "lint": "next lint"
   },
