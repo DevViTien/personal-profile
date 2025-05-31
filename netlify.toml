@@ -33,13 +33,17 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Redirects and Rewrites
+# SPA Routing for Next.js App Router - Handle client-side routing properly
 [[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
+  from = "/_next/*"
+  to = "/_next/:splat"
   status = 200
 
-# Single Page Application fallback
+[[redirects]]  
+  from = "/assets/*"
+  to = "/assets/:splat"
+  status = 200
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

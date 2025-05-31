@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   output: 'export',
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
+  distDir: 'out',
   
   // Enable experimental features for better performance
   experimental: {
