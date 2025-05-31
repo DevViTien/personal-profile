@@ -1,7 +1,7 @@
 {
   "name": "阮裴南长",
   "slug": "TruongNBN",
-  "title": "前端开发工程师",
+  "title": "前端开发工程师 & AI集成专家",
   "email": "truongnbn.main@gmail.com",
   "phone": "+84327663738",
   "gender": "男",
@@ -11,7 +11,7 @@
     "short": "河内青春郡裴香迹路1/62/23巷6号",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d232.81411919042972!2d105.81977747479935!3d20.991598600000025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac8dca8cd4d1%3A0x951da39d67af948d!2zNiBI4bq7bSAxLzYyLzIzIELDuWkgWMawxqFuZyBUcuG6oWNoLCBLaMawxqFuZyDEkMOsbmgsIFRoYW5oIFh1w6JuLCBIw6AgTuG7mWksIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1748450167186!5m2!1sen!2s"
   },
-  "bio": "欢迎来到我的个人网站！我是一名前端开发工程师，热衷于构建美观高效的网络应用程序。我专精于Next.js、Tailwind CSS和TypeScript。",
+  "bio": "欢迎来到我的个人网站！我是一名拥有3年以上经验的专业前端开发工程师，专注于构建现代化网络应用。我精通Next.js、React、TypeScript，并将AI集成到开发工作流中以优化工作效率和产品质量。",
   "avatarUrl": "/assets/avatar.jpg",
   "cvUrl": "/assets/cv-nguyen-bui-nam-truong.pdf",
   "socialLinks": {
@@ -42,7 +42,16 @@
         "Git：熟练使用源代码管理和团队协作。",
         "HTML/CSS：为网络应用开发用户界面。",
         "React：构建交互式网络应用。",
+        "Next.js：具备App Router、SSR/SSG、API路由和性能优化的React框架。",
         "Node.js：为网络应用开发后端。"
+      ]
+    },
+    {
+      "type": "AI与现代化开发",
+      "data": [
+        "AI辅助开发：熟练使用GitHub Copilot、Claude、ChatGPT进行代码生成、调试和代码审查。",
+        "提示工程：优化AI工具的提示以提高开发效率和代码质量。",
+        "AI集成：将AI APIs和服务集成到网络应用中以增强用户体验。"
       ]
     },
     {
@@ -63,7 +72,7 @@
     },
     {
       "type": "语言",
-      "data": ["英语：B1 - Vstep，能够基本读写和交流"]
+      "data": ["英语：能够基本读写和交流"]
     }
   ],
   "experience": [
@@ -74,7 +83,7 @@
       "company": "BKAV股份公司",
       "projects": [
         "软件开发：6个月参与使用Chromium的浏览器软件开发。(C++)",
-        "前端开发：3年参与任务管理软件开发（从项目开始到产品有用户）。工作：为网站和移动应用构建界面。使用ReactJS、ReactNative"
+        "前端开发：3年参与企业管理系统开发：社交网络、聊天应用、待办事项列表以及人力资源、财务管理模块。工作：为网站和移动应用构建界面。使用ReactJS、ReactNative"
       ]
     },
     {
@@ -89,7 +98,9 @@
       "endDate": "至今",
       "title": "前端开发工程师",
       "company": "VCCORP股份公司",
-      "projects": ["内容管理系统(CMS)项目"]
+      "projects": [
+        "内容管理系统(CMS)项目：利用AI工具进行代码生成优化、自动化测试和内容处理。"
+      ]
     }
   ],
   "awards": [
@@ -107,10 +118,8 @@
     }
   ],
   "hobbies": [
-    "喜欢探索信息技术领域的新技术。",
-    "喜欢独自使用电脑工作",
-    "喜欢阅读和写诗。",
+    "喜欢探索信息技术和AI领域的新技术。",
     "喜欢下棋，观看棋类比赛。",
-    "喜欢看电影，玩游戏。"
+    "探索和试验新的AI工具以优化工作流程。"
   ]
 }
