@@ -30,16 +30,7 @@ export const useDownload = () => {
    * Download CV với toast notifications
    */
   const downloadCVWithToast = (cvUrl: string, userName?: string) => {
-    downloadCV(
-      cvUrl,
-      userName,
-      () => toast.download.started(),
-      () => toast.download.success(),
-      (error) => {
-        console.error("CV download error:", error);
-        toast.download.error();
-      }
-    );
+    downloadCV(cvUrl, userName);
   };
 
   return {

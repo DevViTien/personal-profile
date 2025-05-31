@@ -13,7 +13,7 @@
   },
   "bio": "Welcome to my personal website! I'm a professional Frontend Developer with over 3 years of experience building modern web applications. I specialize in Next.js, React, TypeScript, and integrating AI into development workflows to optimize work efficiency and product quality.",
   "avatarUrl": "/assets/avatar.jpg",
-  "cvUrl": "/assets/cv-nguyen-bui-nam-truong.pdf",
+  "cvUrl": "/assets/cv-nguyen-bui-nam-truong.en.pdf",
   "socialLinks": {
     "github": "https://github.com/devvitien",
     "facebook": "https://www.facebook.com/nguyenbuinamtruong",
@@ -88,7 +88,7 @@
     },
     {
       "startDate": "04/2024",
-      "endDate": "07/2024",
+      "endDate": "10/2024",
       "title": "Freelancer",
       "company": "none",
       "projects": [

@@ -13,7 +13,7 @@
   },
   "bio": "Chào mừng bạn đến với trang cá nhân của tôi! Tôi là một Frontend Developer chuyên nghiệp với hơn 3 năm kinh nghiệm phát triển ứng dụng web hiện đại. Tôi chuyên sâu về Next.js, React, TypeScript và tích hợp AI vào quy trình phát triển để tối ưu hóa hiệu suất công việc và chất lượng sản phẩm.",
   "avatarUrl": "/assets/avatar.jpg",
-  "cvUrl": "/assets/cv-nguyen-bui-nam-truong.pdf",
+  "cvUrl": "/assets/cv-nguyen-bui-nam-truong.vi.pdf",
   "socialLinks": {
     "github": "https://github.com/devvitien",
     "facebook": "https://www.facebook.com/nguyenbuinamtruong",
@@ -88,7 +88,7 @@
     },
     {
       "startDate": "04/2024",
-      "endDate": "07/2024",
+      "endDate": "10/2024",
       "title": "Freelancer",
       "company": "none",
       "projects": [

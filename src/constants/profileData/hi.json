@@ -13,7 +13,7 @@
   },
   "bio": "मेरी व्यक्तिगत वेबसाइट में आपका स्वागत है! मैं 3 से अधिक वर्षों के अनुभव के साथ एक पेशेवर फ्रंटएंड डेवलपर हूं जो आधुनिक वेब एप्लिकेशन बनाता हूं। मैं Next.js, React, TypeScript में विशेषज्ञ हूं और कार्य दक्षता और उत्पाद गुणवत्ता को अनुकूलित करने के लिए विकास वर्कफ़्लो में AI को एकीकृत करता हूं।",
   "avatarUrl": "/assets/avatar.jpg",
-  "cvUrl": "/assets/cv-nguyen-bui-nam-truong.pdf",
+  "cvUrl": "/assets/cv-nguyen-bui-nam-truong.en.pdf",
   "socialLinks": {
     "github": "https://github.com/devvitien",
     "facebook": "https://www.facebook.com/nguyenbuinamtruong",
@@ -88,7 +88,7 @@
     },
     {
       "startDate": "04/2024",
-      "endDate": "07/2024",
+      "endDate": "10/2024",
       "title": "फ्रीलांसर",
       "company": "कोई नहीं",
       "projects": [

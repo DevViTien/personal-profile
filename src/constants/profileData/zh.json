@@ -13,7 +13,7 @@
   },
   "bio": "欢迎来到我的个人网站！我是一名拥有3年以上经验的专业前端开发工程师，专注于构建现代化网络应用。我精通Next.js、React、TypeScript，并将AI集成到开发工作流中以优化工作效率和产品质量。",
   "avatarUrl": "/assets/avatar.jpg",
-  "cvUrl": "/assets/cv-nguyen-bui-nam-truong.pdf",
+  "cvUrl": "/assets/cv-nguyen-bui-nam-truong.en.pdf",
   "socialLinks": {
     "github": "https://github.com/devvitien",
     "facebook": "https://www.facebook.com/nguyenbuinamtruong",
@@ -88,7 +88,7 @@
     },
     {
       "startDate": "04/2024",
-      "endDate": "07/2024",
+      "endDate": "10/2024",
       "title": "自由职业者",
       "company": "无",
       "projects": ["前端开发：文本转语音网站。结果：https://speechconvert.com/"]
