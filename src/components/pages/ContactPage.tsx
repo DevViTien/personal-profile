@@ -3,6 +3,7 @@
 import { useContext, useState, useEffect } from "react";
 import { ProfileContext } from "@/contexts/ProfileContext";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useToast } from "@/hooks/useToast";
 import {
   EnvelopeIcon,
   PhoneIcon,
@@ -11,8 +12,6 @@ import {
   ChatBubbleLeftRightIcon,
   UserIcon,
   SparklesIcon,
-  ExclamationTriangleIcon,
-  CheckCircleIcon,
 } from "@heroicons/react/24/outline";
 import { FaGithub, FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import {
@@ -28,6 +27,7 @@ import {
 export default function ContactPage() {
   const profileContext = useContext(ProfileContext);
   const { t } = useLanguage();
+  const toast = useToast();
   const { profileData, loading } = profileContext || {};
   const [formData, setFormData] = useState({
     name: "",
@@ -36,12 +36,8 @@ export default function ContactPage() {
     message: "",
   });
 
-  // States cho email sending
+  // State cho email sending
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{
-    type: "success" | "error" | null;
-    message: string;
-  }>({ type: null, message: "" });
 
   // Smooth scroll to top when component mounts (user navigated here)
   useEffect(() => {
@@ -109,23 +105,13 @@ export default function ContactPage() {
       [e.target.name]: e.target.value,
     });
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Clear previous status
-    setSubmitStatus({ type: null, message: "" });
 
     // Kiểm tra rate limit
     const rateLimitResult = checkRateLimit();
     if (!rateLimitResult.allowed) {
-      setSubmitStatus({
-        type: "error",
-        message: t.pages.contact.rateLimit.replace(
-          "{timeLeft}",
-          (rateLimitResult.timeLeft || 0).toString()
-        ),
-      });
+      toast.contact.rateLimit(rateLimitResult.timeLeft || 0);
       return;
     }
 
@@ -135,24 +121,15 @@ export default function ContactPage() {
       const result = await sendContactEmail(formData as ContactFormData);
 
       if (result.success) {
-        setSubmitStatus({
-          type: "success",
-          message: t.pages.contact.messageSent,
-        });
+        toast.contact.messageSent();
         // Reset form on success
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
-        setSubmitStatus({
-          type: "error",
-          message: t.pages.contact.messageError,
-        });
+        toast.contact.messageError();
       }
     } catch (error) {
       console.error("Contact form submission error:", error);
-      setSubmitStatus({
-        type: "error",
-        message: t.pages.contact.unexpectedError,
-      });
+      toast.contact.unexpectedError();
     } finally {
       setIsSubmitting(false);
     }
@@ -347,31 +324,8 @@ export default function ContactPage() {
               <h2 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
                 {t.pages.contact.sendMessage}
               </h2>
-            </div>
-
+            </div>{" "}
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Status Message */}
-              {submitStatus.type && (
-                <div
-                  className={`p-4 rounded-lg lg:rounded-xl border ${
-                    submitStatus.type === "success"
-                      ? "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800 text-green-800 dark:text-green-200"
-                      : "bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800 text-red-800 dark:text-red-200"
-                  } transition-all duration-200`}
-                >
-                  <div className="flex items-center space-x-3">
-                    {submitStatus.type === "success" ? (
-                      <CheckCircleIcon className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
-                    ) : (
-                      <ExclamationTriangleIcon className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0" />
-                    )}
-                    <p className="text-sm font-medium">
-                      {submitStatus.message}
-                    </p>
-                  </div>
-                </div>
-              )}
-
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label

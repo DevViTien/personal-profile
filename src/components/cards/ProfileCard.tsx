@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ProfileContext } from "@/contexts/ProfileContext";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { downloadCV } from "@/utils/downloadUtils";
+import { useDownload } from "@/hooks/useDownload";
 import {
   EnvelopeIcon,
   PhoneIcon,
@@ -19,6 +19,7 @@ import {
 export default function ProfileCard() {
   const profileContext = useContext(ProfileContext);
   const { t } = useLanguage();
+  const { downloadCV } = useDownload();
 
   if (profileContext?.loading) {
     return (
