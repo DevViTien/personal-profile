@@ -7,6 +7,7 @@ import React, {
   useEffect,
   ReactNode,
 } from "react";
+import { useLocalStorage } from "usehooks-ts";
 import { LanguageCode, Language, Translation } from "@/types/language";
 import { getDictionary } from "@/utils/getDictionary";
 import { useToast } from "@/hooks/useToast";
@@ -259,20 +260,14 @@ const STORAGE_KEY = "preferred-language";
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({
   children,
 }) => {
-  const [currentLanguage, setCurrentLanguage] =
-    useState<LanguageCode>(DEFAULT_LANGUAGE);
+  const [currentLanguage, setCurrentLanguage] = useLocalStorage<LanguageCode>(
+    STORAGE_KEY,
+    DEFAULT_LANGUAGE
+  );
   const [translations, setTranslations] = useState<Translation | null>(null);
   const toast = useToast();
 
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem(STORAGE_KEY) as LanguageCode;
-    if (
-      savedLanguage &&
-      LANGUAGES.find((lang) => lang.code === savedLanguage)
-    ) {
-      setCurrentLanguage(savedLanguage);
-    }
-  }, []);
+  // Load translations when language changes
   useEffect(() => {
     const loadTranslations = async () => {
       try {
@@ -304,8 +299,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
   }, [currentLanguage]);
   const setLanguage = (language: LanguageCode) => {
     const previousLanguage = currentLanguage;
-    setCurrentLanguage(language);
-    localStorage.setItem(STORAGE_KEY, language);
+    setCurrentLanguage(language); // useLocalStorage sẽ tự động lưu vào localStorage
 
     const languageInfo = LANGUAGES.find((lang) => lang.code === language);
     if (languageInfo && previousLanguage !== language) {
