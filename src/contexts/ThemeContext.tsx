@@ -1,10 +1,11 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, ReactNode } from "react";
-import { useLocalStorage } from "usehooks-ts";
+import React, { createContext, useContext, ReactNode } from "react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { useTheme as useNextTheme } from "next-themes";
 
 interface ThemeContextType {
-  theme: "light" | "dark";
+  theme: string | undefined;
   toggleTheme: () => void;
 }
 
@@ -18,27 +19,17 @@ export const useTheme = () => {
   return context;
 };
 
-interface ThemeProviderProps {
+interface ThemeWrapperProps {
   children: ReactNode;
 }
 
-export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useLocalStorage<"light" | "dark">("theme", "light");
+// Wrapper component để sử dụng useNextTheme hook
+const ThemeWrapper: React.FC<ThemeWrapperProps> = ({ children }) => {
+  const { theme, setTheme } = useNextTheme();
 
   const toggleTheme = () => {
-    setTheme((prevTheme: "light" | "dark") =>
-      prevTheme === "light" ? "dark" : "light"
-    );
+    setTheme(theme === "light" ? "dark" : "light");
   };
-
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-  }, [theme]);
 
   const value = {
     theme,
@@ -47,5 +38,22 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+  );
+};
+
+interface ThemeProviderProps {
+  children: ReactNode;
+}
+
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
+  return (
+    <NextThemesProvider 
+      attribute="class" 
+      defaultTheme="light" 
+      enableSystem={false}
+      storageKey="theme"
+    >
+      <ThemeWrapper>{children}</ThemeWrapper>
+    </NextThemesProvider>
   );
 };
