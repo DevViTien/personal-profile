@@ -19,6 +19,7 @@ import {
   checkRateLimit,
   type ContactFormData,
 } from "@/utils/emailService";
+import Link from "next/link";
 
 /**
  * ContactPage Component - Trang liên hệ
@@ -245,12 +246,12 @@ export default function ContactPage() {
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
                     {t("pages.contact.email")}
                   </h3>
-                  <a
+                  <Link
                     href={`mailto:${email}`}
                     className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors truncate block"
                   >
                     {email}
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -262,12 +263,12 @@ export default function ContactPage() {
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
                     {t("pages.contact.phone")}
                   </h3>
-                  <a
+                  <Link
                     href={`tel:${phone}`}
                     className="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 transition-colors"
                   >
                     {phone}
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -302,16 +303,16 @@ export default function ContactPage() {
                 .map((social, index) => {
                   const IconComponent = social.icon;
                   return (
-                    <a
+                    <Link
                       key={index}
-                      href={social.url}
+                      href={social.url || "#"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`group flex items-center space-x-3 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg lg:rounded-xl hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-200 hover:scale-105 ${social.color}`}
                     >
                       <IconComponent className="w-6 h-6 group-hover:scale-110 transition-transform" />
                       <span className="font-medium">{social.name}</span>
-                    </a>
+                    </Link>
                   );
                 })}
             </div>
@@ -326,7 +327,7 @@ export default function ContactPage() {
               <h2 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
                 {t("pages.contact.sendMessage")}
               </h2>
-            </div>{" "}
+            </div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
@@ -353,7 +354,7 @@ export default function ContactPage() {
                     htmlFor="email"
                     className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    {t("pages.contact.email")}{" "}
+                    {t("pages.contact.email")}
                     {t("pages.contact.requiredField")}
                   </label>
                   <input
@@ -374,7 +375,7 @@ export default function ContactPage() {
                   htmlFor="subject"
                   className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  {t("pages.contact.subject")}{" "}
+                  {t("pages.contact.subject")}
                   {t("pages.contact.requiredField")}
                 </label>
                 <input
@@ -394,7 +395,7 @@ export default function ContactPage() {
                   htmlFor="message"
                   className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  {t("pages.contact.message")}{" "}
+                  {t("pages.contact.message")}
                   {t("pages.contact.requiredField")}
                 </label>
                 <textarea
@@ -463,7 +464,7 @@ export default function ContactPage() {
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               <strong className="text-red-600 dark:text-red-400">
                 {t("pages.contact.fullAddress")}
-              </strong>{" "}
+              </strong>
               {address.full}
             </p>
           </div>

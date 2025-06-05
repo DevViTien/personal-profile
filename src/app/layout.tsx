@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getLocale } from "next-intl/server";
+import { getLocale, getMessages } from "next-intl/server";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Sidebar from "@/components/layout/Sidebar";
@@ -52,9 +52,10 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
+  const messages = await getMessages();
 
   return (
-    <AppProvider>
+    <AppProvider locale={locale} messages={messages}>
       <html lang={locale} className={inter.className}>
         <head>
           <meta
@@ -64,7 +65,7 @@ export default async function RootLayout({
           <meta name="theme-color" content="#3b82f6" />
         </head>
         <body className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-          <Header />{" "}
+          <Header />
           <div className="flex flex-1 relative">
             <Sidebar />
             <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-x-hidden bg-gray-50 dark:bg-gray-900 transition-colors duration-300">

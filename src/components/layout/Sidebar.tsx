@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import ProfileCard from "@/components/cards/ProfileCard";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export default function Sidebar() {
   const t = useTranslations();
@@ -44,7 +45,6 @@ export default function Sidebar() {
           isCollapsed ? "w-0 lg:w-16" : "w-80 lg:w-72 xl:w-80"
         }`}
       >
-        {" "}
         {/* Toggle Button - positioned to be fully visible */}
         <button
           onClick={toggleSidebar}
@@ -75,30 +75,30 @@ export default function Sidebar() {
                   {t("sidebar.quickNavigation")}
                 </h3>
                 <div className="space-y-2">
-                  <a
+                  <Link
                     href="#skills"
                     className="block text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
                     {t("sidebar.skills")}
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="#education"
                     className="block text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
                     {t("sidebar.education")}
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="#experience"
                     className="block text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
                     {t("sidebar.experience")}
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="#projects"
                     className="block text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
                     {t("sidebar.projects")}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

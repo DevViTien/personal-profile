@@ -40,7 +40,6 @@ export default function ProfileCard() {
   if (profileContext?.error) {
     return (
       <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 shadow-lg rounded-xl p-6 w-full max-w-sm mx-auto">
-        {" "}
         <div className="text-center">
           <UserIcon className="w-12 h-12 mx-auto mb-2 text-red-400" />
           <p className="text-sm">{t("errors.loadingFailed")}</p>
@@ -85,7 +84,7 @@ export default function ProfileCard() {
             <UserIcon className="w-16 h-16" />
           </div>
         )}
-        {/* Name & Title */}{" "}
+        {/* Name & Title */}
         <div className="text-center mb-6">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
             {name || "Your Name"}
@@ -97,23 +96,23 @@ export default function ProfileCard() {
         {/* Contact Information */}
         <div className="w-full space-y-3">
           {email && (
-            <a
+            <Link
               href={`mailto:${email}`}
               className="flex items-center space-x-3 text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group focus-ring rounded-lg p-2"
             >
               <EnvelopeIcon className="w-4 h-4 text-gray-400 group-hover:text-blue-500 transition-colors" />
               <span className="truncate">{email}</span>
-            </a>
+            </Link>
           )}
 
           {phone && (
-            <a
+            <Link
               href={`tel:${phone}`}
               className="flex items-center space-x-3 text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group focus-ring rounded-lg p-2"
             >
               <PhoneIcon className="w-4 h-4 text-gray-400 group-hover:text-blue-500 transition-colors" />
               <span>{phone}</span>
-            </a>
+            </Link>
           )}
 
           {address?.short && (
@@ -131,7 +130,7 @@ export default function ProfileCard() {
               {gender && <span>{gender}</span>}
             </div>
           )}
-        </div>{" "}
+        </div>
         {/* Action Buttons */}
         <div className="w-full mt-6 space-y-2">
           <button
@@ -141,15 +140,13 @@ export default function ProfileCard() {
             title={cvUrl ? t("profile.downloadCV") : "CV chưa có sẵn"}
             aria-label={cvUrl ? t("profile.downloadCV") : "CV chưa có sẵn"}
           >
-            {" "}
             <ArrowDownTrayIcon className="w-4 h-4" />
             <span>{t("actions.download")}</span>
-          </button>{" "}
+          </button>
           <Link
             href="/contact"
             className="w-full border border-blue-600 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 dark:border-blue-400 dark:text-blue-400 px-4 py-2.5 rounded-lg font-medium transition-all duration-200 focus-ring flex items-center justify-center space-x-2 hover:border-blue-700 dark:hover:border-blue-300"
           >
-            {" "}
             <ChatBubbleLeftRightIcon className="w-4 h-4" />
             <span>{t("profile.contact")}</span>
           </Link>

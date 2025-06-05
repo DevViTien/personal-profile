@@ -58,14 +58,13 @@ export default function Header() {
                   className="object-cover"
                 />
               </div>
-            )}{" "}
+            )}
             <span className="hidden sm:inline bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               {slug || t("common.portfolio")}
             </span>
           </Link>
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
-            {" "}
             {navigationItems.map((item) => (
               <Link
                 key={item.href}
@@ -78,12 +77,12 @@ export default function Header() {
               >
                 {t(`navigation.${item.key}`)}
               </Link>
-            ))}{" "}
+            ))}
             <div className="ml-4 pl-4 border-l border-gray-200 dark:border-gray-700 flex items-center space-x-2">
               <LanguageSelector />
               <ThemeToggleButton />
             </div>
-          </div>{" "}
+          </div>
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
             <LanguageSelector />
@@ -110,7 +109,6 @@ export default function Header() {
           }`}
         >
           <div className="pt-2 pb-2 space-y-1 border-t border-gray-200 dark:border-gray-700">
-            {" "}
             {navigationItems.map((item) => (
               <Link
                 key={item.href}

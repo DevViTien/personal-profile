@@ -68,7 +68,6 @@ export default function HomePage() {
 
         <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="space-y-6 lg:space-y-8 text-center lg:text-left order-2 lg:order-1">
-            {" "}
             <div className="space-y-4">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
                 <span className="block">{t("pages.home.hero.greeting")}</span>
@@ -99,12 +98,11 @@ export default function HomePage() {
                     : "CV chưa có sẵn"
                 }
               >
-                {" "}
                 <span className="flex items-center justify-center space-x-2">
                   <span>{t("pages.home.hero.cta")}</span>
                   <ArrowDownTrayIcon className="w-4 h-4" />
                 </span>
-              </button>{" "}
+              </button>
               <Link
                 href="/contact"
                 className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 focus-ring flex items-center justify-center space-x-2"
@@ -138,7 +136,7 @@ export default function HomePage() {
           className="bg-white dark:bg-gray-800 rounded-xl lg:rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300"
         >
           <div className="flex items-center space-x-3 mb-6">
-            <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full"></div>{" "}
+            <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full"></div>
             <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
               {t("profile.skills")}
             </h3>
@@ -162,10 +160,10 @@ export default function HomePage() {
                           >
                             • {skill.split(":")[0]}
                           </p>
-                        ))}{" "}
+                        ))}
                       {skillCategory.data.length > 2 && (
                         <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-                          +{skillCategory.data.length - 2}{" "}
+                          +{skillCategory.data.length - 2}
                           {t("common.readMore")}
                         </p>
                       )}
@@ -177,7 +175,6 @@ export default function HomePage() {
           </div>
 
           <div className="mt-8">
-            {" "}
             <Link
               href="/about"
               className="inline-flex items-center space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold transition-colors duration-200 focus-ring rounded-lg p-2"
@@ -206,7 +203,7 @@ export default function HomePage() {
           className="bg-white dark:bg-gray-800 rounded-xl lg:rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300"
         >
           <div className="flex items-center space-x-3 mb-6">
-            <div className="w-2 h-8 bg-gradient-to-b from-green-500 to-green-600 rounded-full"></div>{" "}
+            <div className="w-2 h-8 bg-gradient-to-b from-green-500 to-green-600 rounded-full"></div>
             <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
               {t("profile.education")}
             </h3>
@@ -236,7 +233,6 @@ export default function HomePage() {
           </div>
 
           <div className="mt-8">
-            {" "}
             <Link
               href="/about"
               className="inline-flex items-center space-x-2 text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 font-semibold transition-colors duration-200 focus-ring rounded-lg p-2"
@@ -262,7 +258,6 @@ export default function HomePage() {
 
       {/* Quick Stats */}
       <section className="bg-gradient-to-r from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-xl lg:rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-100 dark:border-gray-700">
-        {" "}
         <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
           {t("profile.professionalSummary")}
         </h3>

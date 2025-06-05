@@ -7,11 +7,13 @@ import ToastProvider from "@/components/providers/ToastProvider";
 
 interface AppProviderProps {
   children: ReactNode;
+  locale: string;
+  messages: Record<string, unknown>;
 }
 
-export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
+export const AppProvider: React.FC<AppProviderProps> = ({ children, locale, messages }) => {
   return (
-    <NextIntlClientProvider>
+    <NextIntlClientProvider locale={locale} messages={messages}>
       <ThemeProvider>
         <ProfileProvider>
           <ProfileLanguageSyncComponent>
