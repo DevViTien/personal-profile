@@ -154,7 +154,7 @@
       "fullAddress": "Full Address",
       "location": "Location",
       "mapTitle": "My Location",
-      "requiredField": "Required field",
+      "requiredField": "*",
       "businessHours": "Business Hours"
     }
   },

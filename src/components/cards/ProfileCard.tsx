@@ -4,7 +4,7 @@ import { useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ProfileContext } from "@/contexts/ProfileContext";
-import {useTranslations} from 'next-intl';
+import { useTranslations } from "next-intl";
 import { useDownload } from "@/hooks/useDownload";
 import {
   EnvelopeIcon,

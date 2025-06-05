@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import {getLocale} from 'next-intl/server';
+import { getLocale } from "next-intl/server";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Sidebar from "@/components/layout/Sidebar";
@@ -16,14 +16,34 @@ export const metadata: Metadata = {
   title: "TruongNBN Profile",
   description: "Personal Profile Website",
   icons: [
-		{ rel: "icon", type: "image/x-icon", url: "/favicon.ico" },
-		{ rel: "icon", type: "image/png", sizes: "32x32", url: "/favicon-32x32.png" },
-		{ rel: "icon", type: "image/png", sizes: "16x16", url: "/favicon-16x16.png" },
-		{ rel: "icon", type: "image/png", sizes: "192x192", url: "/android-chrome-192x192.png" },
-		{ rel: "icon", type: "image/png", sizes: "512x512", url: "/android-chrome-512x512.png" },
-		{ rel: "apple-touch-icon", sizes: "180x180", url: "/apple-touch-icon.png" },
-	],
-	manifest: "/site.webmanifest",
+    { rel: "icon", type: "image/x-icon", url: "/favicon.ico" },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "32x32",
+      url: "/favicon-32x32.png",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "16x16",
+      url: "/favicon-16x16.png",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "192x192",
+      url: "/android-chrome-192x192.png",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "512x512",
+      url: "/android-chrome-512x512.png",
+    },
+    { rel: "apple-touch-icon", sizes: "180x180", url: "/apple-touch-icon.png" },
+  ],
+  manifest: "/site.webmanifest",
 };
 
 export default async function RootLayout({

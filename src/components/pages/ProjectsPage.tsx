@@ -3,7 +3,7 @@
 import { useContext } from "react";
 import Link from "next/link";
 import { ProfileContext } from "@/contexts/ProfileContext";
-import {useTranslations} from 'next-intl';
+import { useTranslations } from "next-intl";
 import {
   CalendarIcon,
   BuildingOfficeIcon,
@@ -77,9 +77,11 @@ export default function ProjectsPage() {
     let totalMonths = 0;
     experience.forEach((exp: ExperienceItem) => {
       const startDate = new Date(exp.startDate.split("/").reverse().join("-"));
-      const endDate = ["hiện nay", "present", "वर्तमान", "至今"].includes(exp.endDate)
-          ? new Date()
-          : new Date(exp.endDate.split("/").reverse().join("-"));
+      const endDate = ["hiện nay", "present", "वर्तमान", "至今"].includes(
+        exp.endDate
+      )
+        ? new Date()
+        : new Date(exp.endDate.split("/").reverse().join("-"));
       const diffTime = Math.abs(endDate.getTime() - startDate.getTime());
       const diffMonths = Math.ceil(diffTime / (1000 * 60 * 60 * 24 * 30));
       totalMonths += diffMonths;

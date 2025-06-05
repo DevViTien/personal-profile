@@ -1,7 +1,7 @@
 "use client";
 
 import { useTheme } from "@/contexts/ThemeContext";
-import {useTranslations} from 'next-intl';
+import { useTranslations } from "next-intl";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 
 export default function ThemeToggleButton() {
@@ -14,11 +14,16 @@ export default function ThemeToggleButton() {
   return (
     <button
       onClick={toggleTheme}
-      className="relative p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus-ring transition-all duration-200 group"      aria-label={
-        currentTheme === "light" ? t("theme.toggleToDark") : t("theme.toggleToLight")
+      className="relative p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus-ring transition-all duration-200 group"
+      aria-label={
+        currentTheme === "light"
+          ? t("theme.toggleToDark")
+          : t("theme.toggleToLight")
       }
       title={
-        currentTheme === "light" ? t("theme.toggleToDark") : t("theme.toggleToLight")
+        currentTheme === "light"
+          ? t("theme.toggleToDark")
+          : t("theme.toggleToLight")
       }
     >
       <div className="relative w-5 h-5 overflow-hidden">

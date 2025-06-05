@@ -3,7 +3,7 @@
 import { useContext } from "react";
 import Link from "next/link";
 import { ProfileContext } from "@/contexts/ProfileContext";
-import {useTranslations} from 'next-intl';
+import { useTranslations } from "next-intl";
 import { useDownload } from "@/hooks/useDownload";
 import Image from "next/image";
 import {
@@ -104,7 +104,9 @@ export default function AboutPage() {
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   {t("pages.about.title")}
                 </span>
-                <span className="block mt-2">{t("pages.about.introduction")}</span>
+                <span className="block mt-2">
+                  {t("pages.about.introduction")}
+                </span>
               </h1>
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300">
                 {t("pages.about.story")}
@@ -370,10 +372,14 @@ export default function AboutPage() {
                 disabled={!profileData?.cvUrl}
                 className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white px-4 py-3 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none disabled:shadow-lg focus-ring flex items-center justify-center space-x-2"
                 title={
-                  profileData?.cvUrl ? t("profile.downloadCV") : "CV chưa có sẵn"
+                  profileData?.cvUrl
+                    ? t("profile.downloadCV")
+                    : "CV chưa có sẵn"
                 }
                 aria-label={
-                  profileData?.cvUrl ? t("profile.downloadCV") : "CV chưa có sẵn"
+                  profileData?.cvUrl
+                    ? t("profile.downloadCV")
+                    : "CV chưa có sẵn"
                 }
               >
                 {" "}

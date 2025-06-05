@@ -2,7 +2,7 @@
 
 import { useContext, useState, useEffect } from "react";
 import { ProfileContext } from "@/contexts/ProfileContext";
-import {useTranslations} from 'next-intl';
+import { useTranslations } from "next-intl";
 import { useToast } from "@/hooks/useToast";
 import {
   EnvelopeIcon,
@@ -175,7 +175,9 @@ export default function ContactPage() {
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 {t("pages.contact.title")}
               </span>
-              <span className="block mt-2">{t("pages.contact.getInTouch")}</span>
+              <span className="block mt-2">
+                {t("pages.contact.getInTouch")}
+              </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               {t("pages.contact.responseTime")}
@@ -351,7 +353,8 @@ export default function ContactPage() {
                     htmlFor="email"
                     className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    {t("pages.contact.email")} {t("pages.contact.requiredField")}
+                    {t("pages.contact.email")}{" "}
+                    {t("pages.contact.requiredField")}
                   </label>
                   <input
                     type="email"
@@ -371,7 +374,8 @@ export default function ContactPage() {
                   htmlFor="subject"
                   className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  {t("pages.contact.subject")} {t("pages.contact.requiredField")}
+                  {t("pages.contact.subject")}{" "}
+                  {t("pages.contact.requiredField")}
                 </label>
                 <input
                   type="text"
@@ -390,7 +394,8 @@ export default function ContactPage() {
                   htmlFor="message"
                   className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  {t("pages.contact.message")} {t("pages.contact.requiredField")}
+                  {t("pages.contact.message")}{" "}
+                  {t("pages.contact.requiredField")}
                 </label>
                 <textarea
                   id="message"

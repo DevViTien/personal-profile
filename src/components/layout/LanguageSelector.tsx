@@ -35,8 +35,9 @@ export default function LanguageSelector() {
     };
   }, []);
   // Get current language information
-  const currentLanguage = languages.find((lang) => lang.code === locale) || 
-    languages.find(lang => lang.code === "vi") || // Default to Vietnamese
+  const currentLanguage =
+    languages.find((lang) => lang.code === locale) ||
+    languages.find((lang) => lang.code === "vi") || // Default to Vietnamese
     languages[0]; // Fallback to first language
 
   // Get path without locale prefix
@@ -55,7 +56,7 @@ export default function LanguageSelector() {
   };
 
   const pathWithoutLocale = getPathWithoutLocale();
-  
+
   return (
     <div ref={dropdownRef} className="relative">
       <button
@@ -66,7 +67,9 @@ export default function LanguageSelector() {
         aria-expanded={isOpen}
         aria-controls="language-menu"
       >
-        <span className="text-xl" aria-hidden="true">{currentLanguage.flag}</span>
+        <span className="text-xl" aria-hidden="true">
+          {currentLanguage.flag}
+        </span>
         <ChevronDownIcon className="w-4 h-4 ml-1" aria-hidden="true" />
       </button>
 

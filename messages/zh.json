@@ -154,7 +154,7 @@
       "fullAddress": "完整地址",
       "location": "位置",
       "mapTitle": "我的位置",
-      "requiredField": "此字段为必填项",
+      "requiredField": "*",
       "businessHours": "工作时间"
     }
   },

@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useProfile } from "@/contexts/ProfileContext";
-import { useLocale } from 'next-intl';
+import { useLocale } from "next-intl";
 
 /**
  * Hook to sync ProfileContext with next-intl

@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import {NextIntlClientProvider} from 'next-intl';
+import { NextIntlClientProvider } from "next-intl";
 import { ThemeProvider } from "./ThemeContext";
 import { ProfileProvider } from "./ProfileContext";
 import { ProfileLanguageSyncComponent } from "@/components/providers/ProfileLanguageSyncComponent";

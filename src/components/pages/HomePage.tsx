@@ -2,7 +2,7 @@
 
 import { useContext } from "react";
 import { ProfileContext } from "@/contexts/ProfileContext";
-import {useTranslations} from 'next-intl';
+import { useTranslations } from "next-intl";
 import ProfileCard from "@/components/cards/ProfileCard";
 import Image from "next/image";
 import Link from "next/link";
@@ -89,10 +89,14 @@ export default function HomePage() {
                 disabled={!profileData?.cvUrl}
                 className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:transform-none disabled:shadow-lg focus-ring"
                 title={
-                  profileData?.cvUrl ? t("profile.downloadCV") : "CV chưa có sẵn"
+                  profileData?.cvUrl
+                    ? t("profile.downloadCV")
+                    : "CV chưa có sẵn"
                 }
                 aria-label={
-                  profileData?.cvUrl ? t("profile.downloadCV") : "CV chưa có sẵn"
+                  profileData?.cvUrl
+                    ? t("profile.downloadCV")
+                    : "CV chưa có sẵn"
                 }
               >
                 {" "}
@@ -161,7 +165,8 @@ export default function HomePage() {
                         ))}{" "}
                       {skillCategory.data.length > 2 && (
                         <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-                          +{skillCategory.data.length - 2} {t("common.readMore")}
+                          +{skillCategory.data.length - 2}{" "}
+                          {t("common.readMore")}
                         </p>
                       )}
                     </div>

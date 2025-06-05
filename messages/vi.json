@@ -154,7 +154,7 @@
       "fullAddress": "Địa chỉ đầy đủ",
       "location": "Vị trí",
       "mapTitle": "Bản đồ vị trí",
-      "requiredField": "Trường bắt buộc",
+      "requiredField": "*",
       "businessHours": "Giờ làm việc"
     }
   },

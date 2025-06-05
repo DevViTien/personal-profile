@@ -78,11 +78,13 @@ export default function Header() {
               >
                 {t(`navigation.${item.key}`)}
               </Link>
-            ))}{" "}            <div className="ml-4 pl-4 border-l border-gray-200 dark:border-gray-700 flex items-center space-x-2">
+            ))}{" "}
+            <div className="ml-4 pl-4 border-l border-gray-200 dark:border-gray-700 flex items-center space-x-2">
               <LanguageSelector />
               <ThemeToggleButton />
             </div>
-          </div>{" "}          {/* Mobile menu button */}
+          </div>{" "}
+          {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
             <LanguageSelector />
             <ThemeToggleButton />
