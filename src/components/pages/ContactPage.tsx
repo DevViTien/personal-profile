@@ -2,7 +2,7 @@
 
 import { useContext, useState, useEffect } from "react";
 import { ProfileContext } from "@/contexts/ProfileContext";
-import { useLanguage } from "@/contexts/LanguageContext";
+import {useTranslations} from 'next-intl';
 import { useToast } from "@/hooks/useToast";
 import {
   EnvelopeIcon,
@@ -26,7 +26,7 @@ import {
  */
 export default function ContactPage() {
   const profileContext = useContext(ProfileContext);
-  const { t } = useLanguage();
+  const t = useTranslations();
   const toast = useToast();
   const { profileData, loading } = profileContext || {};
   const [formData, setFormData] = useState({
@@ -173,12 +173,12 @@ export default function ContactPage() {
           <div className="space-y-4">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {t.pages.contact.title}
+                {t("pages.contact.title")}
               </span>
-              <span className="block mt-2">{t.pages.contact.getInTouch}</span>
+              <span className="block mt-2">{t("pages.contact.getInTouch")}</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              {t.pages.contact.responseTime}
+              {t("pages.contact.responseTime")}
             </p>
           </div>
 
@@ -188,11 +188,11 @@ export default function ContactPage() {
               <div className="flex items-center justify-center space-x-3 mb-2">
                 <ChatBubbleLeftRightIcon className="w-6 h-6 text-blue-500" />
                 <span className="text-sm font-bold text-blue-600 dark:text-blue-400">
-                  {t.pages.contact.fastResponse}
+                  {t("pages.contact.fastResponse")}
                 </span>
               </div>
               <p className="text-xs text-gray-600 dark:text-gray-400 text-center">
-                {t.pages.contact.fastResponseDesc}
+                {t("pages.contact.fastResponseDesc")}
               </p>
             </div>
 
@@ -200,11 +200,11 @@ export default function ContactPage() {
               <div className="flex items-center justify-center space-x-3 mb-2">
                 <UserIcon className="w-6 h-6 text-green-500" />
                 <span className="text-sm font-bold text-green-600 dark:text-green-400">
-                  {t.pages.contact.personalSupport}
+                  {t("pages.contact.personalSupport")}
                 </span>
               </div>
               <p className="text-xs text-gray-600 dark:text-gray-400 text-center">
-                {t.pages.contact.personalSupportDesc}
+                {t("pages.contact.personalSupportDesc")}
               </p>
             </div>
 
@@ -212,11 +212,11 @@ export default function ContactPage() {
               <div className="flex items-center justify-center space-x-3 mb-2">
                 <SparklesIcon className="w-6 h-6 text-purple-500" />
                 <span className="text-sm font-bold text-purple-600 dark:text-purple-400">
-                  {t.pages.contact.creativeIdeas}
+                  {t("pages.contact.creativeIdeas")}
                 </span>
               </div>
               <p className="text-xs text-gray-600 dark:text-gray-400 text-center">
-                {t.pages.contact.creativeIdeasDesc}
+                {t("pages.contact.creativeIdeasDesc")}
               </p>
             </div>
           </div>
@@ -230,7 +230,7 @@ export default function ContactPage() {
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full"></div>
               <h2 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
-                {t.pages.contact.contactInfo}
+                {t("pages.contact.contactInfo")}
               </h2>
             </div>
 
@@ -241,7 +241,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
-                    {t.pages.contact.email}
+                    {t("pages.contact.email")}
                   </h3>
                   <a
                     href={`mailto:${email}`}
@@ -258,7 +258,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
-                    {t.pages.contact.phone}
+                    {t("pages.contact.phone")}
                   </h3>
                   <a
                     href={`tel:${phone}`}
@@ -275,7 +275,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
-                    {t.pages.contact.address}
+                    {t("pages.contact.address")}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                     {address?.short}
@@ -290,7 +290,7 @@ export default function ContactPage() {
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-2 h-8 bg-gradient-to-b from-purple-500 to-purple-600 rounded-full"></div>
               <h2 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
-                {t.pages.contact.socialLinks}
+                {t("pages.contact.socialLinks")}
               </h2>
             </div>
 
@@ -322,7 +322,7 @@ export default function ContactPage() {
             <div className="flex items-center space-x-3 mb-6 lg:mb-8">
               <div className="w-2 h-8 bg-gradient-to-b from-green-500 to-green-600 rounded-full"></div>
               <h2 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
-                {t.pages.contact.sendMessage}
+                {t("pages.contact.sendMessage")}
               </h2>
             </div>{" "}
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -332,7 +332,7 @@ export default function ContactPage() {
                     htmlFor="name"
                     className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    {t.pages.contact.name} {t.pages.contact.requiredField}
+                    {t("pages.contact.name")} {t("pages.contact.requiredField")}
                   </label>
                   <input
                     type="text"
@@ -342,7 +342,7 @@ export default function ContactPage() {
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg lg:rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200 hover:border-gray-400 dark:hover:border-gray-500"
-                    placeholder={t.pages.contact.namePlaceholder}
+                    placeholder={t("pages.contact.namePlaceholder")}
                   />
                 </div>
 
@@ -351,7 +351,7 @@ export default function ContactPage() {
                     htmlFor="email"
                     className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    {t.pages.contact.email} {t.pages.contact.requiredField}
+                    {t("pages.contact.email")} {t("pages.contact.requiredField")}
                   </label>
                   <input
                     type="email"
@@ -361,7 +361,7 @@ export default function ContactPage() {
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg lg:rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200 hover:border-gray-400 dark:hover:border-gray-500"
-                    placeholder={t.pages.contact.emailPlaceholder}
+                    placeholder={t("pages.contact.emailPlaceholder")}
                   />
                 </div>
               </div>
@@ -371,7 +371,7 @@ export default function ContactPage() {
                   htmlFor="subject"
                   className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  {t.pages.contact.subject} {t.pages.contact.requiredField}
+                  {t("pages.contact.subject")} {t("pages.contact.requiredField")}
                 </label>
                 <input
                   type="text"
@@ -381,7 +381,7 @@ export default function ContactPage() {
                   onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg lg:rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200 hover:border-gray-400 dark:hover:border-gray-500"
-                  placeholder={t.pages.contact.subjectPlaceholder}
+                  placeholder={t("pages.contact.subjectPlaceholder")}
                 />
               </div>
 
@@ -390,7 +390,7 @@ export default function ContactPage() {
                   htmlFor="message"
                   className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  {t.pages.contact.message} {t.pages.contact.requiredField}
+                  {t("pages.contact.message")} {t("pages.contact.requiredField")}
                 </label>
                 <textarea
                   id="message"
@@ -400,7 +400,7 @@ export default function ContactPage() {
                   required
                   rows={6}
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg lg:rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none transition-all duration-200 hover:border-gray-400 dark:hover:border-gray-500"
-                  placeholder={t.pages.contact.messagePlaceholder}
+                  placeholder={t("pages.contact.messagePlaceholder")}
                 />
               </div>
 
@@ -416,12 +416,12 @@ export default function ContactPage() {
                 {isSubmitting ? (
                   <>
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    <span>{t.pages.contact.sending}</span>
+                    <span>{t("pages.contact.sending")}</span>
                   </>
                 ) : (
                   <>
                     <PaperAirplaneIcon className="w-5 h-5" />
-                    <span>{t.pages.contact.send}</span>
+                    <span>{t("pages.contact.send")}</span>
                   </>
                 )}
               </button>
@@ -436,7 +436,7 @@ export default function ContactPage() {
           <div className="flex items-center space-x-3 mb-6 lg:mb-8">
             <div className="w-2 h-8 bg-gradient-to-b from-red-500 to-red-600 rounded-full"></div>
             <h2 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
-              {t.pages.contact.location}
+              {t("pages.contact.location")}
             </h2>
           </div>
 
@@ -450,14 +450,14 @@ export default function ContactPage() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="rounded-lg lg:rounded-xl"
-              title={t.pages.contact.mapTitle}
+              title={t("pages.contact.mapTitle")}
             />
           </div>
 
           <div className="mt-6 p-4 lg:p-6 bg-red-50/50 dark:bg-red-900/10 rounded-lg lg:rounded-xl border border-red-100 dark:border-red-800">
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               <strong className="text-red-600 dark:text-red-400">
-                {t.pages.contact.fullAddress}
+                {t("pages.contact.fullAddress")}
               </strong>{" "}
               {address.full}
             </p>

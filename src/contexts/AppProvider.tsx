@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
+import {NextIntlClientProvider} from 'next-intl';
 import { ThemeProvider } from "./ThemeContext";
 import { ProfileProvider } from "./ProfileContext";
-import { LanguageProvider } from "./LanguageContext";
 import { ProfileLanguageSyncComponent } from "@/components/providers/ProfileLanguageSyncComponent";
 import ToastProvider from "@/components/providers/ToastProvider";
 
@@ -11,7 +11,7 @@ interface AppProviderProps {
 
 export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   return (
-    <LanguageProvider>
+    <NextIntlClientProvider>
       <ThemeProvider>
         <ProfileProvider>
           <ProfileLanguageSyncComponent>
@@ -20,6 +20,6 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
           </ProfileLanguageSyncComponent>
         </ProfileProvider>
       </ThemeProvider>
-    </LanguageProvider>
+    </NextIntlClientProvider>
   );
 };

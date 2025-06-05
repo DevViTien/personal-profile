@@ -3,7 +3,7 @@
 import { useContext } from "react";
 import Link from "next/link";
 import { ProfileContext } from "@/contexts/ProfileContext";
-import { useLanguage } from "@/contexts/LanguageContext";
+import {useTranslations} from 'next-intl';
 import { useDownload } from "@/hooks/useDownload";
 import Image from "next/image";
 import {
@@ -25,7 +25,7 @@ import {
  */
 export default function AboutPage() {
   const profileContext = useContext(ProfileContext);
-  const { t } = useLanguage();
+  const t = useTranslations();
   const { downloadCV } = useDownload();
   const { profileData, loading } = profileContext || {};
 
@@ -102,16 +102,16 @@ export default function AboutPage() {
               {" "}
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  {t.pages.about.title}
+                  {t("pages.about.title")}
                 </span>
-                <span className="block mt-2">{t.pages.about.introduction}</span>
+                <span className="block mt-2">{t("pages.about.introduction")}</span>
               </h1>
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300">
-                {t.pages.about.story}
+                {t("pages.about.story")}
               </p>
             </div>{" "}
             <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              {bio || t.profile.aboutMe}
+              {bio || t("profile.aboutMe")}
             </p>
           </div>
 
@@ -137,7 +137,7 @@ export default function AboutPage() {
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full"></div>{" "}
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
-                {t.pages.contact.contactInfo}
+                {t("pages.contact.contactInfo")}
               </h2>
             </div>
 
@@ -146,7 +146,7 @@ export default function AboutPage() {
                 <div className="group">
                   {" "}
                   <label className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                    {t.pages.contact.name}
+                    {t("pages.contact.name")}
                   </label>
                   <p className="text-lg font-medium text-gray-900 dark:text-white mt-1">
                     {name || "Chưa cập nhật"}
@@ -155,7 +155,7 @@ export default function AboutPage() {
                 <div className="group">
                   {" "}
                   <label className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                    {t.profile.currentPosition}
+                    {t("profile.currentPosition")}
                   </label>
                   <p className="text-lg font-medium text-gray-900 dark:text-white mt-1">
                     {title || "Chưa cập nhật"}
@@ -184,7 +184,7 @@ export default function AboutPage() {
                   <div className="flex items-center space-x-2 mb-1">
                     <EnvelopeIcon className="w-4 h-4 text-blue-500" />{" "}
                     <label className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                      {t.pages.contact.email}
+                      {t("pages.contact.email")}
                     </label>
                   </div>
                   <a
@@ -198,7 +198,7 @@ export default function AboutPage() {
                   <div className="flex items-center space-x-2 mb-1">
                     <PhoneIcon className="w-4 h-4 text-blue-500" />{" "}
                     <label className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                      {t.pages.contact.phone}
+                      {t("pages.contact.phone")}
                     </label>
                   </div>
                   <a
@@ -215,7 +215,7 @@ export default function AboutPage() {
               <div className="flex items-center space-x-2 mb-2">
                 <MapPinIcon className="w-4 h-4 text-blue-500" />{" "}
                 <label className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                  {t.pages.contact.address}
+                  {t("pages.contact.address")}
                 </label>
               </div>
               <p className="text-lg font-medium text-gray-900 dark:text-white">
@@ -229,7 +229,7 @@ export default function AboutPage() {
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-2 h-8 bg-gradient-to-b from-purple-500 to-purple-600 rounded-full"></div>{" "}
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
-                {t.profile.expertise}
+                {t("profile.expertise")}
               </h2>
             </div>
 
@@ -273,7 +273,7 @@ export default function AboutPage() {
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-2 h-8 bg-gradient-to-b from-green-500 to-green-600 rounded-full"></div>{" "}
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
-                {t.profile.education}
+                {t("profile.education")}
               </h2>
             </div>
 
@@ -310,7 +310,7 @@ export default function AboutPage() {
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-2 h-6 bg-gradient-to-b from-yellow-500 to-yellow-600 rounded-full"></div>{" "}
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-                  {t.profile.achievements}
+                  {t("profile.achievements")}
                 </h2>
               </div>
 
@@ -340,7 +340,7 @@ export default function AboutPage() {
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-2 h-6 bg-gradient-to-b from-red-500 to-red-600 rounded-full"></div>{" "}
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-                  {t.profile.interests}
+                  {t("profile.interests")}
                 </h2>
               </div>
 
@@ -362,7 +362,7 @@ export default function AboutPage() {
             {" "}
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center space-x-2">
               <SparklesIcon className="w-5 h-5 text-blue-500" />
-              <span>{t.actions.getStarted}</span>
+              <span>{t("actions.getStarted")}</span>
             </h3>
             <div className="space-y-3">
               <button
@@ -370,15 +370,15 @@ export default function AboutPage() {
                 disabled={!profileData?.cvUrl}
                 className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white px-4 py-3 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none disabled:shadow-lg focus-ring flex items-center justify-center space-x-2"
                 title={
-                  profileData?.cvUrl ? t.profile.downloadCV : "CV chưa có sẵn"
+                  profileData?.cvUrl ? t("profile.downloadCV") : "CV chưa có sẵn"
                 }
                 aria-label={
-                  profileData?.cvUrl ? t.profile.downloadCV : "CV chưa có sẵn"
+                  profileData?.cvUrl ? t("profile.downloadCV") : "CV chưa có sẵn"
                 }
               >
                 {" "}
                 <ArrowDownTrayIcon className="w-4 h-4" />
-                <span>{t.actions.download}</span>
+                <span>{t("actions.download")}</span>
               </button>
               <Link
                 href="/contact"
@@ -386,7 +386,7 @@ export default function AboutPage() {
               >
                 {" "}
                 <ChatBubbleLeftRightIcon className="w-4 h-4" />
-                <span>{t.profile.contact}</span>
+                <span>{t("profile.contact")}</span>
               </Link>
             </div>
           </section>

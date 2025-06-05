@@ -3,10 +3,10 @@
 import { useState, useEffect } from "react";
 import ProfileCard from "@/components/cards/ProfileCard";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslations } from "next-intl";
 
 export default function Sidebar() {
-  const { t } = useLanguage();
+  const t = useTranslations();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -53,7 +53,7 @@ export default function Sidebar() {
               ? "right-4 lg:-right-3" // On mobile when collapsed, keep inside; on desktop, outside
               : "-right-3" // When expanded, always outside
           }`}
-          aria-label={isCollapsed ? t.sidebar.expand : t.sidebar.collapse}
+          aria-label={isCollapsed ? t("sidebar.expand") : t("sidebar.collapse")}
         >
           {isCollapsed ? (
             <ChevronRightIcon className="w-4 h-4" />
@@ -72,32 +72,32 @@ export default function Sidebar() {
               <ProfileCard /> {/* Quick Navigation */}
               <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
                 <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">
-                  {t.sidebar.quickNavigation}
+                  {t("sidebar.quickNavigation")}
                 </h3>
                 <div className="space-y-2">
                   <a
                     href="#skills"
                     className="block text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
-                    {t.sidebar.skills}
+                    {t("sidebar.skills")}
                   </a>
                   <a
                     href="#education"
                     className="block text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
-                    {t.sidebar.education}
+                    {t("sidebar.education")}
                   </a>
                   <a
                     href="#experience"
                     className="block text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
-                    {t.sidebar.experience}
+                    {t("sidebar.experience")}
                   </a>
                   <a
                     href="#projects"
                     className="block text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
-                    {t.sidebar.projects}
+                    {t("sidebar.projects")}
                   </a>
                 </div>
               </div>

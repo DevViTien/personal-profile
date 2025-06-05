@@ -1,20 +1,22 @@
 "use client";
 
 import { useEffect } from "react";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { useProfile } from "@/contexts/ProfileContext";
+import { useLocale } from 'next-intl';
 
 /**
- * Hook to sync ProfileContext with LanguageContext
+ * Hook to sync ProfileContext with next-intl
  * This hook automatically loads profile data when language changes
  */
 export const useProfileLanguageSync = () => {
-  const { currentLanguage } = useLanguage();
+  const currentLanguage = useLocale();
   const { loadProfileData } = useProfile();
 
   useEffect(() => {
     if (currentLanguage && loadProfileData) {
-      loadProfileData(currentLanguage);
+      // Map current locale to language code supported in profile data
+      const languageCode = currentLanguage as "vi" | "en" | "zh" | "hi";
+      loadProfileData(languageCode);
     }
   }, [currentLanguage, loadProfileData]);
 

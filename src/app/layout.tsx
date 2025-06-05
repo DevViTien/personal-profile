@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import {getLocale} from 'next-intl/server';
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Sidebar from "@/components/layout/Sidebar";
@@ -25,14 +26,16 @@ export const metadata: Metadata = {
 	manifest: "/site.webmanifest",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
   return (
     <AppProvider>
-      <html lang="vi" className={inter.className}>
+      <html lang={locale} className={inter.className}>
         <head>
           <meta
             name="viewport"

@@ -1,4 +1,9 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from 'next-intl/plugin';
+import { siteConfig } from './src/config/site';
+
+// Extract locale codes for next-intl configuration
+const locales = siteConfig.languages.map(lang => lang.code);
 
 const nextConfig: NextConfig = {
   // Enable experimental features for better performance
@@ -39,4 +44,7 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// Create the next-intl plugin (configuration is managed in middleware.ts)
+const withNextIntl = createNextIntlPlugin();
+
+export default withNextIntl(nextConfig);

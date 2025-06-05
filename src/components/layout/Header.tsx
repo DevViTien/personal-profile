@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useContext, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ProfileContext } from "@/contexts/ProfileContext";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslations } from "next-intl";
 import ThemeToggleButton from "./ThemeToggleButton";
 import LanguageSelector from "./LanguageSelector";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -21,7 +21,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const profileContext = useContext(ProfileContext);
-  const { t } = useLanguage();
+  const t = useTranslations();
   const { profileData, loading } = profileContext || {};
   const { avatarUrl, slug } = profileData || {};
 
@@ -58,13 +58,15 @@ export default function Header() {
                   className="object-cover"
                 />
               </div>
-            )}            <span className="hidden sm:inline bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              {slug || t.common.portfolio}
+            )}{" "}
+            <span className="hidden sm:inline bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              {slug || t("common.portfolio")}
             </span>
           </Link>
-
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">            {navigationItems.map((item) => (
+          <div className="hidden md:flex items-center space-x-1">
+            {" "}
+            {navigationItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -74,13 +76,13 @@ export default function Header() {
                     : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
                 }`}
               >
-                {t.navigation[item.key as keyof typeof t.navigation]}
+                {t(`navigation.${item.key}`)}
               </Link>
-            ))}            <div className="ml-4 pl-4 border-l border-gray-200 dark:border-gray-700 flex items-center space-x-2">
+            ))}{" "}            <div className="ml-4 pl-4 border-l border-gray-200 dark:border-gray-700 flex items-center space-x-2">
               <LanguageSelector />
               <ThemeToggleButton />
             </div>
-          </div>          {/* Mobile menu button */}
+          </div>{" "}          {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
             <LanguageSelector />
             <ThemeToggleButton />
@@ -105,7 +107,9 @@ export default function Header() {
             isMobileMenuOpen ? "max-h-64 opacity-100 pb-4" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="pt-2 pb-2 space-y-1 border-t border-gray-200 dark:border-gray-700">            {navigationItems.map((item) => (
+          <div className="pt-2 pb-2 space-y-1 border-t border-gray-200 dark:border-gray-700">
+            {" "}
+            {navigationItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -116,7 +120,7 @@ export default function Header() {
                     : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
                 }`}
               >
-                {t.navigation[item.key as keyof typeof t.navigation]}
+                {t(`navigation.${item.key}`)}
               </Link>
             ))}
           </div>

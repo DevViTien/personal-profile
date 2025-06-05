@@ -1,81 +1,104 @@
 "use client";
 
-import { useLanguage } from "@/contexts/LanguageContext";
-import { ChevronDownIcon, LanguageIcon } from "@heroicons/react/24/outline";
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
+import Link from "next/link";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { siteConfig } from "@/config/site";
+
+// Use languages from site configuration
+const { languages } = siteConfig;
 
 export default function LanguageSelector() {
-  const { currentLanguage, setLanguage, languages, t } = useLanguage();
+  const t = useTranslations("language");
+  const locale = useLocale();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const currentLang = languages.find(lang => lang.code === currentLanguage);
-
-  // Close dropdown when clicking outside
+  // Handle click outside to close dropdown
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
-    };
+    }
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
-  const handleLanguageSelect = (languageCode: string) => {
-    setLanguage(languageCode as typeof currentLanguage);
-    setIsOpen(false);
+  // Get current language information
+  const currentLanguage = languages.find((lang) => lang.code === locale) || 
+    languages.find(lang => lang.code === "vi") || // Default to Vietnamese
+    languages[0]; // Fallback to first language
+
+  // Get path without locale prefix
+  const getPathWithoutLocale = () => {
+    // First, check if the path starts with any locale
+    for (const lang of languages) {
+      if (pathname.startsWith(`/${lang.code}/`)) {
+        return pathname.substring(`/${lang.code}`.length);
+      }
+      // Special case for default locale with no prefix or just the locale code
+      if (pathname === `/${lang.code}` || pathname === "/") {
+        return "/";
+      }
+    }
+    return pathname;
   };
 
+  const pathWithoutLocale = getPathWithoutLocale();
+  
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div ref={dropdownRef} className="relative">
       <button
+        aria-label={t("selectLanguage")}
+        title={t("selectLanguage")}
+        className="flex items-center p-1.5 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus-ring"
         onClick={() => setIsOpen(!isOpen)}
-        className="relative flex items-center space-x-2 p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus-ring transition-all duration-200 group"
-        aria-label={t.language.selectLanguage}
         aria-expanded={isOpen}
+        aria-controls="language-menu"
       >
-        <LanguageIcon className="w-5 h-5" />
-        <span className="text-sm font-medium hidden sm:inline">
-          {currentLang?.flag} {currentLang?.nativeName}
-        </span>
-        <ChevronDownIcon 
-          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} 
-        />
-        
-        {/* Tooltip for mobile - positioned below button */}
-        <div className="sm:hidden absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 text-xs font-medium text-white bg-gray-900 dark:bg-gray-700 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
-          {t.language.currentLanguage}: {currentLang?.nativeName}
-          <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-b-2 border-transparent border-b-gray-900 dark:border-b-gray-700"></div>
-        </div>
+        <span className="text-xl" aria-hidden="true">{currentLanguage.flag}</span>
+        <ChevronDownIcon className="w-4 h-4 ml-1" aria-hidden="true" />
       </button>
 
-      {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-1 z-50">
-          <div className="px-3 py-2 text-xs font-medium text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-700">
-            {t.language.selectLanguage}
+        <div
+          id="language-menu"
+          className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 shadow-lg rounded-md py-1 z-50 ring-1 ring-gray-200 dark:ring-gray-700"
+          role="menu"
+          aria-orientation="vertical"
+        >
+          <div className="px-3 py-2 text-xs font-medium text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700">
+            {t("selectLanguage")}
           </div>
-          {languages.map((language) => (
-            <button
-              key={language.code}
-              onClick={() => handleLanguageSelect(language.code)}
-              className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center space-x-3 ${
-                currentLanguage === language.code
-                  ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                  : 'text-gray-700 dark:text-gray-300'
-              }`}
-            >
-              <span className="text-lg">{language.flag}</span>
-              <div className="flex-1">
-                <div className="font-medium">{language.nativeName}</div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">{language.name}</div>
-              </div>
-              {currentLanguage === language.code && (
-                <div className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full"></div>
-              )}
-            </button>
-          ))}
+          <div className="py-1">
+            {languages.map((language) => (
+              <Link
+                key={language.code}
+                href={pathWithoutLocale}
+                locale={language.code}
+                className={`flex items-center px-4 py-2 text-sm ${
+                  locale === language.code
+                    ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400"
+                    : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                }`}
+                onClick={() => setIsOpen(false)}
+                role="menuitem"
+              >
+                <span className="mr-2 text-lg">{language.flag}</span>
+                <span>{language.nativeName}</span>
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </div>

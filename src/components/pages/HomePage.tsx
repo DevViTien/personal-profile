@@ -2,7 +2,7 @@
 
 import { useContext } from "react";
 import { ProfileContext } from "@/contexts/ProfileContext";
-import { useLanguage } from "@/contexts/LanguageContext";
+import {useTranslations} from 'next-intl';
 import ProfileCard from "@/components/cards/ProfileCard";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +18,7 @@ import {
  */
 export default function HomePage() {
   const profileContext = useContext(ProfileContext);
-  const { t } = useLanguage();
+  const t = useTranslations();
   const { profileData, loading } = profileContext || {};
 
   const handleDownloadCV = () => {
@@ -71,17 +71,17 @@ export default function HomePage() {
             {" "}
             <div className="space-y-4">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
-                <span className="block">{t.pages.home.hero.greeting}</span>
+                <span className="block">{t("pages.home.hero.greeting")}</span>
                 <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   {name || "Tên của bạn"}
                 </span>
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 font-medium">
-                {title || t.pages.home.hero.tagline}
+                {title || t("pages.home.hero.tagline")}
               </p>
             </div>
             <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              {bio || t.pages.home.hero.description}
+              {bio || t("pages.home.hero.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button
@@ -89,15 +89,15 @@ export default function HomePage() {
                 disabled={!profileData?.cvUrl}
                 className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:transform-none disabled:shadow-lg focus-ring"
                 title={
-                  profileData?.cvUrl ? t.profile.downloadCV : "CV chưa có sẵn"
+                  profileData?.cvUrl ? t("profile.downloadCV") : "CV chưa có sẵn"
                 }
                 aria-label={
-                  profileData?.cvUrl ? t.profile.downloadCV : "CV chưa có sẵn"
+                  profileData?.cvUrl ? t("profile.downloadCV") : "CV chưa có sẵn"
                 }
               >
                 {" "}
                 <span className="flex items-center justify-center space-x-2">
-                  <span>{t.pages.home.hero.cta}</span>
+                  <span>{t("pages.home.hero.cta")}</span>
                   <ArrowDownTrayIcon className="w-4 h-4" />
                 </span>
               </button>{" "}
@@ -105,7 +105,7 @@ export default function HomePage() {
                 href="/contact"
                 className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 focus-ring flex items-center justify-center space-x-2"
               >
-                <span>{t.profile.contact}</span>
+                <span>{t("profile.contact")}</span>
                 <ChatBubbleLeftRightIcon className="w-4 h-4" />
               </Link>
             </div>
@@ -136,7 +136,7 @@ export default function HomePage() {
           <div className="flex items-center space-x-3 mb-6">
             <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full"></div>{" "}
             <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
-              {t.profile.skills}
+              {t("profile.skills")}
             </h3>
           </div>
 
@@ -161,7 +161,7 @@ export default function HomePage() {
                         ))}{" "}
                       {skillCategory.data.length > 2 && (
                         <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-                          +{skillCategory.data.length - 2} {t.common.readMore}
+                          +{skillCategory.data.length - 2} {t("common.readMore")}
                         </p>
                       )}
                     </div>
@@ -177,7 +177,7 @@ export default function HomePage() {
               href="/about"
               className="inline-flex items-center space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold transition-colors duration-200 focus-ring rounded-lg p-2"
             >
-              <span>{t.common.viewAll}</span>
+              <span>{t("common.viewAll")}</span>
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -203,7 +203,7 @@ export default function HomePage() {
           <div className="flex items-center space-x-3 mb-6">
             <div className="w-2 h-8 bg-gradient-to-b from-green-500 to-green-600 rounded-full"></div>{" "}
             <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
-              {t.profile.education}
+              {t("profile.education")}
             </h3>
           </div>
 
@@ -236,7 +236,7 @@ export default function HomePage() {
               href="/about"
               className="inline-flex items-center space-x-2 text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 font-semibold transition-colors duration-200 focus-ring rounded-lg p-2"
             >
-              <span>{t.common.viewDetails}</span>
+              <span>{t("common.viewDetails")}</span>
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -259,7 +259,7 @@ export default function HomePage() {
       <section className="bg-gradient-to-r from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-xl lg:rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-100 dark:border-gray-700">
         {" "}
         <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-          {t.profile.professionalSummary}
+          {t("profile.professionalSummary")}
         </h3>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           <div className="text-center group hover:scale-105 transition-transform duration-300">
@@ -267,7 +267,7 @@ export default function HomePage() {
               {skills.length}
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-              {t.profile.skills}
+              {t("profile.skills")}
             </div>
           </div>
           <div className="text-center group hover:scale-105 transition-transform duration-300">
@@ -275,7 +275,7 @@ export default function HomePage() {
               4+
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-              {t.profile.yearsOfExperience}
+              {t("profile.yearsOfExperience")}
             </div>
           </div>
           <div className="text-center group hover:scale-105 transition-transform duration-300">
@@ -283,7 +283,7 @@ export default function HomePage() {
               {education.length}
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-              {t.profile.education}
+              {t("profile.education")}
             </div>
           </div>
           <div className="text-center group hover:scale-105 transition-transform duration-300">
@@ -291,7 +291,7 @@ export default function HomePage() {
               10+
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-              {t.profile.projects}
+              {t("profile.projects")}
             </div>
           </div>
         </div>

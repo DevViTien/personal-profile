@@ -4,7 +4,7 @@ import { useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ProfileContext } from "@/contexts/ProfileContext";
-import { useLanguage } from "@/contexts/LanguageContext";
+import {useTranslations} from 'next-intl';
 import { useDownload } from "@/hooks/useDownload";
 import {
   EnvelopeIcon,
@@ -18,7 +18,7 @@ import {
 
 export default function ProfileCard() {
   const profileContext = useContext(ProfileContext);
-  const { t } = useLanguage();
+  const t = useTranslations();
   const { downloadCV } = useDownload();
 
   if (profileContext?.loading) {
@@ -43,7 +43,7 @@ export default function ProfileCard() {
         {" "}
         <div className="text-center">
           <UserIcon className="w-12 h-12 mx-auto mb-2 text-red-400" />
-          <p className="text-sm">{t.errors.loadingFailed}</p>
+          <p className="text-sm">{t("errors.loadingFailed")}</p>
         </div>
       </div>
     );
@@ -91,7 +91,7 @@ export default function ProfileCard() {
             {name || "Your Name"}
           </h2>
           <p className="text-sm text-blue-600 dark:text-blue-400 font-medium bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded-full">
-            {title || t.profile.currentPosition}
+            {title || t("profile.currentPosition")}
           </p>
         </div>
         {/* Contact Information */}
@@ -138,12 +138,12 @@ export default function ProfileCard() {
             onClick={handleDownloadCV}
             disabled={!cvUrl}
             className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white px-4 py-2.5 rounded-lg font-medium transition-all duration-200 focus-ring shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none disabled:shadow-lg flex items-center justify-center space-x-2"
-            title={cvUrl ? t.profile.downloadCV : "CV chưa có sẵn"}
-            aria-label={cvUrl ? t.profile.downloadCV : "CV chưa có sẵn"}
+            title={cvUrl ? t("profile.downloadCV") : "CV chưa có sẵn"}
+            aria-label={cvUrl ? t("profile.downloadCV") : "CV chưa có sẵn"}
           >
             {" "}
             <ArrowDownTrayIcon className="w-4 h-4" />
-            <span>{t.actions.download}</span>
+            <span>{t("actions.download")}</span>
           </button>{" "}
           <Link
             href="/contact"
@@ -151,7 +151,7 @@ export default function ProfileCard() {
           >
             {" "}
             <ChatBubbleLeftRightIcon className="w-4 h-4" />
-            <span>{t.profile.contact}</span>
+            <span>{t("profile.contact")}</span>
           </Link>
         </div>
       </div>
