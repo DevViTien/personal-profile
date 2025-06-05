@@ -1,5 +1,5 @@
 import ProjectsPage from "@/components/pages/ProjectsPage";
 
-export default function Projects() {
+export default async function Projects() {
   return <ProjectsPage />;
 }

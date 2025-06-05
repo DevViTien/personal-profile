@@ -1,15 +1,22 @@
 "use client";
 
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { useTheme } from "@/contexts/ThemeContext";
+import { useIsMounted } from "usehooks-ts";
+import "react-toastify/dist/ReactToastify.css";
 
 /**
  * ToastProvider Component - Cung cấp toast notification cho toàn bộ ứng dụng
  * Tự động detect dark/light mode và áp dụng theme tương ứng
  */
 export default function ToastProvider() {
+  const isMounted = useIsMounted();
   const { theme } = useTheme();
+
+  // Kiểm tra nếu component chưa được mount, không render gì cả
+  if (!isMounted()) {
+    return null;
+  }
 
   return (
     <ToastContainer

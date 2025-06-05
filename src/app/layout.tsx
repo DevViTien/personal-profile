@@ -6,6 +6,7 @@ import Sidebar from "@/components/layout/Sidebar";
 import { AppProvider } from "@/contexts/AppProvider";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
+import Head from "next/head";
 
 const inter = Open_Sans({
   subsets: ["latin", "vietnamese", "latin-ext"],
@@ -55,16 +56,16 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <AppProvider locale={locale} messages={messages}>
-      <html lang={locale} className={inter.className}>
-        <head>
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
-          <meta name="theme-color" content="#3b82f6" />
-        </head>
-        <body className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <html lang={locale} className={inter.className}>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        />
+        <meta name="theme-color" content="#3b82f6" />
+      </Head>
+      <body className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <AppProvider locale={locale} messages={messages}>
           <Header />
           <div className="flex flex-1 relative">
             <Sidebar />
@@ -73,8 +74,8 @@ export default async function RootLayout({
             </main>
           </div>
           <Footer />
-        </body>
-      </html>
-    </AppProvider>
+        </AppProvider>
+      </body>
+    </html>
   );
 }

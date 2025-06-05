@@ -3,10 +3,17 @@
 import { useTheme } from "@/contexts/ThemeContext";
 import { useTranslations } from "next-intl";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
+import { useIsMounted } from "usehooks-ts";
 
 export default function ThemeToggleButton() {
+  const isMounted = useIsMounted();
   const { theme, toggleTheme } = useTheme();
   const t = useTranslations();
+
+  // Kiểm tra nếu component chưa được mount, không render gì cả
+  if (!isMounted()) {
+    return null;
+  }
 
   // Xử lý trường hợp theme có thể undefined khi đang loading
   const currentTheme = theme || "light";

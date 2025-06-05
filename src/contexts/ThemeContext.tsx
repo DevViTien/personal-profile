@@ -49,9 +49,16 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   return (
     <NextThemesProvider
       attribute="class"
-      defaultTheme="light"
-      enableSystem={false}
+      defaultTheme="system"
+      enableSystem
       storageKey="theme"
+      disableTransitionOnChange={false}
+      forcedTheme={undefined}
+      nonce={undefined}
+      scriptProps={{
+        async: true,
+        'data-testid': 'theme-script'
+      }}
     >
       <ThemeWrapper>{children}</ThemeWrapper>
     </NextThemesProvider>

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import { ThemeProvider } from "./ThemeContext";
