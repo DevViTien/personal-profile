@@ -1,9 +1,5 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from 'next-intl/plugin';
-import { siteConfig } from './src/config/site';
-
-// Extract locale codes for next-intl configuration
-const locales = siteConfig.languages.map(lang => lang.code);
 
 const nextConfig: NextConfig = {
   // Enable experimental features for better performance

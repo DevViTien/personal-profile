@@ -5,8 +5,8 @@ import Footer from "@/components/layout/Footer";
 import Sidebar from "@/components/layout/Sidebar";
 import { AppProvider } from "@/contexts/AppProvider";
 import { Open_Sans } from "next/font/google";
-import "./globals.css";
 import Head from "next/head";
+import "./globals.css";
 
 const inter = Open_Sans({
   subsets: ["latin", "vietnamese", "latin-ext"],

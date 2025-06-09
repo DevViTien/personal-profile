@@ -1,17 +1,15 @@
 "use client";
 
 import { ToastContainer } from "react-toastify";
-import { useTheme } from "@/contexts/ThemeContext";
 import { useIsMounted } from "usehooks-ts";
 import "react-toastify/dist/ReactToastify.css";
 
 /**
  * ToastProvider Component - Cung cấp toast notification cho toàn bộ ứng dụng
- * Tự động detect dark/light mode và áp dụng theme tương ứng
+ * Sử dụng light theme mặc định
  */
 export default function ToastProvider() {
   const isMounted = useIsMounted();
-  const { theme } = useTheme();
 
   // Kiểm tra nếu component chưa được mount, không render gì cả
   if (!isMounted()) {
@@ -29,7 +27,7 @@ export default function ToastProvider() {
       pauseOnFocusLoss
       draggable
       pauseOnHover
-      theme={theme === "dark" ? "dark" : "light"}
+      theme="light"
       className="toast-container"
       style={{
         fontSize: "14px",
