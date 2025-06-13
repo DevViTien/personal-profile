@@ -1,24 +1,48 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
-import Link from "next/link";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { siteConfig } from "@/config/site";
+import { Link } from "@/i18n/navigation";
 
-// Use languages from site configuration
-const { languages } = siteConfig;
+const languages = [
+  {
+    code: "en",
+    name: "English",
+    nativeName: "English",
+    flag: "🇺🇸",
+    direction: "ltr",
+  },
+  {
+    code: "vi",
+    name: "Vietnamese",
+    nativeName: "Tiếng Việt",
+    flag: "🇻🇳",
+    direction: "ltr",
+  },
+  {
+    code: "zh",
+    name: "Chinese",
+    nativeName: "中文",
+    flag: "🇨🇳",
+    direction: "ltr",
+  },
+  {
+    code: "hi",
+    name: "Hindi",
+    nativeName: "हिन्दी",
+    flag: "🇮🇳",
+    direction: "ltr",
+  },
+];
 
 export default function LanguageSelector() {
   const t = useTranslations("language");
   const locale = useLocale();
-  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Handle click outside to close dropdown
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -34,28 +58,11 @@ export default function LanguageSelector() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  // Get current language information
+
   const currentLanguage =
     languages.find((lang) => lang.code === locale) ||
-    languages.find((lang) => lang.code === "vi") || // Default to Vietnamese
-    languages[0]; // Fallback to first language
-
-  // Get path without locale prefix
-  const getPathWithoutLocale = () => {
-    // First, check if the path starts with any locale
-    for (const lang of languages) {
-      if (pathname.startsWith(`/${lang.code}/`)) {
-        return pathname.substring(`/${lang.code}`.length);
-      }
-      // Special case for default locale with no prefix or just the locale code
-      if (pathname === `/${lang.code}` || pathname === "/") {
-        return "/";
-      }
-    }
-    return pathname;
-  };
-
-  const pathWithoutLocale = getPathWithoutLocale();
+    languages.find((lang) => lang.code === "vi") ||
+    languages[0];
 
   return (
     <div ref={dropdownRef} className="relative">
@@ -87,7 +94,7 @@ export default function LanguageSelector() {
             {languages.map((language) => (
               <Link
                 key={language.code}
-                href={pathWithoutLocale}
+                href={language.code}
                 locale={language.code}
                 className={`flex items-center px-4 py-2 text-sm ${
                   locale === language.code

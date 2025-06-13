@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ProfileContext } from "@/contexts/ProfileContext";
 import { useTranslations } from "next-intl";
-import LanguageSelector from "./LanguageSelector";
+// import LanguageSelector from "./LanguageSelector";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigationItems = [
@@ -77,14 +77,14 @@ export default function Header() {
                 {t(`navigation.${item.key}`)}
               </Link>
             ))}
-            <div className="ml-4 pl-4 border-l border-gray-200 dark:border-gray-700 flex items-center space-x-2">
-              <LanguageSelector />
+            {/* <div className="ml-4 pl-4 border-l border-gray-200 dark:border-gray-700 flex items-center space-x-2"> */}
+              {/* <LanguageSelector /> */}
               {/* <ThemeToggleButton /> */}
-            </div>
+            {/* </div> */}
           </div>
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
-            <LanguageSelector />
+            {/* <LanguageSelector /> */}
             {/* <ThemeToggleButton /> */}
             <button
               onClick={toggleMobileMenu}

@@ -1,12 +1,8 @@
 import createMiddleware from 'next-intl/middleware';
-import { siteConfig } from './src/config/site';
-
-// Extract locale codes from site configuration
-const locales = siteConfig.languages.map(lang => lang.code);
  
 export default createMiddleware({
   // A list of all locales that are supported
-  locales,
+  locales: ['vi', 'en', 'zh', 'hi'],
   
   // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
   defaultLocale: 'vi',

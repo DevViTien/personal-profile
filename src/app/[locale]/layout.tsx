@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { getLocale, getMessages } from "next-intl/server";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Sidebar from "@/components/layout/Sidebar";
 import { AppProvider } from "@/contexts/AppProvider";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 import { Open_Sans } from "next/font/google";
-import Head from "next/head";
 import "./globals.css";
 
 const inter = Open_Sans({
@@ -47,34 +48,34 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
-export default async function RootLayout({
-  children,
-}: Readonly<{
+interface LocaleLayoutProps {
   children: React.ReactNode;
-}>) {
-  const locale = await getLocale();
-  const messages = await getMessages();
+  params: Promise<{ locale: string }>;
+}
 
+export default async function LocaleLayout({
+  children,
+  params,
+}: LocaleLayoutProps) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
   return (
     <html lang={locale} className={inter.className}>
-      <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0"
-        />
-        <meta name="theme-color" content="#3b82f6" />
-      </Head>
       <body className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <AppProvider locale={locale} messages={messages}>
-          <Header />
-          <div className="flex flex-1 relative">
-            <Sidebar />
-            <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-x-hidden bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-              <div className="max-w-7xl mx-auto">{children}</div>
-            </main>
-          </div>
-          <Footer />
-        </AppProvider>
+        <NextIntlClientProvider>
+          <AppProvider>
+            <Header />
+            <div className="flex flex-1 relative">
+              <Sidebar />
+              <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-x-hidden bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+                <div className="max-w-7xl mx-auto">{children}</div>
+              </main>
+            </div>
+            <Footer />
+          </AppProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
