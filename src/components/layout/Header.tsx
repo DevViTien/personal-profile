@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ProfileContext } from "@/contexts/ProfileContext";
 import { useTranslations } from "next-intl";
-// import LanguageSelector from "./LanguageSelector";
+import LanguageSelector from "./LanguageSelector";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigationItems = [
@@ -23,6 +23,8 @@ export default function Header() {
   const t = useTranslations();
   const { profileData, loading } = profileContext || {};
   const { avatarUrl, slug } = profileData || {};
+
+  const showAvatarLoading = loading && !profileData;
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
@@ -44,10 +46,10 @@ export default function Header() {
             className="flex items-center space-x-3 text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 focus-ring rounded-lg"
             onClick={closeMobileMenu}
           >
-            {loading && (
+            {showAvatarLoading && (
               <div className="w-8 h-8 bg-gray-300 dark:bg-gray-700 rounded-full animate-pulse"></div>
             )}
-            {!loading && avatarUrl && (
+            {!showAvatarLoading && avatarUrl && (
               <div className="relative w-8 h-8 rounded-full overflow-hidden border-2 border-gray-200 dark:border-gray-700 shadow-sm">
                 <Image
                   src={avatarUrl}
@@ -77,15 +79,13 @@ export default function Header() {
                 {t(`navigation.${item.key}`)}
               </Link>
             ))}
-            {/* <div className="ml-4 pl-4 border-l border-gray-200 dark:border-gray-700 flex items-center space-x-2"> */}
-              {/* <LanguageSelector /> */}
-              {/* <ThemeToggleButton /> */}
-            {/* </div> */}
-          </div>
+            <div className="ml-4 pl-4 border-l border-gray-200 dark:border-gray-700 flex items-center space-x-2">
+              <LanguageSelector />
+            </div>
+          </div>{" "}
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
-            {/* <LanguageSelector /> */}
-            {/* <ThemeToggleButton /> */}
+            <LanguageSelector />
             <button
               onClick={toggleMobileMenu}
               className="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus-ring"
