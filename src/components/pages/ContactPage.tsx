@@ -35,10 +35,10 @@ export default function ContactPage() {
     email: "",
     subject: "",
     message: "",
-  });
-
-  // State cho email sending
+  }); // State cho email sending
   const [isSubmitting, setIsSubmitting] = useState(false);
+  // TODO: Implement form validation errors display
+  // const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
   // Smooth scroll to top when component mounts (user navigated here)
   useEffect(() => {
@@ -126,10 +126,17 @@ export default function ContactPage() {
         // Reset form on success
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
-        toast.contact.messageError();
+        // Hiển thị error message cụ thể từ server
+        if (result.message.includes("cấu hình")) {
+          toast.contact.configError();
+        } else if (result.message.includes("kết nối")) {
+          toast.contact.networkError();
+        } else {
+          toast.contact.validationError(result.message);
+        }
       }
     } catch (error) {
-      console.error("Contact form submission error:", error);
+      console.error("Error sending contact email:", error);
       toast.contact.unexpectedError();
     } finally {
       setIsSubmitting(false);
@@ -463,7 +470,7 @@ export default function ContactPage() {
           <div className="mt-6 p-4 lg:p-6 bg-red-50/50 dark:bg-red-900/10 rounded-lg lg:rounded-xl border border-red-100 dark:border-red-800">
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               <strong className="text-red-600 dark:text-red-400">
-                {t("pages.contact.fullAddress")}
+                {t("pages.contact.fullAddress")}&nbsp;
               </strong>
               {address.full}
             </p>

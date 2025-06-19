@@ -137,7 +137,7 @@ export const sanitizeFormData = (data: ContactFormData): ContactFormData => {
 };
 
 /**
- * Gửi email qua EmailJS
+ * Gửi email qua EmailJS với comprehensive error handling
  */
 export const sendContactEmail = async (
   formData: ContactFormData
@@ -146,11 +146,11 @@ export const sendContactEmail = async (
     // Kiểm tra cấu hình EmailJS
     const configError = validateEmailConfig();
     if (configError) {
-      console.error("EmailJS config error:", configError);
       return {
         success: false,
         message:
           "Dịch vụ email chưa được cấu hình đúng. Vui lòng liên hệ quản trị viên.",
+        error: configError,
       };
     }
 
@@ -197,15 +197,16 @@ export const sendContactEmail = async (
       throw new Error(`EmailJS returned status: ${response.status}`);
     }
   } catch (error: unknown) {
-    console.error("Error sending email:", error);
-
     // Xử lý các loại lỗi khác nhau
     let errorMessage = "Có lỗi xảy ra khi gửi tin nhắn. Vui lòng thử lại sau.";
 
     if (error && typeof error === "object" && "message" in error) {
       const errorObj = error as { message?: string; status?: number };
 
-      if (errorObj.message?.includes("network")) {
+      if (
+        errorObj.message?.includes("network") ||
+        errorObj.message?.includes("fetch")
+      ) {
         errorMessage = "Lỗi kết nối mạng. Vui lòng kiểm tra kết nối internet.";
       } else if (errorObj.status === 400) {
         errorMessage = "Dữ liệu không hợp lệ. Vui lòng kiểm tra lại thông tin.";
@@ -215,6 +216,8 @@ export const sendContactEmail = async (
       } else if (errorObj.status === 429) {
         errorMessage =
           "Đã gửi quá nhiều tin nhắn. Vui lòng thử lại sau ít phút.";
+      } else if (errorObj.message?.includes("Failed to fetch")) {
+        errorMessage = "Không thể kết nối đến server. Vui lòng thử lại sau.";
       }
     }
 

@@ -161,12 +161,15 @@
   "errors": {
     "pageNotFound": "Page not found",
     "serverError": "Server error",
-    "networkError": "Network error",
+    "networkError": "Network error. Please check your internet connection.",
     "loadingFailed": "Loading failed",
     "somethingWentWrong": "Something went wrong",
     "tryAgain": "Try again",
     "goHome": "Go home",
-    "contactSupport": "Contact support"
+    "contactSupport": "Contact support",
+    "emailConfigError": "Email service is not configured properly. Please contact administrator.",
+    "validationError": "Invalid data",
+    "rateLimitExceeded": "Too many messages sent"
   },
   "actions": {
     "learnMore": "Learn more",

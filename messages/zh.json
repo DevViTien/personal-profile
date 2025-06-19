@@ -144,12 +144,12 @@
       "subjectPlaceholder": "请输入邮件主题",
       "message": "消息",
       "messagePlaceholder": "请输入您的消息内容...",
-      "send": "发送",
+      "send": "发送消息",
       "sending": "发送中...",
       "messageSent": "消息发送成功！",
       "messageError": "发送消息时发生错误",
-      "rateLimit": "发送过于频繁，请稍后再试",
-      "unexpectedError": "发生意外错误",
+      "rateLimit": "您发送消息过于频繁。请等待一段时间再尝试。",
+      "unexpectedError": "发生意外错误。请稍后重试。",
       "address": "地址",
       "fullAddress": "完整地址",
       "location": "位置",
@@ -161,12 +161,15 @@
   "errors": {
     "pageNotFound": "页面未找到",
     "serverError": "服务器错误",
-    "networkError": "网络错误",
+    "networkError": "网络错误。请检查您的网络连接。",
     "loadingFailed": "加载失败",
     "somethingWentWrong": "出了点问题",
     "tryAgain": "重试",
     "goHome": "返回首页",
-    "contactSupport": "联系支持"
+    "contactSupport": "联系支持",
+    "emailConfigError": "邮件服务配置错误。请联系管理员。",
+    "validationError": "数据无效",
+    "rateLimitExceeded": "发送消息过多"
   },
   "actions": {
     "learnMore": "了解更多",

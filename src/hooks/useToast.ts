@@ -1,10 +1,12 @@
 import { toast, ToastOptions } from "react-toastify";
+import { useTranslations } from "next-intl";
 
 /**
- * Custom hook for toast notifications với fallback messages
- * Cung cấp các method tiện ích để hiển thị toast
+ * Custom hook for toast notifications với đa ngôn ngữ
+ * Cung cấp các method tiện ích để hiển thị toast với i18n support
  */
 export const useToast = () => {
+  const t = useTranslations();
   // Default toast options
   const defaultOptions: ToastOptions = {
     position: "top-right",
@@ -33,17 +35,37 @@ export const useToast = () => {
   const info = (message: string, options?: ToastOptions) => {
     toast.info(message, { ...defaultOptions, ...options });
   };
-
-  // Specialized toast methods với pre-defined messages
+  // Specialized toast methods với i18n support
   const contact = {
-    messageSent: () => success("Tin nhắn đã được gửi thành công!"),
-    messageError: () => error("Có lỗi xảy ra khi gửi tin nhắn"),
+    messageSent: () =>
+      success(
+        t("pages.contact.messageSent") || "Tin nhắn đã được gửi thành công!"
+      ),
+    messageError: () =>
+      error(
+        t("pages.contact.messageError") || "Có lỗi xảy ra khi gửi tin nhắn"
+      ),
     rateLimit: (timeLeft: number) =>
       warning(
-        `Bạn đã gửi quá nhiều tin nhắn. Vui lòng đợi ${timeLeft} phút trước khi gửi lại.`
+        t("pages.contact.rateLimit") ||
+          `Bạn đã gửi quá nhiều tin nhắn. Vui lòng đợi ${timeLeft} phút trước khi gửi lại.`
       ),
     unexpectedError: () =>
-      error("Có lỗi không mong muốn xảy ra. Vui lòng thử lại sau."),
+      error(
+        t("pages.contact.unexpectedError") ||
+          "Có lỗi không mong muốn xảy ra. Vui lòng thử lại sau."
+      ),
+    configError: () =>
+      error(
+        t("errors.emailConfigError") ||
+          "Dịch vụ email chưa được cấu hình đúng. Vui lòng liên hệ quản trị viên."
+      ),
+    validationError: (message: string) => error(message),
+    networkError: () =>
+      error(
+        t("errors.networkError") ||
+          "Lỗi kết nối mạng. Vui lòng kiểm tra kết nối internet."
+      ),
   };
 
   const copy = {

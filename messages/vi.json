@@ -161,12 +161,15 @@
   "errors": {
     "pageNotFound": "Không tìm thấy trang",
     "serverError": "Lỗi máy chủ",
-    "networkError": "Lỗi kết nối mạng",
+    "networkError": "Lỗi kết nối mạng. Vui lòng kiểm tra kết nối internet.",
     "loadingFailed": "Tải thất bại",
     "somethingWentWrong": "Có gì đó không ổn",
     "tryAgain": "Thử lại",
     "goHome": "Về trang chủ",
-    "contactSupport": "Liên hệ hỗ trợ"
+    "contactSupport": "Liên hệ hỗ trợ",
+    "emailConfigError": "Dịch vụ email chưa được cấu hình đúng. Vui lòng liên hệ quản trị viên.",
+    "validationError": "Dữ liệu không hợp lệ",
+    "rateLimitExceeded": "Đã gửi quá nhiều tin nhắn"
   },
   "actions": {
     "learnMore": "Tìm hiểu thêm",
