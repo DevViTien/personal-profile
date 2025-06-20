@@ -4,10 +4,12 @@
     "about": "Giới thiệu",
     "projects": "Dự án",
     "contact": "Liên hệ"
-  },
-  "theme": {
+  },  "theme": {
     "light": "Chế độ sáng",
     "dark": "Chế độ tối",
+    "system": "Theo hệ thống",
+    "switchTheme": "Chuyển đổi chủ đề",
+    "selectTheme": "Chọn chủ đề",
     "toggleToLight": "Chuyển sang chế độ sáng",
     "toggleToDark": "Chuyển sang chế độ tối"
   },

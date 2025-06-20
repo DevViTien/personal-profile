@@ -62,7 +62,7 @@ export default async function LocaleLayout({
     notFound();
   }
   return (
-    <html lang={locale} className={inter.className}>
+    <html lang={locale} className={inter.className} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
         <NextIntlClientProvider>
           <AppProvider>

@@ -4,10 +4,12 @@
     "about": "关于",
     "projects": "项目",
     "contact": "联系"
-  },
-  "theme": {
+  },  "theme": {
     "light": "明亮模式",
     "dark": "暗黑模式",
+    "system": "跟随系统",
+    "switchTheme": "切换主题",
+    "selectTheme": "选择主题",
     "toggleToLight": "切换到明亮模式",
     "toggleToDark": "切换到暗黑模式"
   },

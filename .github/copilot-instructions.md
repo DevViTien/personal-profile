@@ -13,9 +13,9 @@
 - **Next.js 15.3.2**: Framework React với App Router, SSR/SSG, middleware và tối ưu hóa performance
 - **React 19**: Library JavaScript để xây dựng giao diện người dùng hiện đại  
 - **TypeScript 5**: Ngôn ngữ lập trình tăng cường tính an toàn và dễ bảo trì
-- **Tailwind CSS v4**: Framework CSS utility-first với PostCSS, hỗ trợ dark mode và responsive
+- **Tailwind CSS 3.4.1**: Framework CSS utility-first với PostCSS, hỗ trợ dark mode và responsive
 - **next-intl 4.1.0**: Thư viện quốc tế hóa cho Next.js với 4 ngôn ngữ (vi, en, zh, hi)
-- **next-themes 0.4.6**: Quản lý theme light/dark mode
+- **next-themes 0.4.6**: Quản lý theme light/dark/system mode
 - **react-toastify 11.0.5**: Hệ thống thông báo toast notifications
 - **@emailjs/browser 4.4.1**: Dịch vụ gửi email từ client-side với rate limiting
 
@@ -42,20 +42,21 @@
 
 ```
 src/
-├── app/                          # Next.js App Router
-│   ├── layout.tsx               # Root layout với providers
-│   ├── page.tsx                 # Trang chủ
-│   ├── globals.css              # CSS toàn cục với Tailwind imports
-│   ├── about/page.tsx           # Trang giới thiệu
-│   ├── projects/page.tsx        # Trang dự án
-│   └── contact/page.tsx         # Trang liên hệ
+├── app/
+│   └── [locale]/                 # Next.js App Router với internationalization
+│       ├── layout.tsx           # Root layout với providers
+│       ├── page.tsx             # Trang chủ
+│       ├── globals.css          # CSS toàn cục với Tailwind imports
+│       ├── about/page.tsx       # Trang giới thiệu
+│       ├── projects/page.tsx    # Trang dự án
+│       └── contact/page.tsx     # Trang liên hệ
 ├── components/
 │   ├── layout/                  # Layout components
 │   │   ├── Header.tsx          # Navigation header với mobile menu
 │   │   ├── Footer.tsx          # Footer với thông tin liên hệ
 │   │   ├── Sidebar.tsx         # Sidebar với ProfileCard (desktop)
 │   │   ├── LanguageSelector.tsx # Chuyển đổi ngôn ngữ
-│   │   └── ThemeToggleButton.tsx # Chuyển đổi dark/light mode
+│   │   └── ThemeSwitcher.tsx   # Chuyển đổi light/dark/system mode
 │   ├── cards/
 │   │   └── ProfileCard.tsx     # Card hiển thị thông tin cá nhân
 │   ├── pages/                   # Page-specific components
@@ -63,15 +64,17 @@ src/
 │   │   ├── AboutPage.tsx       # Chi tiết về cá nhân
 │   │   ├── ContactPage.tsx     # Form liên hệ với EmailJS
 │   │   └── ProjectsPage.tsx    # Danh sách dự án
-│   └── providers/               # Provider components
-│       ├── ToastProvider.tsx   # Toast notification provider
-│       └── ProfileLanguageSyncComponent.tsx # Sync profile với ngôn ngữ
+│   ├── providers/               # Provider components
+│   │   ├── ToastProvider.tsx   # Toast notification provider
+│   │   ├── ThemeProvider.tsx   # Theme provider wrapper
+│   │   └── ProfileLanguageSyncComponent.tsx # Sync profile với ngôn ngữ
+│   ├── common/                  # Common/shared components (empty)
+│   └── debug/                   # Debug components (empty)
 ├── contexts/                    # React Context management
 │   ├── AppProvider.tsx         # Provider tổng hợp cho app
-│   ├── ThemeContext.tsx        # Quản lý theme state
 │   └── ProfileContext.tsx      # Quản lý profile data theo ngôn ngữ
 ├── hooks/                       # Custom hooks
-│   ├── useToast.ts            # Hook cho toast notifications
+│   ├── useToast.ts            # Hook cho toast notifications với i18n
 │   ├── useDownload.ts         # Hook cho download CV/files
 │   └── useProfileLanguageSync.ts # Hook đồng bộ profile với ngôn ngữ
 ├── utils/                       # Utility functions
@@ -91,8 +94,11 @@ src/
 │   └── language.ts            # Language/locale types
 ├── config/
 │   └── site.ts                # Site configuration với languages
-└── i18n/
-    └── request.ts             # next-intl configuration
+├── i18n/
+│   ├── request.ts             # next-intl configuration
+│   ├── routing.ts             # Routing configuration for locales
+│   └── navigation.ts          # Navigation helpers
+└── assets/                      # Static assets (empty, using public/)
 ```
 
 ---
@@ -157,9 +163,9 @@ NEXT_PUBLIC_CONTACT_EMAIL=your_email@gmail.com
 
 ### Theme Management
 
-- **next-themes**: Provider cho dark/light mode
+- **next-themes**: Provider cho light/dark/system mode (3 options)
 - **LocalStorage**: Lưu trữ preference
-- **System detection**: Disabled (manual only)
+- **System detection**: Enabled với system theme option
 - **Tailwind integration**: Class-based theme switching
 
 ### Design System
@@ -222,7 +228,12 @@ downloadCV(cvUrl, userName);
 ### ProfileData Interface
 
 ```typescript
-interface ProfileData {
+export interface Award {
+  year: string;
+  description: string;
+}
+
+export interface ProfileData {
   name: string;
   slug: string;
   title: string;
@@ -245,9 +256,10 @@ interface ProfileData {
     twitter?: string;
   };
   education: Education[];
-  skills: Skill[];
+  skills: SkillCategory[];
   experience: Experience[];
-  projects: Project[];
+  awards: Award[];
+  hobbies: string[];
 }
 ```
 
@@ -278,11 +290,27 @@ interface ProfileData {
 
 ```typescript
 // next.config.ts
-headers: [
-  'X-Frame-Options': 'DENY',
-  'X-Content-Type-Options': 'nosniff',
-  'Referrer-Policy': 'origin-when-cross-origin'
-]
+async headers() {
+  return [
+    {
+      source: '/(.*)',
+      headers: [
+        {
+          key: 'X-Frame-Options',
+          value: 'DENY',
+        },
+        {
+          key: 'X-Content-Type-Options',
+          value: 'nosniff',
+        },
+        {
+          key: 'Referrer-Policy',
+          value: 'origin-when-cross-origin',
+        },
+      ],
+    },
+  ];
+}
 ```
 
 ### Input Sanitization
@@ -415,4 +443,4 @@ headers: [
 
 ---
 
-*Cập nhật lần cuối: June 6, 2025*
+*Cập nhật lần cuối: 21 tháng 6, 2025*

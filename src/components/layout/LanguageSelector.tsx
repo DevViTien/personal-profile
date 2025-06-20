@@ -3,37 +3,41 @@
 import { useEffect, useRef, useState, useTransition } from "react";
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import {  GlobeAltIcon } from "@heroicons/react/24/outline";
 import { Link } from "@/i18n/navigation";
 
 const languages = [
-  {
-    code: "en",
-    name: "English",
-    nativeName: "English",
-    flag: "🇺🇸",
-    direction: "ltr",
-  },
   {
     code: "vi",
     name: "Vietnamese",
     nativeName: "Tiếng Việt",
     flag: "🇻🇳",
     direction: "ltr",
+    color: "bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400"
+  },
+  {
+    code: "en",
+    name: "English", 
+    nativeName: "English",
+    flag: "🇺🇸",
+    direction: "ltr",
+    color: "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400"
   },
   {
     code: "zh",
     name: "Chinese",
     nativeName: "中文",
-    flag: "🇨🇳",
+    flag: "🇨🇳", 
     direction: "ltr",
+    color: "bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400"
   },
   {
     code: "hi",
     name: "Hindi",
     nativeName: "हिन्दी",
     flag: "🇮🇳",
-    direction: "ltr",
+    direction: "ltr", 
+    color: "bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400"
   },
 ];
 
@@ -81,7 +85,7 @@ export default function LanguageSelector() {
       <button
         aria-label={t("selectLanguage")}
         title={t("selectLanguage")}
-        className={`flex items-center p-1.5 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 focus-ring ${
+        className={`group relative flex items-center justify-center w-9 h-9 p-2 rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 shadow-sm hover:shadow-md border border-gray-200 dark:border-gray-600 ${
           isPending ? "opacity-60 cursor-wait" : ""
         }`}
         onClick={() => setIsOpen(!isOpen)}
@@ -89,24 +93,20 @@ export default function LanguageSelector() {
         aria-controls="language-menu"
         disabled={isPending}
       >
-        <span className="text-xl" aria-hidden="true">
+        <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-200" aria-hidden="true">
           {currentLanguage.flag}
         </span>
-        <ChevronDownIcon
-          className={`w-4 h-4 ml-1 transition-transform duration-200 ${
-            isOpen ? "rotate-180" : ""
-          } ${isPending ? "animate-spin" : ""}`}
-          aria-hidden="true"
-        />
       </button>
+
       {isOpen && (
         <div
           id="language-menu"
-          className="absolute right-0 mt-2 w-48 sm:w-52 bg-white dark:bg-gray-800 shadow-lg rounded-md py-1 z-50 ring-1 ring-gray-200 dark:ring-gray-700 border border-gray-100 dark:border-gray-600 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200"
+          className="absolute right-0 mt-2 w-52 bg-white dark:bg-gray-800 shadow-lg rounded-lg py-1 z-50 ring-1 ring-gray-200 dark:ring-gray-700 border border-gray-100 dark:border-gray-600 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200"
           role="menu"
           aria-orientation="vertical"
         >
-          <div className="px-3 py-2 text-xs font-medium text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700">
+          <div className="px-3 py-2 text-xs font-medium text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 flex items-center">
+            <GlobeAltIcon className="w-3 h-3 mr-1.5" />
             {t("selectLanguage")}
           </div>
           <div className="py-1">
@@ -115,9 +115,9 @@ export default function LanguageSelector() {
                 key={language.code}
                 href="/"
                 locale={language.code}
-                className={`flex items-center justify-between px-4 py-2.5 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset ${
+                className={`group flex items-center justify-between px-4 py-2.5 text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset ${
                   locale === language.code
-                    ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 font-medium"
+                    ? `${language.color} font-medium`
                     : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
                 }`}
                 onClick={() => {
@@ -128,12 +128,24 @@ export default function LanguageSelector() {
                 role="menuitem"
               >
                 <div className="flex items-center">
-                  <span className="mr-3 text-lg">{language.flag}</span>
-                  <span>{language.nativeName}</span>
+                  <span className="mr-3 text-base transition-transform duration-200 group-hover:scale-110">
+                    {language.flag}
+                  </span>
+                  <div className="flex flex-col">
+                    <span className="font-medium">{language.nativeName}</span>
+                    <span className="text-xs opacity-60">{language.name}</span>
+                  </div>
                 </div>
-                {locale === language.code && (
-                  <span className="ml-2 text-xs opacity-60">✓</span>
-                )}
+                <div className="flex items-center">
+                  {locale === language.code && (
+                    <span className="mr-2 text-xs opacity-60">✓</span>
+                  )}
+                  <div className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                    locale === language.code 
+                      ? "bg-current opacity-100" 
+                      : "bg-gray-300 dark:bg-gray-600 opacity-50 group-hover:opacity-75"
+                  }`} />
+                </div>
               </Link>
             ))}
           </div>

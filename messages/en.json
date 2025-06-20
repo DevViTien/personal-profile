@@ -4,10 +4,12 @@
     "about": "About",
     "projects": "Projects",
     "contact": "Contact"
-  },
-  "theme": {
+  },  "theme": {
     "light": "Light mode",
     "dark": "Dark mode",
+    "system": "System",
+    "switchTheme": "Switch theme",
+    "selectTheme": "Select theme",
     "toggleToLight": "Switch to light mode",
     "toggleToDark": "Switch to dark mode"
   },

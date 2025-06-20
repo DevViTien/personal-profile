@@ -4,10 +4,12 @@
     "about": "परिचय",
     "projects": "प्रोजेक्ट्स",
     "contact": "संपर्क"
-  },
-  "theme": {
+  },  "theme": {
     "light": "लाइट मोड",
     "dark": "डार्क मोड",
+    "system": "सिस्टम के अनुसार",
+    "switchTheme": "थीम बदलें",
+    "selectTheme": "थीम चुनें",
     "toggleToLight": "लाइट मोड में बदलें",
     "toggleToDark": "डार्क मोड में बदलें"
   },

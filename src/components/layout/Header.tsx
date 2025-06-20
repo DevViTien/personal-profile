@@ -6,8 +6,9 @@ import { useContext, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ProfileContext } from "@/contexts/ProfileContext";
 import { useTranslations } from "next-intl";
-import LanguageSelector from "./LanguageSelector";
+import LanguageSelector from "@/components/layout/LanguageSelector";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import ThemeSwitcher from "@/components/layout/ThemeSwitcher";
 
 const navigationItems = [
   { href: "/", key: "home" },
@@ -81,11 +82,13 @@ export default function Header() {
             ))}
             <div className="ml-4 pl-4 border-l border-gray-200 dark:border-gray-700 flex items-center space-x-2">
               <LanguageSelector />
+              <ThemeSwitcher />
             </div>
           </div>{" "}
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
             <LanguageSelector />
+            <ThemeSwitcher />
             <button
               onClick={toggleMobileMenu}
               className="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus-ring"
