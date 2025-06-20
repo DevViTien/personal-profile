@@ -4,7 +4,8 @@
     "about": "关于",
     "projects": "项目",
     "contact": "联系"
-  },  "theme": {
+  },
+  "theme": {
     "light": "明亮模式",
     "dark": "暗黑模式",
     "system": "跟随系统",
@@ -70,6 +71,7 @@
     "interests": "兴趣",
     "projects": "项目",
     "socialMedia": "社交媒体",
+    "socialLinks": "社交链接",
     "professionalSummary": "专业总结",
     "careerObjective": "职业目标",
     "currentPosition": "当前职位",

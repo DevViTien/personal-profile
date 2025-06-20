@@ -14,7 +14,9 @@ import {
   UserIcon,
   ArrowDownTrayIcon,
   ChatBubbleLeftRightIcon,
+  GlobeAltIcon,
 } from "@heroicons/react/24/outline";
+import { FaGithub, FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 export default function ProfileCard() {
   const profileContext = useContext(ProfileContext);
@@ -58,6 +60,7 @@ export default function ProfileCard() {
     birthDate,
     gender,
     cvUrl,
+    socialLinks,
   } = profileData || {};
 
   const handleDownloadCV = () => {
@@ -131,6 +134,74 @@ export default function ProfileCard() {
             </div>
           )}
         </div>
+
+        {/* Social Links */}
+        {socialLinks && (
+          <div className="w-full mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-3 text-center">
+              {t("profile.socialLinks")}
+            </h3>
+            <div className="flex justify-center space-x-4">
+              {" "}
+              {socialLinks.website && (
+                <Link
+                  href={socialLinks.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 transition-colors p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                  aria-label="Website"
+                >
+                  <GlobeAltIcon className="w-5 h-5" />
+                </Link>
+              )}
+              {socialLinks.github && (
+                <Link
+                  href={socialLinks.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                  aria-label="GitHub"
+                >
+                  <FaGithub className="w-5 h-5" />
+                </Link>
+              )}{" "}
+              {socialLinks.facebook && (
+                <Link
+                  href={socialLinks.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                  aria-label="Facebook"
+                >
+                  <FaFacebook className="w-5 h-5" />
+                </Link>
+              )}{" "}
+              {socialLinks.linkedin && (
+                <Link
+                  href={socialLinks.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-700 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedin className="w-5 h-5" />
+                </Link>
+              )}{" "}
+              {socialLinks.twitter && (
+                <Link
+                  href={socialLinks.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-500 dark:text-blue-300 dark:hover:text-blue-200 transition-colors p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                  aria-label="Twitter"
+                >
+                  <FaTwitter className="w-5 h-5" />
+                </Link>
+              )}
+            </div>
+          </div>
+        )}
+
         {/* Action Buttons */}
         <div className="w-full mt-6 space-y-2">
           <button

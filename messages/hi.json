@@ -4,7 +4,8 @@
     "about": "परिचय",
     "projects": "प्रोजेक्ट्स",
     "contact": "संपर्क"
-  },  "theme": {
+  },
+  "theme": {
     "light": "लाइट मोड",
     "dark": "डार्क मोड",
     "system": "सिस्टम के अनुसार",
@@ -70,6 +71,7 @@
     "interests": "रुचियां",
     "projects": "प्रोजेक्ट्स",
     "socialMedia": "सोशल मीडिया",
+    "socialLinks": "सामाजिक लिंक",
     "professionalSummary": "व्यावसायिक सारांश",
     "careerObjective": "करियर उद्देश्य",
     "currentPosition": "वर्तमान पद",

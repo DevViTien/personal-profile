@@ -9,6 +9,7 @@ export interface SocialLinks {
   facebook: string;
   linkedin: string;
   twitter: string;
+  website?: string;
 }
 
 export interface Education {

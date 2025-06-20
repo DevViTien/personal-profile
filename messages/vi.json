@@ -4,7 +4,8 @@
     "about": "Giới thiệu",
     "projects": "Dự án",
     "contact": "Liên hệ"
-  },  "theme": {
+  },
+  "theme": {
     "light": "Chế độ sáng",
     "dark": "Chế độ tối",
     "system": "Theo hệ thống",
@@ -70,6 +71,7 @@
     "interests": "Sở thích",
     "projects": "Dự án",
     "socialMedia": "Mạng xã hội",
+    "socialLinks": "Liên kết xã hội",
     "professionalSummary": "Tóm tắt nghề nghiệp",
     "careerObjective": "Mục tiêu nghề nghiệp",
     "currentPosition": "Vị trí hiện tại",

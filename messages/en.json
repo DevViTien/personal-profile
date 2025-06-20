@@ -4,7 +4,8 @@
     "about": "About",
     "projects": "Projects",
     "contact": "Contact"
-  },  "theme": {
+  },
+  "theme": {
     "light": "Light mode",
     "dark": "Dark mode",
     "system": "System",
@@ -70,6 +71,7 @@
     "interests": "Interests",
     "projects": "Projects",
     "socialMedia": "Social Media",
+    "socialLinks": "Social Links",
     "professionalSummary": "Professional Summary",
     "careerObjective": "Career Objective",
     "currentPosition": "Current Position",

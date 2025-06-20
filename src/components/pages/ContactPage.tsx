@@ -13,7 +13,13 @@ import {
   UserIcon,
   SparklesIcon,
 } from "@heroicons/react/24/outline";
-import { FaGithub, FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import {
+  FaGithub,
+  FaFacebook,
+  FaLinkedin,
+  FaTwitter,
+  FaGlobe,
+} from "react-icons/fa";
 import {
   sendContactEmail,
   checkRateLimit,
@@ -142,8 +148,13 @@ export default function ContactPage() {
       setIsSubmitting(false);
     }
   };
-
   const socialIcons = [
+    {
+      name: "Website",
+      url: socialLinks?.website,
+      icon: FaGlobe,
+      color: "text-green-600 hover:text-green-800",
+    },
     {
       name: "GitHub",
       url: socialLinks?.github,
