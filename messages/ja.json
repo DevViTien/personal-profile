@@ -123,7 +123,14 @@
       "projectDetails": "プロジェクト詳細",
       "challenges": "課題",
       "solutions": "解決策",
-      "results": "結果"
+      "results": "結果",
+      "responsibilities": "主な責任",
+      "teamSize": "チームサイズ",
+      "person": "人",
+      "people": "人",
+      "viewDetails": "詳細を見る",
+      "hideDetails": "詳細を隠す",
+      "clickToExpand": "プロジェクト詳細を見るにはクリック"
     },
     "contact": {
       "title": "お問い合わせ",

@@ -78,31 +78,78 @@
   ],
   "experience": [
     {
-      "startDate": "01/2021",
-      "endDate": "07/2024",
-      "title": "Intern - Software Engineer",
-      "company": "BKAV CORPORATION",
+      "startDate": "10/2024",
+      "endDate": "present",
+      "title": "Frontend Developer",
+      "company": "VCCORP CORPORATION",
       "projects": [
-        "Software Development: 6 months participating in browser software development using Chromium. (C++)",
-        "Frontend developer: 3 years participating in enterprise management system development: Social Network, chat app, todolist and HR, finance management modules. Work: building interfaces for websites and mobile apps. Using ReactJS, ReactNative"
+        {
+          "name": "AI-Powered Content Management System (CMS)",
+          "description": "Next-generation CMS integrated with AI, including multimedia content management, media library management, social media management, and content automation.",
+          "mainResponsibilities": "Developed Frontend for CMS modules, integrated AI tools for development process automation, code generation, and automated testing.",
+          "technologies": [
+            "React.js",
+            ".NET Core",
+            "Tailwind CSS",
+            "TypeScript",
+            "AI Integration Tools"
+          ],
+          "teamSize": [4, 8]
+        }
       ]
     },
     {
       "startDate": "04/2024",
       "endDate": "10/2024",
-      "title": "Freelancer",
-      "company": "none",
+      "title": "Freelancer Frontend Developer",
+      "company": "Personal Project",
       "projects": [
-        "Frontend developer: Text-To-Speech website. Result: https://speechconvert.com/"
+        {
+          "name": "Professional Text-To-Speech Website",
+          "description": "Text-to-speech platform with multi-language support, natural voice options, and advanced customization features.",
+          "mainResponsibilities": "Designed and developed complete user interface, integrated AI voice synthesis APIs, optimized user experience and performance.",
+          "technologies": [
+            "React.js",
+            "Next.js",
+            "Tailwind CSS",
+            "Material-UI",
+            "Node.js",
+            "Express.js",
+            "MongoDB"
+          ],
+          "teamSize": 2
+        }
       ]
     },
     {
-      "startDate": "10/2024",
-      "endDate": "present",
-      "title": "Frontend developer",
-      "company": "VCCORP CORPORATION",
+      "startDate": "01/2021",
+      "endDate": "07/2024",
+      "title": "Intern - Software Engineer",
+      "company": "BKAV CORPORATION",
       "projects": [
-        "Content Management System (CMS) project: Utilizing AI tools for code generation optimization, automated testing and content processing."
+        {
+          "name": "Chromium Web Browser Software",
+          "description": "Advanced web browser software with enhanced security features, intelligent tab management, and user data synchronization capabilities.",
+          "mainResponsibilities": "Participated in software development internship, researched and fixed bugs, developed new features for the browser's core engine.",
+          "technologies": ["Chromium", "C++", "Git", "Visual Studio"],
+          "teamSize": [3, 5]
+        },
+        {
+          "name": "Enterprise Resource Planning (ERP) System",
+          "description": "Comprehensive ERP system integrating modules: Internal social network, Real-time chat, Todo management, Email system, HR management, and Financial management.",
+          "mainResponsibilities": "Developed Frontend from initial phase to complete product deployment. Built interfaces for both web applications and mobile apps.",
+          "technologies": [
+            "React.js",
+            "React Native",
+            "Ant Design",
+            "Redux",
+            "Git",
+            "HTML5",
+            "CSS3",
+            "JavaScript ES6+"
+          ],
+          "teamSize": [6, 10]
+        }
       ]
     }
   ],

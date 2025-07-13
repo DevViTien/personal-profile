@@ -123,7 +123,14 @@
       "projectDetails": "प्रोजेक्ट विवरण",
       "challenges": "चुनौतियां",
       "solutions": "समाधान",
-      "results": "परिणाम"
+      "results": "परिणाम",
+      "responsibilities": "मुख्य जिम्मेदारियां",
+      "teamSize": "टीम का आकार",
+      "person": "व्यक्ति",
+      "people": "लोग",
+      "viewDetails": "विवरण देखें",
+      "hideDetails": "विवरण छुपाएं",
+      "clickToExpand": "प्रोजेक्ट विवरण देखने के लिए क्लिक करें"
     },
     "contact": {
       "title": "संपर्क",

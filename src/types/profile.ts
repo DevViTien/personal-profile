@@ -24,12 +24,20 @@ export interface SkillCategory {
   data: string[];
 }
 
+export interface Project {
+  name: string;
+  description: string;
+  mainResponsibilities: string;
+  technologies: string[];
+  teamSize: number | [number, number];
+}
+
 export interface Experience {
   startDate: string;
   endDate: string;
   title: string;
   company: string;
-  projects: string[];
+  projects: Project[];
 }
 
 export interface Award {

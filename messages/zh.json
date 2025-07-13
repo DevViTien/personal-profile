@@ -123,7 +123,14 @@
       "projectDetails": "项目详情",
       "challenges": "挑战",
       "solutions": "解决方案",
-      "results": "结果"
+      "results": "结果",
+      "responsibilities": "主要职责",
+      "teamSize": "团队规模",
+      "person": "人",
+      "people": "人",
+      "viewDetails": "查看详情",
+      "hideDetails": "隐藏详情",
+      "clickToExpand": "点击查看项目详情"
     },
     "contact": {
       "title": "联系我",

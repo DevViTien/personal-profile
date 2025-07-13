@@ -78,29 +78,78 @@
   ],
   "experience": [
     {
-      "startDate": "01/2021",
-      "endDate": "07/2024",
-      "title": "实习生 - 软件工程师",
-      "company": "BKAV股份公司",
-      "projects": [
-        "软件开发：6个月参与使用Chromium的浏览器软件开发。(C++)",
-        "前端开发：3年参与企业管理系统开发：社交网络、聊天应用、待办事项列表以及人力资源、财务管理模块。工作：为网站和移动应用构建界面。使用ReactJS、ReactNative"
-      ]
-    },
-    {
-      "startDate": "04/2024",
-      "endDate": "10/2024",
-      "title": "自由职业者",
-      "company": "无",
-      "projects": ["前端开发：文本转语音网站。结果：https://speechconvert.com/"]
-    },
-    {
       "startDate": "10/2024",
       "endDate": "至今",
       "title": "前端开发工程师",
       "company": "VCCORP股份公司",
       "projects": [
-        "内容管理系统(CMS)项目：利用AI工具进行代码生成优化、自动化测试和内容处理。"
+        {
+          "name": "AI智能内容管理系统(CMS)",
+          "description": "集成AI的下一代CMS，包括多媒体内容管理、媒体库管理、社交媒体管理和内容自动化。",
+          "mainResponsibilities": "为CMS模块开发前端，集成AI工具进行开发流程自动化、代码生成和自动化测试。",
+          "technologies": [
+            "React.js",
+            ".NET Core",
+            "Tailwind CSS",
+            "TypeScript",
+            "AI Integration Tools"
+          ],
+          "teamSize": [4, 8]
+        }
+      ]
+    },
+    {
+      "startDate": "04/2024",
+      "endDate": "10/2024",
+      "title": "自由职业前端开发工程师",
+      "company": "个人项目",
+      "projects": [
+        {
+          "name": "专业文本转语音网站",
+          "description": "支持多语言、自然语音选项和高级自定义功能的文本转语音平台。",
+          "mainResponsibilities": "设计并开发完整的用户界面，集成AI语音合成API，优化用户体验和性能。",
+          "technologies": [
+            "React.js",
+            "Next.js",
+            "Tailwind CSS",
+            "Material-UI",
+            "Node.js",
+            "Express.js",
+            "MongoDB"
+          ],
+          "teamSize": 2
+        }
+      ]
+    },
+    {
+      "startDate": "01/2021",
+      "endDate": "07/2024",
+      "title": "实习生 - 软件工程师",
+      "company": "BKAV股份公司",
+      "projects": [
+        {
+          "name": "Chromium网页浏览器软件",
+          "description": "具有增强安全功能、智能标签管理和用户数据同步功能的高级网页浏览器软件。",
+          "mainResponsibilities": "参与软件开发实习，研究并修复错误，为浏览器核心引擎开发新功能。",
+          "technologies": ["Chromium", "C++", "Git", "Visual Studio"],
+          "teamSize": [3, 5]
+        },
+        {
+          "name": "企业资源规划(ERP)系统",
+          "description": "综合ERP系统集成模块：内部社交网络、实时聊天、待办事项管理、邮件系统、人力资源管理和财务管理。",
+          "mainResponsibilities": "从初始阶段到完整产品部署开发前端。为网页应用程序和移动应用程序构建界面。",
+          "technologies": [
+            "React.js",
+            "React Native",
+            "Ant Design",
+            "Redux",
+            "Git",
+            "HTML5",
+            "CSS3",
+            "JavaScript ES6+"
+          ],
+          "teamSize": [6, 10]
+        }
       ]
     }
   ],

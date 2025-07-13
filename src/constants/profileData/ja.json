@@ -78,13 +78,12 @@
   ],
   "experience": [
     {
-      "startDate": "2021年1月",
-      "endDate": "2024年7月",
-      "title": "インターン - ソフトウェアエンジニア",
-      "company": "BKAV CORPORATION",
+      "startDate": "2024年10月",
+      "endDate": "現在",
+      "title": "フロントエンド開発者",
+      "company": "VCCORP CORPORATION",
       "projects": [
-        "ソフトウェア開発：Chromiumを使用したブラウザソフトウェア開発に6ヶ月参加。(C++)",
-        "フロントエンド開発者：企業管理システム開発に3年参加：ソーシャルネットワーク、チャットアプリ、ToDo、人事・財務管理モジュール。業務：Webサイトとモバイルアプリのインターフェース構築。ReactJS、ReactNativeを使用"
+        "コンテンツ管理システム（CMS）プロジェクト：コード生成最適化、自動テスト、コンテンツ処理にAIツールを活用。"
       ]
     },
     {
@@ -97,12 +96,13 @@
       ]
     },
     {
-      "startDate": "2024年10月",
-      "endDate": "現在",
-      "title": "フロントエンド開発者",
-      "company": "VCCORP CORPORATION",
+      "startDate": "2021年1月",
+      "endDate": "2024年7月",
+      "title": "インターン - ソフトウェアエンジニア",
+      "company": "BKAV CORPORATION",
       "projects": [
-        "コンテンツ管理システム（CMS）プロジェクト：コード生成最適化、自動テスト、コンテンツ処理にAIツールを活用。"
+        "ソフトウェア開発：Chromiumを使用したブラウザソフトウェア開発に6ヶ月参加。(C++)",
+        "フロントエンド開発者：企業管理システム開発に3年参加：ソーシャルネットワーク、チャットアプリ、ToDo、人事・財務管理モジュール。業務：Webサイトとモバイルアプリのインターフェース構築。ReactJS、ReactNativeを使用"
       ]
     }
   ],

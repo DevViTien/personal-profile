@@ -123,7 +123,14 @@
       "projectDetails": "Chi tiết dự án",
       "challenges": "Thách thức",
       "solutions": "Giải pháp",
-      "results": "Kết quả"
+      "results": "Kết quả",
+      "responsibilities": "Trách nhiệm chính",
+      "teamSize": "Quy mô nhóm",
+      "person": "người",
+      "people": "người",
+      "viewDetails": "Xem chi tiết",
+      "hideDetails": "Thu gọn",
+      "clickToExpand": "Click để xem chi tiết dự án"
     },
     "contact": {
       "title": "Liên hệ với tôi",

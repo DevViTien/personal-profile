@@ -123,7 +123,14 @@
       "projectDetails": "Project Details",
       "challenges": "Challenges",
       "solutions": "Solutions",
-      "results": "Results"
+      "results": "Results",
+      "responsibilities": "Main Responsibilities",
+      "teamSize": "Team Size",
+      "person": "person",
+      "people": "people",
+      "viewDetails": "View details",
+      "hideDetails": "Hide details",
+      "clickToExpand": "Click to view project details"
     },
     "contact": {
       "title": "Contact me",

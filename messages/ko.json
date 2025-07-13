@@ -123,7 +123,14 @@
       "projectDetails": "프로젝트 세부사항",
       "challenges": "도전",
       "solutions": "해결책",
-      "results": "결과"
+      "results": "결과",
+      "responsibilities": "주요 책임",
+      "teamSize": "팀 규모",
+      "person": "명",
+      "people": "명",
+      "viewDetails": "세부사항 보기",
+      "hideDetails": "세부사항 숨기기",
+      "clickToExpand": "프로젝트 세부사항을 보려면 클릭하세요"
     },
     "contact": {
       "title": "연락하기",

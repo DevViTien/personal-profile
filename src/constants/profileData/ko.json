@@ -78,13 +78,12 @@
   ],
   "experience": [
     {
-      "startDate": "2021년 1월",
-      "endDate": "2024년 7월",
-      "title": "인턴 - 소프트웨어 엔지니어",
-      "company": "BKAV CORPORATION",
+      "startDate": "2024년 10월",
+      "endDate": "현재",
+      "title": "프론트엔드 개발자",
+      "company": "VCCORP CORPORATION",
       "projects": [
-        "소프트웨어 개발: Chromium을 사용한 브라우저 소프트웨어 개발에 6개월 참여. (C++)",
-        "프론트엔드 개발자: 기업 관리 시스템 개발에 3년 참여: 소셜 네트워크, 채팅 앱, 할 일 목록 및 HR, 재무 관리 모듈. 업무: 웹사이트와 모바일 앱 인터페이스 구축. ReactJS, ReactNative 사용"
+        "콘텐츠 관리 시스템(CMS) 프로젝트: 코드 생성 최적화, 자동화된 테스팅 및 콘텐츠 처리를 위한 AI 도구 활용."
       ]
     },
     {
@@ -97,12 +96,13 @@
       ]
     },
     {
-      "startDate": "2024년 10월",
-      "endDate": "현재",
-      "title": "프론트엔드 개발자",
-      "company": "VCCORP CORPORATION",
+      "startDate": "2021년 1월",
+      "endDate": "2024년 7월",
+      "title": "인턴 - 소프트웨어 엔지니어",
+      "company": "BKAV CORPORATION",
       "projects": [
-        "콘텐츠 관리 시스템(CMS) 프로젝트: 코드 생성 최적화, 자동화된 테스팅 및 콘텐츠 처리를 위한 AI 도구 활용."
+        "소프트웨어 개발: Chromium을 사용한 브라우저 소프트웨어 개발에 6개월 참여. (C++)",
+        "프론트엔드 개발자: 기업 관리 시스템 개발에 3년 참여: 소셜 네트워크, 채팅 앱, 할 일 목록 및 HR, 재무 관리 모듈. 업무: 웹사이트와 모바일 앱 인터페이스 구축. ReactJS, ReactNative 사용"
       ]
     }
   ],

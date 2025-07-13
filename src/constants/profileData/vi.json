@@ -78,31 +78,78 @@
   ],
   "experience": [
     {
-      "startDate": "01/2021",
-      "endDate": "07/2024",
-      "title": "Sinh viên thực tập - Chuyên viên lập trình",
-      "company": "CÔNG TY CỔ PHẦN BKAV",
+      "startDate": "10/2024",
+      "endDate": "hiện nay",
+      "title": "Frontend Developer",
+      "company": "CÔNG TY CỔ PHẦN VCCORP",
       "projects": [
-        "Phát triển phần mềm: 6 tháng tham gia phát triển phần mềm trình duyệt, sử dụng Chromium. (C++)",
-        "Frontend developer: 3 năm tham gia phát triển hệ thống phần mềm quản trị doanh nghiệp: MXH (mạng xã hội), chat app, todolist và các module quản lý nhân sự, tài chính. Công việc: xây dựng giao diện cho trang web và mobile app. Sử dụng ReactJS, ReactNative"
+        {
+          "name": "Hệ thống Quản lý Nội dung thông minh (AI-Powered CMS)",
+          "description": "Hệ thống CMS thế hệ mới tích hợp AI, bao gồm quản lý nội dung đa phương tiện, quản lý media library, social media management và content automation.",
+          "mainResponsibilities": "Phát triển Frontend cho các module CMS, tích hợp AI tools để tự động hóa quy trình phát triển, code generation và automated testing.",
+          "technologies": [
+            "React.js",
+            ".NET Core",
+            "Tailwind CSS",
+            "TypeScript",
+            "AI Integration Tools"
+          ],
+          "teamSize": [4, 8]
+        }
       ]
     },
     {
       "startDate": "04/2024",
       "endDate": "10/2024",
-      "title": "Freelancer",
-      "company": "none",
+      "title": "Freelancer Frontend Developer",
+      "company": "Dự án cá nhân",
       "projects": [
-        "Frontend developer: Text-To-Speech website. Kết quả: https://speechconvert.com/"
+        {
+          "name": "Website Text-To-Speech chuyên nghiệp",
+          "description": "Nền tảng chuyển đổi văn bản thành giọng nói với hỗ trợ đa ngôn ngữ, nhiều giọng đọc tự nhiên và các tùy chọn tùy chỉnh nâng cao.",
+          "mainResponsibilities": "Thiết kế và phát triển hoàn chỉnh giao diện người dùng, tích hợp API AI voice synthesis, tối ưu hóa trải nghiệm người dùng và performance.",
+          "technologies": [
+            "React.js",
+            "Next.js",
+            "Tailwind CSS",
+            "Material-UI",
+            "Node.js",
+            "Express.js",
+            "MongoDB"
+          ],
+          "teamSize": 2
+        }
       ]
     },
     {
-      "startDate": "10/2024",
-      "endDate": "hiện nay",
-      "title": "Frontend developer",
-      "company": "CÔNG TY CỔ PHẦN VCCORP",
+      "startDate": "01/2021",
+      "endDate": "07/2024",
+      "title": "Sinh viên thực tập - Chuyên viên lập trình",
+      "company": "CÔNG TY CỔ PHẦN BKAV",
       "projects": [
-        "Hệ thống dự án Quản lý Nội dung (CMS): Sử dụng AI tools để tối ưu code generation, automated testing và content processing."
+        {
+          "name": "Phần mềm trình duyệt web Chromium",
+          "description": "Phần mềm trình duyệt web tích hợp các chức năng bảo mật nâng cao, quản lý tab thông minh và đồng bộ hóa dữ liệu người dùng.",
+          "mainResponsibilities": "Tham gia thực tập phát triển phần mềm, nghiên cứu và fix bug, phát triển các tính năng mới cho core engine của trình duyệt.",
+          "technologies": ["Chromium", "C++", "Git", "Visual Studio"],
+          "teamSize": [3, 5]
+        },
+        {
+          "name": "Hệ thống phần mềm quản trị doanh nghiệp (ERP)",
+          "description": "Hệ thống ERP tích hợp đầy đủ các module: Mạng xã hội nội bộ, Chat realtime, Todo management, Email system, Quản lý nhân sự và Quản lý tài chính.",
+          "mainResponsibilities": "Phát triển Frontend từ giai đoạn khởi tạo đến triển khai sản phẩm hoàn chỉnh. Xây dựng giao diện cho cả web application và mobile app.",
+          "technologies": [
+            "React.js",
+            "React Native",
+            "Ant Design",
+            "Redux",
+            "Git",
+            "HTML5",
+            "CSS3",
+            "JavaScript ES6+"
+          ],
+          "teamSize": [6, 10]
+        }
       ]
     }
   ],
