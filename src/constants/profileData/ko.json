@@ -1,0 +1,128 @@
+{
+  "name": "Nguyễn Bùi Nam Trường",
+  "slug": "TruongNBN",
+  "title": "프론트엔드 개발자 & AI 통합 전문가",
+  "email": "truongnbn.main@gmail.com",
+  "phone": "+84327663738",
+  "gender": "남성",
+  "birthDate": "2000년 5월 16일",
+  "address": {
+    "full": "6 Hẻm 1/62/23 Bùi Xương Trạch, Khương Đình, Thanh Xuân, Hà Nội, Vietnam",
+    "short": "6 Hẻm 1/62/23 Bùi Xương Trạch, Thanh Xuân, Hà Nội",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d232.81411919042972!2d105.81977747479935!3d20.991598600000025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac8dca8cd4d1%3A0x951da39d67af948d!2zNiBI4bq7bSAxLzYyLzIzIELDuWkgWMawxqFuZyBUcuG6oWNoLCBLaMawxqFuZyDEkMOsbmgsIFRoYW5oIFh1w6JuLCBIw6AgTuG7mWksIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1748450167186!5m2!1sen!2s"
+  },
+  "bio": "제 개인 웹사이트에 오신 것을 환영합니다! 저는 3년 이상의 현대적인 웹 애플리케이션 개발 경험을 가진 전문 프론트엔드 개발자입니다. Next.js, React, TypeScript를 전문으로 하며, AI를 개발 워크플로우에 통합하여 작업 효율성과 제품 품질을 최적화합니다.",
+  "avatarUrl": "/assets/avatar.jpg",
+  "cvUrl": "/assets/cv-nguyen-bui-nam-truong.en.pdf",
+  "socialLinks": {
+    "github": "https://github.com/devvitien",
+    "facebook": "https://www.facebook.com/nguyenbuinamtruong",
+    "linkedin": "https://www.linkedin.com/in/nguyễn-bùi-nam-trường-391a46322",
+    "twitter": "",
+    "website": "https://personal-profile-wheat.vercel.app/"
+  },
+  "education": [
+    {
+      "period": "2018-2024",
+      "major": "응용수학 및 정보학",
+      "school": "Hanoi University of Science and Technology",
+      "description": "하노이 과학기술대학교에서 학부 과정을 완료. 응용수학 및 정보학에서 우수한 성적으로 졸업"
+    }
+  ],
+  "skills": [
+    {
+      "type": "프로그래밍 언어",
+      "data": [
+        "Javascript, TypeScript: React, NextJS, Node.js 등의 라이브러리와 프레임워크 작업 경험.",
+        "C++: 객체지향 프로그래밍과 데이터 구조에 대한 이해."
+      ]
+    },
+    {
+      "type": "도구 및 기술",
+      "data": [
+        "Git: 소스 코드 관리와 팀 협업에서 능숙한 사용.",
+        "HTML/CSS: 웹 애플리케이션용 사용자 인터페이스 개발.",
+        "React: 인터랙티브한 웹 애플리케이션 구축.",
+        "Next.js: App Router, SSR/SSG, API 라우트 및 성능 최적화를 갖춘 React 프레임워크.",
+        "Node.js: 웹 애플리케이션용 백엔드 개발."
+      ]
+    },
+    {
+      "type": "AI 및 모던 개발",
+      "data": [
+        "AI 지원 개발: 코드 생성, 디버깅 및 코드 리뷰를 위한 GitHub Copilot, Claude, ChatGPT 사용 숙련.",
+        "프롬프트 엔지니어링: AI 도구의 프롬프트 최적화로 개발 효율성과 코드 품질 향상.",
+        "AI 통합: 사용자 경험 향상을 위해 웹 애플리케이션에 AI API 및 서비스 통합."
+      ]
+    },
+    {
+      "type": "소프트웨어 개발 스킬",
+      "data": [
+        "애자일 소프트웨어 개발: 애자일 소프트웨어 개발 프로세스와 스크럼에 대한 기본 이해.",
+        "소프트웨어 테스팅: 단위 테스트와 통합 테스트 작성 및 실행 경험.",
+        "코드 최적화: 코드 성능 분석 및 최적화 능력."
+      ]
+    },
+    {
+      "type": "소프트 스킬",
+      "data": [
+        "팀워크: 팀에서 효과적으로 작업하고, 아이디어를 기여하며 동료를 지원하는 능력. 문제 해결: 기술적 문제를 해결하는 논리적 사고와 분석 기술.",
+        "커뮤니케이션: 동료 및 고객과 효과적으로 작업하기 위한 우수한 문서 및 구두 커뮤니케이션 기술.",
+        "창의적 사고: 복잡한 문제에 대한 창의적이고 혁신적인 솔루션을 제안하는 능력."
+      ]
+    },
+    {
+      "type": "언어",
+      "data": ["영어: 기본적인 읽기, 쓰기 및 의사소통 가능"]
+    }
+  ],
+  "experience": [
+    {
+      "startDate": "2021년 1월",
+      "endDate": "2024년 7월",
+      "title": "인턴 - 소프트웨어 엔지니어",
+      "company": "BKAV CORPORATION",
+      "projects": [
+        "소프트웨어 개발: Chromium을 사용한 브라우저 소프트웨어 개발에 6개월 참여. (C++)",
+        "프론트엔드 개발자: 기업 관리 시스템 개발에 3년 참여: 소셜 네트워크, 채팅 앱, 할 일 목록 및 HR, 재무 관리 모듈. 업무: 웹사이트와 모바일 앱 인터페이스 구축. ReactJS, ReactNative 사용"
+      ]
+    },
+    {
+      "startDate": "2024년 4월",
+      "endDate": "2024년 10월",
+      "title": "프리랜서",
+      "company": "none",
+      "projects": [
+        "프론트엔드 개발자: 텍스트 음성 변환 웹사이트. 결과: https://speechconvert.com/"
+      ]
+    },
+    {
+      "startDate": "2024년 10월",
+      "endDate": "현재",
+      "title": "프론트엔드 개발자",
+      "company": "VCCORP CORPORATION",
+      "projects": [
+        "콘텐츠 관리 시스템(CMS) 프로젝트: 코드 생성 최적화, 자동화된 테스팅 및 콘텐츠 처리를 위한 AI 도구 활용."
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "year": "2014년",
+      "description": "연안 수학 경시대회 은메달"
+    },
+    {
+      "year": "2015년",
+      "description": "도 수준 수학 우수 경시대회 1등상"
+    },
+    {
+      "year": "2014년",
+      "description": "전국 수학 우수 경시대회 장려상"
+    }
+  ],
+  "hobbies": [
+    "정보 기술과 AI 분야의 새로운 기술 탐구를 좋아합니다.",
+    "체스를 두고 체스 토너먼트를 시청하는 것을 좋아합니다.",
+    "워크플로우를 최적화하기 위한 새로운 AI 도구 탐구 및 실험."
+  ]
+}

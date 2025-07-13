@@ -1,0 +1,128 @@
+{
+  "name": "Nguyễn Bùi Nam Trường",
+  "slug": "TruongNBN",
+  "title": "フロントエンド開発者・AI統合スペシャリスト",
+  "email": "truongnbn.main@gmail.com",
+  "phone": "+84327663738",
+  "gender": "男性",
+  "birthDate": "2000年5月16日",
+  "address": {
+    "full": "6 Hẻm 1/62/23 Bùi Xương Trạch, Khương Đình, Thanh Xuân, Hà Nội, Vietnam",
+    "short": "6 Hẻm 1/62/23 Bùi Xương Trạch, Thanh Xuân, Hà Nội",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d232.81411919042972!2d105.81977747479935!3d20.991598600000025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac8dca8cd4d1%3A0x951da39d67af948d!2zNiBI4bq7bSAxLzYyLzIzIELDuWkgWMawxqFuZyBUcuG6oWNoLCBLaMawxqFuZyDEkMOsbmgsIFRoYW5oIFh1w6JuLCBIw6AgTuG7mWksIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1748450167186!5m2!1sen!2s"
+  },
+  "bio": "私の個人ウェブサイトへようこそ！私は3年以上の現代的なWebアプリケーション開発経験を持つプロフェッショナルなフロントエンド開発者です。Next.js、React、TypeScriptを専門とし、AIを開発ワークフローに統合して作業効率と製品品質を最適化しています。",
+  "avatarUrl": "/assets/avatar.jpg",
+  "cvUrl": "/assets/cv-nguyen-bui-nam-truong.en.pdf",
+  "socialLinks": {
+    "github": "https://github.com/devvitien",
+    "facebook": "https://www.facebook.com/nguyenbuinamtruong",
+    "linkedin": "https://www.linkedin.com/in/nguyễn-bùi-nam-trường-391a46322",
+    "twitter": "",
+    "website": "https://personal-profile-wheat.vercel.app/"
+  },
+  "education": [
+    {
+      "period": "2018-2024",
+      "major": "応用数学・情報学",
+      "school": "Hanoi University of Science and Technology",
+      "description": "ハノイ科学技術大学で学部課程を修了。応用数学・情報学で優秀な成績で卒業"
+    }
+  ],
+  "skills": [
+    {
+      "type": "プログラミング言語",
+      "data": [
+        "Javascript、TypeScript：React、NextJS、Node.jsなどのライブラリやフレームワークでの経験があります。",
+        "C++：オブジェクト指向プログラミングとデータ構造の理解。"
+      ]
+    },
+    {
+      "type": "ツールと技術",
+      "data": [
+        "Git：ソースコード管理とチーム協力での熟練した使用。",
+        "HTML/CSS：Webアプリケーションのユーザーインターフェース開発。",
+        "React：インタラクティブなWebアプリケーションの構築。",
+        "Next.js：App Router、SSR/SSG、APIルート、パフォーマンス最適化を備えたReactフレームワーク。",
+        "Node.js：Webアプリケーションのバックエンド開発。"
+      ]
+    },
+    {
+      "type": "AI・モダン開発",
+      "data": [
+        "AI支援開発：GitHub Copilot、Claude、ChatGPTを使用したコード生成、デバッグ、コードレビューの習熟。",
+        "プロンプトエンジニアリング：AIツールのプロンプト最適化により開発効率とコード品質を向上。",
+        "AI統合：WebアプリケーションにAI APIとサービスを統合してユーザーエクスペリエンスを向上。"
+      ]
+    },
+    {
+      "type": "ソフトウェア開発スキル",
+      "data": [
+        "アジャイルソフトウェア開発：アジャイルソフトウェア開発プロセスとスクラムの基本理解。",
+        "ソフトウェアテスト：単体テストと統合テストの作成・実行経験。",
+        "コード最適化：コードパフォーマンスの分析と最適化能力。"
+      ]
+    },
+    {
+      "type": "ソフトスキル",
+      "data": [
+        "チームワーク：チームでの効果的な作業能力、アイデア貢献、同僚支援。問題解決：技術的問題を解決する論理的思考と分析スキル。",
+        "コミュニケーション：同僚やクライアントと効果的に作業するための優れた文書・口頭コミュニケーションスキル。",
+        "創造的思考：複雑な問題に対する創造的で画期的なソリューションを提案する能力。"
+      ]
+    },
+    {
+      "type": "言語",
+      "data": ["英語：基本的な読み書きと会話が可能"]
+    }
+  ],
+  "experience": [
+    {
+      "startDate": "2021年1月",
+      "endDate": "2024年7月",
+      "title": "インターン - ソフトウェアエンジニア",
+      "company": "BKAV CORPORATION",
+      "projects": [
+        "ソフトウェア開発：Chromiumを使用したブラウザソフトウェア開発に6ヶ月参加。(C++)",
+        "フロントエンド開発者：企業管理システム開発に3年参加：ソーシャルネットワーク、チャットアプリ、ToDo、人事・財務管理モジュール。業務：Webサイトとモバイルアプリのインターフェース構築。ReactJS、ReactNativeを使用"
+      ]
+    },
+    {
+      "startDate": "2024年4月",
+      "endDate": "2024年10月",
+      "title": "フリーランサー",
+      "company": "none",
+      "projects": [
+        "フロントエンド開発者：Text-To-Speechウェブサイト。結果：https://speechconvert.com/"
+      ]
+    },
+    {
+      "startDate": "2024年10月",
+      "endDate": "現在",
+      "title": "フロントエンド開発者",
+      "company": "VCCORP CORPORATION",
+      "projects": [
+        "コンテンツ管理システム（CMS）プロジェクト：コード生成最適化、自動テスト、コンテンツ処理にAIツールを活用。"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "year": "2014年",
+      "description": "沿岸数学競技会銀メダル"
+    },
+    {
+      "year": "2015年",
+      "description": "省レベル数学優秀競技会一等賞"
+    },
+    {
+      "year": "2014年",
+      "description": "全国数学優秀競技会奨励賞"
+    }
+  ],
+  "hobbies": [
+    "情報技術とAI分野の新技術探求が好き。",
+    "チェスをプレイしたり、チェス大会を観戦するのが好き。",
+    "ワークフローを最適化するための新しいAIツールの探求と実験。"
+  ]
+}

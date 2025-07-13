@@ -19,7 +19,7 @@ export const siteConfig = {
     {
       code: "vi",
       name: "Vietnamese",
-      nativeName: "Tiếng Việt", 
+      nativeName: "Tiếng Việt",
       flag: "🇻🇳",
       direction: "ltr",
     },
@@ -27,7 +27,7 @@ export const siteConfig = {
       code: "zh",
       name: "Chinese",
       nativeName: "中文",
-      flag: "🇨🇳", 
+      flag: "🇨🇳",
       direction: "ltr",
     },
     {
@@ -36,6 +36,20 @@ export const siteConfig = {
       nativeName: "हिन्दी",
       flag: "🇮🇳",
       direction: "ltr",
-    }
-  ]
+    },
+    {
+      code: "ja",
+      name: "Japanese",
+      nativeName: "日本語",
+      flag: "🇯🇵",
+      direction: "ltr",
+    },
+    {
+      code: "ko",
+      name: "Korean",
+      nativeName: "한국어",
+      flag: "🇰🇷",
+      direction: "ltr",
+    },
+  ],
 };

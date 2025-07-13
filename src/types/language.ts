@@ -1,5 +1,5 @@
 // Language system types
-export type LanguageCode = "en" | "vi" | "zh" | "hi";
+export type LanguageCode = "en" | "vi" | "zh" | "hi" | "ja" | "ko";
 
 export interface Language {
   code: LanguageCode;

@@ -9,6 +9,10 @@ const profileDataDictionaries = {
     import("../constants/profileData/zh.json").then((module) => module.default),
   hi: () =>
     import("../constants/profileData/hi.json").then((module) => module.default),
+  ja: () =>
+    import("../constants/profileData/ja.json").then((module) => module.default),
+  ko: () =>
+    import("../constants/profileData/ko.json").then((module) => module.default),
 };
 
 export const getProfileData = async (locale: LanguageCode) =>

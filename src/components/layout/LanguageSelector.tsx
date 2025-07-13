@@ -3,43 +3,28 @@
 import { useEffect, useRef, useState, useTransition } from "react";
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
-import {  GlobeAltIcon } from "@heroicons/react/24/outline";
+import { GlobeAltIcon } from "@heroicons/react/24/outline";
 import { Link } from "@/i18n/navigation";
+import { siteConfig } from "@/config/site";
 
-const languages = [
-  {
-    code: "vi",
-    name: "Vietnamese",
-    nativeName: "Tiếng Việt",
-    flag: "🇻🇳",
-    direction: "ltr",
-    color: "bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400"
-  },
-  {
-    code: "en",
-    name: "English", 
-    nativeName: "English",
-    flag: "🇺🇸",
-    direction: "ltr",
-    color: "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400"
-  },
-  {
-    code: "zh",
-    name: "Chinese",
-    nativeName: "中文",
-    flag: "🇨🇳", 
-    direction: "ltr",
-    color: "bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400"
-  },
-  {
-    code: "hi",
-    name: "Hindi",
-    nativeName: "हिन्दी",
-    flag: "🇮🇳",
-    direction: "ltr", 
-    color: "bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400"
-  },
-];
+// Extend site config languages with color mapping for UI
+const languages = siteConfig.languages.map((lang) => {
+  const colorMap: Record<string, string> = {
+    vi: "bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400",
+    en: "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400",
+    zh: "bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400",
+    hi: "bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400",
+    ja: "bg-pink-50 dark:bg-pink-900/20 text-pink-600 dark:text-pink-400",
+    ko: "bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400",
+  };
+
+  return {
+    ...lang,
+    color:
+      colorMap[lang.code] ||
+      "bg-gray-50 dark:bg-gray-900/20 text-gray-600 dark:text-gray-400",
+  };
+});
 
 export default function LanguageSelector() {
   const t = useTranslations("language");
@@ -93,7 +78,10 @@ export default function LanguageSelector() {
         aria-controls="language-menu"
         disabled={isPending}
       >
-        <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-200" aria-hidden="true">
+        <span
+          className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-200"
+          aria-hidden="true"
+        >
           {currentLanguage.flag}
         </span>
       </button>
@@ -140,11 +128,13 @@ export default function LanguageSelector() {
                   {locale === language.code && (
                     <span className="mr-2 text-xs opacity-60">✓</span>
                   )}
-                  <div className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                    locale === language.code 
-                      ? "bg-current opacity-100" 
-                      : "bg-gray-300 dark:bg-gray-600 opacity-50 group-hover:opacity-75"
-                  }`} />
+                  <div
+                    className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                      locale === language.code
+                        ? "bg-current opacity-100"
+                        : "bg-gray-300 dark:bg-gray-600 opacity-50 group-hover:opacity-75"
+                    }`}
+                  />
                 </div>
               </Link>
             ))}

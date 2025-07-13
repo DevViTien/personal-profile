@@ -33,28 +33,33 @@
 ## ✨ Tính năng
 
 ### 🌍 Đa ngôn ngữ (i18n)
-- Hỗ trợ 4 ngôn ngữ: **Tiếng Việt**, **English**, **中文**, **हिन्दी**
+
+- Hỗ trợ 6 ngôn ngữ: **Tiếng Việt**, **English**, **中文**, **हिन्दी**, **日本語**, **한국어**
 - Tự động phát hiện ngôn ngữ từ trình duyệt
 - URL routing thân thiện với SEO
 
 ### 🎨 Theme System
+
 - **3 chế độ**: Light, Dark, System (auto)
 - Smooth transitions và animations
 - Responsive design cho mọi thiết bị
 
 ### 📧 Contact System
+
 - Form liên hệ tích hợp EmailJS
 - Validation chi tiết và bảo mật
 - Rate limiting (3 email/5 phút)
 - Toast notifications phản hồi
 
 ### 📱 Giao diện hiện đại
+
 - Mobile-first responsive design
 - Smooth animations và micro-interactions
 - Accessibility (a11y) compliant
 - SEO optimized
 
 ### 🔧 Tính năng khác
+
 - Download CV với multiple formats
 - Social media integration
 - Performance optimized
@@ -63,27 +68,32 @@
 ## 🛠 Công nghệ sử dụng
 
 ### Core Technologies
+
 - **[Next.js 15.3.2](https://nextjs.org/)** - React framework với App Router
 - **[React 19](https://reactjs.org/)** - UI library
 - **[TypeScript 5](https://www.typescriptlang.org/)** - Type-safe JavaScript
 - **[Tailwind CSS 3.4.1](https://tailwindcss.com/)** - Utility-first CSS framework
 
 ### Internationalization & Theming
+
 - **[next-intl 4.1.0](https://next-intl-docs.vercel.app/)** - Internationalization cho Next.js
 - **[next-themes 0.4.6](https://github.com/pacocoursey/next-themes)** - Theme management
 
 ### UI & Notifications
+
 - **[@heroicons/react 2.2.0](https://heroicons.com/)** - SVG icons
 - **[react-icons 5.5.0](https://react-icons.github.io/react-icons/)** - Icon library
 - **[react-toastify 11.0.5](https://fkhadra.github.io/react-toastify/)** - Toast notifications
 
 ### Communication & Utils
+
 - **[@emailjs/browser 4.4.1](https://www.emailjs.com/)** - Client-side email service
 - **[usehooks-ts 3.1.1](https://usehooks-ts.com/)** - TypeScript React hooks
 
 ## 🚀 Cài đặt
 
 ### Yêu cầu hệ thống
+
 - **Node.js**: >= 20.0.0
 - **npm/yarn/pnpm**: Latest version
 
@@ -139,6 +149,7 @@ Mở [http://localhost:3000](http://localhost:3000) để xem kết quả.
 ### Profile Data Customization
 
 Chỉnh sửa dữ liệu profile tại:
+
 - `src/constants/profileData/vi.json` - Tiếng Việt
 - `src/constants/profileData/en.json` - English
 - `src/constants/profileData/zh.json` - 中文
@@ -231,7 +242,7 @@ Xem chi tiết tại [.github/copilot-instructions.md](.github/copilot-instructi
 ## 📚 Tài liệu
 
 - **[EmailJS Setup Guide](docs/EMAILJS_SETUP.md)** - Hướng dẫn cấu hình EmailJS
-- **[Toast Usage Examples](docs/TOAST_USAGE_EXAMPLES.md)** - Examples sử dụng toast notifications  
+- **[Toast Usage Examples](docs/TOAST_USAGE_EXAMPLES.md)** - Examples sử dụng toast notifications
 - **[Security Guidelines](docs/SECURITY.md)** - Security best practices
 - **[Copilot Instructions](.github/copilot-instructions.md)** - Hướng dẫn chi tiết cho AI development
 
@@ -266,6 +277,7 @@ Mọi đóng góp đều được chào đón! Vui lòng:
 ## 👤 Tác giả
 
 **TruongNBN**
+
 - Email: [truongnbn.main@gmail.com](mailto:truongnbn.main@gmail.com)
 - GitHub: [@truongnbn](https://github.com/truongnbn)
 - LinkedIn: [TruongNBN](https://linkedin.com/in/truongnbn)
@@ -277,7 +289,7 @@ Dự án này được phân phối dưới giấy phép **MIT License**. Xem fi
 ## 🙏 Acknowledgments
 
 - [Next.js](https://nextjs.org/) - Amazing React framework
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework  
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
 - [Vercel](https://vercel.com/) - Deployment platform
 - [EmailJS](https://www.emailjs.com/) - Client-side email service
 - [Heroicons](https://heroicons.com/) - Beautiful SVG icons
@@ -286,4 +298,4 @@ Dự án này được phân phối dưới giấy phép **MIT License**. Xem fi
 
 ⭐ **Nếu dự án này hữu ích, hãy cho một star nhé!** ⭐
 
-*Cập nhật lần cuối: 21 tháng 6, 2025*
+_Cập nhật lần cuối: 21 tháng 6, 2025_
