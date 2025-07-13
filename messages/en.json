@@ -130,7 +130,9 @@
       "people": "people",
       "viewDetails": "View details",
       "hideDetails": "Hide details",
-      "clickToExpand": "Click to view project details"
+      "clickToExpand": "Click to view project details",
+      "technologiesDescription": "Technologies I have used across projects",
+      "technologiesUsed": "technologies used"
     },
     "contact": {
       "title": "Contact me",

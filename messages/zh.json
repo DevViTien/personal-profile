@@ -130,7 +130,9 @@
       "people": "人",
       "viewDetails": "查看详情",
       "hideDetails": "隐藏详情",
-      "clickToExpand": "点击查看项目详情"
+      "clickToExpand": "点击查看项目详情",
+      "technologiesDescription": "我在各个项目中使用过的技术",
+      "technologiesUsed": "已使用技术"
     },
     "contact": {
       "title": "联系我",

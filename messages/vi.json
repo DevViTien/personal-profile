@@ -130,7 +130,9 @@
       "people": "người",
       "viewDetails": "Xem chi tiết",
       "hideDetails": "Thu gọn",
-      "clickToExpand": "Click để xem chi tiết dự án"
+      "clickToExpand": "Click để xem chi tiết dự án",
+      "technologiesDescription": "Các công nghệ tôi đã sử dụng qua các dự án",
+      "technologiesUsed": "công nghệ đã sử dụng"
     },
     "contact": {
       "title": "Liên hệ với tôi",

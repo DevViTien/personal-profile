@@ -481,7 +481,7 @@ export default function ProjectsPage() {
           </div>
 
           <p className="text-gray-600 dark:text-gray-400 mb-8 text-lg">
-            Các công nghệ tôi đã sử dụng qua các dự án
+            {t("pages.projects.technologiesDescription")}
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 lg:gap-6">
@@ -529,7 +529,7 @@ export default function ProjectsPage() {
                   )
                 ).length
               }{" "}
-              công nghệ đã sử dụng
+              {t("pages.projects.technologiesUsed")}
             </span>
           </div>
         </div>

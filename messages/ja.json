@@ -130,7 +130,9 @@
       "people": "人",
       "viewDetails": "詳細を見る",
       "hideDetails": "詳細を隠す",
-      "clickToExpand": "プロジェクト詳細を見るにはクリック"
+      "clickToExpand": "プロジェクト詳細を見るにはクリック",
+      "technologiesDescription": "プロジェクトで使用した技術",
+      "technologiesUsed": "使用技術"
     },
     "contact": {
       "title": "お問い合わせ",

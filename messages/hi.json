@@ -130,7 +130,9 @@
       "people": "लोग",
       "viewDetails": "विवरण देखें",
       "hideDetails": "विवरण छुपाएं",
-      "clickToExpand": "प्रोजेक्ट विवरण देखने के लिए क्लिक करें"
+      "clickToExpand": "प्रोजेक्ट विवरण देखने के लिए क्लिक करें",
+      "technologiesDescription": "मैंने परियोजनाओं में उपयोग की गई प्रौद्योगिकियां",
+      "technologiesUsed": "उपयोग की गई प्रौद्योगिकियां"
     },
     "contact": {
       "title": "संपर्क",
