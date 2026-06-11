@@ -73,13 +73,53 @@
     },
     {
       "type": "언어",
-      "data": ["영어: 기본적인 읽기, 쓰기 및 의사소통 가능"]
+      "data": [
+        "영어: 기본적인 읽기, 쓰기 및 의사소통 가능"
+      ]
     }
   ],
   "experience": [
     {
-      "startDate": "2024년 10월",
+      "startDate": "08/2025",
       "endDate": "현재",
+      "title": "프론트엔드 개발자 / 테크니컬 리더",
+      "company": "SY Partner",
+      "projects": [
+        {
+          "name": "온라인 미팅 시스템",
+          "description": "Zoom SDK를 기반으로 구축한 온라인 미팅 시스템으로, 웹과 Chrome 확장 프로그램을 지원. 기간: 2025/12 – 현재.",
+          "mainResponsibilities": "테크니컬 리더 — 분석·설계, 프론트엔드 개발 및 팀 관리 담당.",
+          "technologies": [
+            "Zoom SDK",
+            "Chrome Extension",
+            "Flutter Web",
+            "Dart"
+          ],
+          "teamSize": [
+            7,
+            10
+          ]
+        },
+        {
+          "name": "건설 현장 관리 시스템 (오프라인 우선)",
+          "description": "오프라인 우선 아키텍처(로컬 DB)의 건설 현장 관리 시스템으로, 웹과 모바일 앱(WebView)을 모두 지원. 기간: 2025/08 – 2025/11.",
+          "mainResponsibilities": "프론트엔드 개발자 — 분석·설계 및 프론트엔드 개발 담당.",
+          "technologies": [
+            "React.js",
+            "Tailwind CSS",
+            "RxDB",
+            "WebView"
+          ],
+          "teamSize": [
+            7,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "startDate": "2024년 10월",
+      "endDate": "07/2025",
       "title": "프론트엔드 개발자",
       "company": "VCCORP CORPORATION",
       "projects": [

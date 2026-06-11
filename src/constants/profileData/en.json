@@ -73,13 +73,53 @@
     },
     {
       "type": "Languages",
-      "data": ["English: can read, write and communicate basically"]
+      "data": [
+        "English: can read, write and communicate basically"
+      ]
     }
   ],
   "experience": [
     {
-      "startDate": "10/2024",
+      "startDate": "08/2025",
       "endDate": "present",
+      "title": "Frontend Developer / Technical Leader",
+      "company": "SY Partner",
+      "projects": [
+        {
+          "name": "Online Meeting System",
+          "description": "An online meeting system built on top of the Zoom SDK, supporting web and a Chrome Extension. Timeline: 12/2025 – present.",
+          "mainResponsibilities": "Technical Leader — Analysis, design, frontend development and team management.",
+          "technologies": [
+            "Zoom SDK",
+            "Chrome Extension",
+            "Flutter Web",
+            "Dart"
+          ],
+          "teamSize": [
+            7,
+            10
+          ]
+        },
+        {
+          "name": "Construction Site Management System (Offline-first)",
+          "description": "An offline-first construction site management system (local database), supporting both web and a mobile app (WebView). Timeline: 08/2025 – 11/2025.",
+          "mainResponsibilities": "Frontend Developer — Analysis, design and frontend development.",
+          "technologies": [
+            "React.js",
+            "Tailwind CSS",
+            "RxDB",
+            "WebView"
+          ],
+          "teamSize": [
+            7,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "startDate": "10/2024",
+      "endDate": "07/2025",
       "title": "Frontend Developer",
       "company": "VCCORP CORPORATION",
       "projects": [
@@ -94,7 +134,10 @@
             "TypeScript",
             "AI Integration Tools"
           ],
-          "teamSize": [4, 8]
+          "teamSize": [
+            4,
+            8
+          ]
         }
       ]
     },
@@ -131,8 +174,16 @@
           "name": "Chromium Web Browser Software",
           "description": "Advanced web browser software with enhanced security features, intelligent tab management, and user data synchronization capabilities.",
           "mainResponsibilities": "Participated in software development internship, researched and fixed bugs, developed new features for the browser's core engine.",
-          "technologies": ["Chromium", "C++", "Git", "Visual Studio"],
-          "teamSize": [3, 5]
+          "technologies": [
+            "Chromium",
+            "C++",
+            "Git",
+            "Visual Studio"
+          ],
+          "teamSize": [
+            3,
+            5
+          ]
         },
         {
           "name": "Enterprise Resource Planning (ERP) System",
@@ -148,7 +199,10 @@
             "CSS3",
             "JavaScript ES6+"
           ],
-          "teamSize": [6, 10]
+          "teamSize": [
+            6,
+            10
+          ]
         }
       ]
     }

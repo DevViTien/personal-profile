@@ -73,13 +73,53 @@
     },
     {
       "type": "Ngôn ngữ",
-      "data": ["Tiếng Anh: có thể đọc viết và giao tiếp cơ bản"]
+      "data": [
+        "Tiếng Anh: có thể đọc viết và giao tiếp cơ bản"
+      ]
     }
   ],
   "experience": [
     {
-      "startDate": "10/2024",
+      "startDate": "08/2025",
       "endDate": "hiện nay",
+      "title": "Frontend Developer / Technical Leader",
+      "company": "SY Partner",
+      "projects": [
+        {
+          "name": "Hệ thống họp trực tuyến (Online Meeting)",
+          "description": "Hệ thống họp trực tuyến xây dựng dựa trên Zoom SDK, hỗ trợ nền tảng web và Chrome Extension. Thời gian: 12/2025 – hiện nay.",
+          "mainResponsibilities": "Technical Leader — Phân tích thiết kế, phát triển Frontend và quản lý nhóm.",
+          "technologies": [
+            "Zoom SDK",
+            "Chrome Extension",
+            "Flutter Web",
+            "Dart"
+          ],
+          "teamSize": [
+            7,
+            10
+          ]
+        },
+        {
+          "name": "Hệ thống quản lý công trường (Offline-first)",
+          "description": "Hệ thống quản lý công trường theo hướng offline-first (cơ sở dữ liệu lưu cục bộ), hỗ trợ cả nền tảng web và ứng dụng mobile (WebView). Thời gian: 08/2025 – 11/2025.",
+          "mainResponsibilities": "Frontend Developer — Phân tích thiết kế và phát triển Frontend.",
+          "technologies": [
+            "React.js",
+            "Tailwind CSS",
+            "RxDB",
+            "WebView"
+          ],
+          "teamSize": [
+            7,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "startDate": "10/2024",
+      "endDate": "07/2025",
       "title": "Frontend Developer",
       "company": "CÔNG TY CỔ PHẦN VCCORP",
       "projects": [
@@ -94,7 +134,10 @@
             "TypeScript",
             "AI Integration Tools"
           ],
-          "teamSize": [4, 8]
+          "teamSize": [
+            4,
+            8
+          ]
         }
       ]
     },
@@ -131,8 +174,16 @@
           "name": "Phần mềm trình duyệt web Chromium",
           "description": "Phần mềm trình duyệt web tích hợp các chức năng bảo mật nâng cao, quản lý tab thông minh và đồng bộ hóa dữ liệu người dùng.",
           "mainResponsibilities": "Tham gia thực tập phát triển phần mềm, nghiên cứu và fix bug, phát triển các tính năng mới cho core engine của trình duyệt.",
-          "technologies": ["Chromium", "C++", "Git", "Visual Studio"],
-          "teamSize": [3, 5]
+          "technologies": [
+            "Chromium",
+            "C++",
+            "Git",
+            "Visual Studio"
+          ],
+          "teamSize": [
+            3,
+            5
+          ]
         },
         {
           "name": "Hệ thống phần mềm quản trị doanh nghiệp (ERP)",
@@ -148,7 +199,10 @@
             "CSS3",
             "JavaScript ES6+"
           ],
-          "teamSize": [6, 10]
+          "teamSize": [
+            6,
+            10
+          ]
         }
       ]
     }

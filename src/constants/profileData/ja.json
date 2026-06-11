@@ -73,13 +73,53 @@
     },
     {
       "type": "言語",
-      "data": ["英語：基本的な読み書きと会話が可能"]
+      "data": [
+        "英語：基本的な読み書きと会話が可能"
+      ]
     }
   ],
   "experience": [
     {
-      "startDate": "2024年10月",
+      "startDate": "08/2025",
       "endDate": "現在",
+      "title": "フロントエンド開発者 / テクニカルリーダー",
+      "company": "SY Partner",
+      "projects": [
+        {
+          "name": "オンライン会議システム",
+          "description": "Zoom SDK をベースに構築したオンライン会議システム。Web と Chrome 拡張機能に対応。期間：2025/12 – 現在。",
+          "mainResponsibilities": "テクニカルリーダー — 分析・設計、フロントエンド開発、チームマネジメントを担当。",
+          "technologies": [
+            "Zoom SDK",
+            "Chrome Extension",
+            "Flutter Web",
+            "Dart"
+          ],
+          "teamSize": [
+            7,
+            10
+          ]
+        },
+        {
+          "name": "工事現場管理システム（オフラインファースト）",
+          "description": "オフラインファースト（ローカルDB）の工事現場管理システム。Web とモバイルアプリ（WebView）の両方に対応。期間：2025/08 – 2025/11。",
+          "mainResponsibilities": "フロントエンド開発者 — 分析・設計およびフロントエンド開発を担当。",
+          "technologies": [
+            "React.js",
+            "Tailwind CSS",
+            "RxDB",
+            "WebView"
+          ],
+          "teamSize": [
+            7,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "startDate": "2024年10月",
+      "endDate": "07/2025",
       "title": "フロントエンド開発者",
       "company": "VCCORP CORPORATION",
       "projects": [
