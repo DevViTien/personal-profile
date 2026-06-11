@@ -10,6 +10,7 @@ import React, {
 import { ProfileData } from "@/types/profile";
 import { getProfileData } from "@/utils/getProfileData";
 import { LanguageCode } from "@/types/language";
+import { useLocale } from "next-intl";
 
 interface ProfileContextType {
   profileData: ProfileData | null;
@@ -42,6 +43,7 @@ export const ProfileProvider: React.FC<ProfileProviderProps> = ({
   const [loading, setLoading] = useState(true);
   const [languageLoading, setLanguageLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const locale = useLocale() as LanguageCode;
 
   const loadProfileData = async (language: LanguageCode) => {
     try {
@@ -62,9 +64,10 @@ export const ProfileProvider: React.FC<ProfileProviderProps> = ({
       console.error("Profile data loading error:", err);
     }
   };
-  // Load default Vietnamese data on mount
+  // Load profile data cho ĐÚNG locale hiện tại khi mount (không hardcode "vi"
+  // để tránh race với useProfileLanguageSync — trước đây "vi" ghi đè locale thật).
   useEffect(() => {
-    loadProfileData("vi");
+    loadProfileData(locale);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const value = {

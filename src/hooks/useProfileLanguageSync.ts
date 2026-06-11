@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { useProfile } from "@/contexts/ProfileContext";
 import { useLocale } from "next-intl";
+import { LanguageCode } from "@/types/language";
 
 /**
  * Hook to sync ProfileContext with next-intl
@@ -19,8 +20,8 @@ export const useProfileLanguageSync = () => {
       loadProfileData &&
       currentLanguage !== previousLanguage.current
     ) {
-      // Map current locale to language code supported in profile data
-      const languageCode = currentLanguage as "vi" | "en" | "zh" | "hi";
+      // Map current locale to language code supported in profile data (6 ngôn ngữ)
+      const languageCode = currentLanguage as LanguageCode;
       loadProfileData(languageCode);
       previousLanguage.current = currentLanguage;
     }
