@@ -80,14 +80,14 @@
   ],
   "experience": [
     {
-      "startDate": "08/2025",
+      "startDate": "2025년 8월",
       "endDate": "현재",
       "title": "프론트엔드 개발자 / 테크니컬 리더",
       "company": "SY Partner",
       "projects": [
         {
           "name": "온라인 미팅 시스템",
-          "description": "Zoom SDK를 기반으로 구축한 온라인 미팅 시스템으로, 웹과 Chrome 확장 프로그램을 지원. 기간: 2025/12 – 현재.",
+          "description": "Zoom SDK를 기반으로 구축한 온라인 미팅 시스템으로, 웹과 Chrome 확장 프로그램을 지원. 기간: 2025년 12월 ~ 현재.",
           "mainResponsibilities": "테크니컬 리더 — 분석·설계, 프론트엔드 개발 및 팀 관리 담당.",
           "technologies": [
             "Zoom SDK",
@@ -102,7 +102,7 @@
         },
         {
           "name": "건설 현장 관리 시스템 (오프라인 우선)",
-          "description": "오프라인 우선 아키텍처(로컬 DB)의 건설 현장 관리 시스템으로, 웹과 모바일 앱(WebView)을 모두 지원. 기간: 2025/08 – 2025/11.",
+          "description": "오프라인 우선 아키텍처(로컬 DB)의 건설 현장 관리 시스템으로, 웹과 모바일 앱(WebView)을 모두 지원. 기간: 2025년 8월 ~ 2025년 11월.",
           "mainResponsibilities": "프론트엔드 개발자 — 분석·설계 및 프론트엔드 개발 담당.",
           "technologies": [
             "React.js",
@@ -119,11 +119,26 @@
     },
     {
       "startDate": "2024년 10월",
-      "endDate": "07/2025",
+      "endDate": "2025년 7월",
       "title": "프론트엔드 개발자",
       "company": "VCCORP CORPORATION",
       "projects": [
-        "콘텐츠 관리 시스템(CMS) 프로젝트: 코드 생성 최적화, 자동화된 테스팅 및 콘텐츠 처리를 위한 AI 도구 활용."
+        {
+          "name": "AI 기반 콘텐츠 관리 시스템(CMS)",
+          "description": "AI를 통합한 차세대 CMS로, 멀티미디어 콘텐츠 관리, 미디어 라이브러리 관리, 소셜 미디어 관리 및 콘텐츠 자동화를 포함.",
+          "mainResponsibilities": "CMS 모듈 프론트엔드 개발, 개발 프로세스 자동화·코드 생성·자동화 테스트를 위한 AI 도구 통합.",
+          "technologies": [
+            "React.js",
+            ".NET Core",
+            "Tailwind CSS",
+            "TypeScript",
+            "AI Integration Tools"
+          ],
+          "teamSize": [
+            4,
+            8
+          ]
+        }
       ]
     },
     {
@@ -132,7 +147,21 @@
       "title": "프리랜서",
       "company": "none",
       "projects": [
-        "프론트엔드 개발자: 텍스트 음성 변환 웹사이트. 결과: https://speechconvert.com/"
+        {
+          "name": "전문 텍스트 음성 변환(Text-To-Speech) 웹사이트",
+          "description": "다국어 지원, 자연스러운 음성 옵션, 고급 사용자 정의 기능을 갖춘 텍스트 음성 변환 플랫폼.",
+          "mainResponsibilities": "사용자 인터페이스 전체 설계 및 개발, AI 음성 합성 API 통합, UX 및 성능 최적화.",
+          "technologies": [
+            "React.js",
+            "Next.js",
+            "Tailwind CSS",
+            "Material-UI",
+            "Node.js",
+            "Express.js",
+            "MongoDB"
+          ],
+          "teamSize": 2
+        }
       ]
     },
     {
@@ -141,8 +170,40 @@
       "title": "인턴 - 소프트웨어 엔지니어",
       "company": "BKAV CORPORATION",
       "projects": [
-        "소프트웨어 개발: Chromium을 사용한 브라우저 소프트웨어 개발에 6개월 참여. (C++)",
-        "프론트엔드 개발자: 기업 관리 시스템 개발에 3년 참여: 소셜 네트워크, 채팅 앱, 할 일 목록 및 HR, 재무 관리 모듈. 업무: 웹사이트와 모바일 앱 인터페이스 구축. ReactJS, ReactNative 사용"
+        {
+          "name": "Chromium 웹 브라우저 소프트웨어",
+          "description": "고급 보안 기능, 지능형 탭 관리, 사용자 데이터 동기화 기능을 갖춘 웹 브라우저 소프트웨어.",
+          "mainResponsibilities": "소프트웨어 개발 인턴으로 참여하여 버그 조사·수정 및 브라우저 코어 엔진의 신규 기능 개발 담당.",
+          "technologies": [
+            "Chromium",
+            "C++",
+            "Git",
+            "Visual Studio"
+          ],
+          "teamSize": [
+            3,
+            5
+          ]
+        },
+        {
+          "name": "전사적 자원 관리(ERP) 시스템",
+          "description": "사내 소셜 네트워크, 실시간 채팅, 할 일 관리, 이메일 시스템, 인사 관리, 재무 관리 모듈을 통합한 종합 ERP 시스템.",
+          "mainResponsibilities": "초기 단계부터 제품 배포까지 프론트엔드 개발. 웹과 모바일 앱 인터페이스를 모두 구축.",
+          "technologies": [
+            "React.js",
+            "React Native",
+            "Ant Design",
+            "Redux",
+            "Git",
+            "HTML5",
+            "CSS3",
+            "JavaScript ES6+"
+          ],
+          "teamSize": [
+            6,
+            10
+          ]
+        }
       ]
     }
   ],

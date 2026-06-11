@@ -80,14 +80,14 @@
   ],
   "experience": [
     {
-      "startDate": "08/2025",
+      "startDate": "2025年8月",
       "endDate": "現在",
       "title": "フロントエンド開発者 / テクニカルリーダー",
       "company": "SY Partner",
       "projects": [
         {
           "name": "オンライン会議システム",
-          "description": "Zoom SDK をベースに構築したオンライン会議システム。Web と Chrome 拡張機能に対応。期間：2025/12 – 現在。",
+          "description": "Zoom SDK をベースに構築したオンライン会議システム。Web と Chrome 拡張機能に対応。期間：2025年12月～現在。",
           "mainResponsibilities": "テクニカルリーダー — 分析・設計、フロントエンド開発、チームマネジメントを担当。",
           "technologies": [
             "Zoom SDK",
@@ -102,7 +102,7 @@
         },
         {
           "name": "工事現場管理システム（オフラインファースト）",
-          "description": "オフラインファースト（ローカルDB）の工事現場管理システム。Web とモバイルアプリ（WebView）の両方に対応。期間：2025/08 – 2025/11。",
+          "description": "オフラインファースト（ローカルDB）の工事現場管理システム。Web とモバイルアプリ（WebView）の両方に対応。期間：2025年8月～2025年11月。",
           "mainResponsibilities": "フロントエンド開発者 — 分析・設計およびフロントエンド開発を担当。",
           "technologies": [
             "React.js",
@@ -119,11 +119,26 @@
     },
     {
       "startDate": "2024年10月",
-      "endDate": "07/2025",
+      "endDate": "2025年7月",
       "title": "フロントエンド開発者",
       "company": "VCCORP CORPORATION",
       "projects": [
-        "コンテンツ管理システム（CMS）プロジェクト：コード生成最適化、自動テスト、コンテンツ処理にAIツールを活用。"
+        {
+          "name": "AI搭載コンテンツ管理システム（CMS）",
+          "description": "AIを統合した次世代CMS。マルチメディアコンテンツ管理、メディアライブラリ管理、ソーシャルメディア管理、コンテンツ自動化を含む。",
+          "mainResponsibilities": "CMSモジュールのフロントエンド開発、開発プロセスの自動化・コード生成・自動テストのためのAIツール統合。",
+          "technologies": [
+            "React.js",
+            ".NET Core",
+            "Tailwind CSS",
+            "TypeScript",
+            "AI Integration Tools"
+          ],
+          "teamSize": [
+            4,
+            8
+          ]
+        }
       ]
     },
     {
@@ -132,7 +147,21 @@
       "title": "フリーランサー",
       "company": "none",
       "projects": [
-        "フロントエンド開発者：Text-To-Speechウェブサイト。結果：https://speechconvert.com/"
+        {
+          "name": "プロフェッショナル Text-To-Speech ウェブサイト",
+          "description": "多言語対応、自然な音声オプション、高度なカスタマイズ機能を備えたテキスト読み上げプラットフォーム。",
+          "mainResponsibilities": "ユーザーインターフェースの設計・開発、AI音声合成APIの統合、UXとパフォーマンスの最適化。",
+          "technologies": [
+            "React.js",
+            "Next.js",
+            "Tailwind CSS",
+            "Material-UI",
+            "Node.js",
+            "Express.js",
+            "MongoDB"
+          ],
+          "teamSize": 2
+        }
       ]
     },
     {
@@ -141,8 +170,40 @@
       "title": "インターン - ソフトウェアエンジニア",
       "company": "BKAV CORPORATION",
       "projects": [
-        "ソフトウェア開発：Chromiumを使用したブラウザソフトウェア開発に6ヶ月参加。(C++)",
-        "フロントエンド開発者：企業管理システム開発に3年参加：ソーシャルネットワーク、チャットアプリ、ToDo、人事・財務管理モジュール。業務：Webサイトとモバイルアプリのインターフェース構築。ReactJS、ReactNativeを使用"
+        {
+          "name": "Chromium ウェブブラウザソフトウェア",
+          "description": "高度なセキュリティ機能、インテリジェントなタブ管理、ユーザーデータ同期機能を備えたウェブブラウザソフトウェア。",
+          "mainResponsibilities": "ソフトウェア開発インターンとして参加し、バグの調査・修正、ブラウザのコアエンジンの新機能開発を担当。",
+          "technologies": [
+            "Chromium",
+            "C++",
+            "Git",
+            "Visual Studio"
+          ],
+          "teamSize": [
+            3,
+            5
+          ]
+        },
+        {
+          "name": "企業資源計画（ERP）システム",
+          "description": "社内ソーシャルネットワーク、リアルタイムチャット、ToDo管理、メールシステム、人事管理、財務管理のモジュールを統合した総合ERPシステム。",
+          "mainResponsibilities": "初期段階から製品リリースまでフロントエンドを開発。Webアプリとモバイルアプリの両方のインターフェースを構築。",
+          "technologies": [
+            "React.js",
+            "React Native",
+            "Ant Design",
+            "Redux",
+            "Git",
+            "HTML5",
+            "CSS3",
+            "JavaScript ES6+"
+          ],
+          "teamSize": [
+            6,
+            10
+          ]
+        }
       ]
     }
   ],
