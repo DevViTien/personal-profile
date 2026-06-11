@@ -1,0 +1,43 @@
+name: 🐛 Bug Report
+description: Báo cáo lỗi để giúp cải thiện dự án
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Mô tả lỗi
+      description: Lỗi xảy ra như thế nào?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Bước tái hiện
+      placeholder: |
+        1. Vào trang '...'
+        2. Click '...'
+        3. Thấy lỗi '...'
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Kết quả mong đợi
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: Ngôn ngữ
+      options: ["vi", "en", "zh", "hi", "ja", "ko", "Không liên quan"]
+  - type: dropdown
+    id: theme
+    attributes:
+      label: Theme
+      options: ["Light", "Dark", "System", "Không liên quan"]
+  - type: input
+    id: environment
+    attributes:
+      label: Môi trường
+      placeholder: "vd: Chrome 120 / Windows 11 / mobile 375px"

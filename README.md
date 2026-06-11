@@ -154,6 +154,10 @@ Chỉnh sửa dữ liệu profile tại:
 - `src/constants/profileData/en.json` - English
 - `src/constants/profileData/zh.json` - 中文
 - `src/constants/profileData/hi.json` - हिन्दी
+- `src/constants/profileData/ja.json` - 日本語
+- `src/constants/profileData/ko.json` - 한국어
+
+> ⚠️ Khi sửa nội dung, chạy `npm run check:i18n` để đảm bảo cả 6 ngôn ngữ đồng bộ key.
 
 ### Theme Customization
 
@@ -210,12 +214,13 @@ vercel
 
 #### Netlify
 
+Dùng plugin chính thức [`@netlify/plugin-nextjs`](https://github.com/netlify/next-runtime) (dự án chạy SSR/middleware, **không** static export nên không dùng thư mục `out/`):
+
 ```bash
 # Build command
 npm run build
 
-# Publish directory
-out/
+# Netlify tự nhận diện Next.js qua plugin — không cần publish directory thủ công
 ```
 
 ## 📁 Cấu trúc dự án
@@ -241,32 +246,38 @@ Xem chi tiết tại [.github/copilot-instructions.md](.github/copilot-instructi
 
 ## 📚 Tài liệu
 
+📖 **Chỉ mục đầy đủ:** [docs/README.md](docs/README.md)
+
+- **[Contributing Guide](CONTRIBUTING.md)** - Quy trình & convention đóng góp
+- **[Changelog](CHANGELOG.md)** - Lịch sử thay đổi
+- **[Security Policy](SECURITY.md)** - Chính sách báo cáo lỗ hổng
 - **[EmailJS Setup Guide](docs/EMAILJS_SETUP.md)** - Hướng dẫn cấu hình EmailJS
 - **[Toast Usage Examples](docs/TOAST_USAGE_EXAMPLES.md)** - Examples sử dụng toast notifications
-- **[Security Guidelines](docs/SECURITY.md)** - Security best practices
-- **[Copilot Instructions](.github/copilot-instructions.md)** - Hướng dẫn chi tiết cho AI development
+- **[Security Guidelines](docs/SECURITY.md)** - Chi tiết kỹ thuật bảo mật
+- **[Copilot Instructions](.github/copilot-instructions.md)** - Kiến trúc & convention chi tiết
+- **[AI Agent Playbooks](agents/playbooks.md)** - Flow phát triển có AI hỗ trợ
 
 ## 🤝 Đóng góp
 
-Mọi đóng góp đều được chào đón! Vui lòng:
+Mọi đóng góp đều được chào đón! Xem hướng dẫn chi tiết tại **[CONTRIBUTING.md](CONTRIBUTING.md)**.
 
-1. Fork repository
-2. Tạo feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Mở Pull Request
+1. Fork & tạo branch (`feature/<tên>`, `bugfix/<tên>`)
+2. Code theo convention; chạy quality gate cục bộ (`lint` · `check:i18n` · `test` · `build`)
+3. Commit theo [Conventional Commits](https://www.conventionalcommits.org/)
+4. Mở Pull Request vào `main` (CI sẽ tự chạy)
 
 ### Development Guidelines
 
 - Sử dụng **TypeScript** cho type safety
-- Tuân thủ **ESLint** và **Prettier** config
+- Tuân thủ **ESLint** (`npm run lint`)
 - Viết **commit message** theo conventional commits
 - Đảm bảo **responsive design** và **accessibility**
 - Test trước khi submit PR
 
 ## 📝 To-Do List
 
-- [ ] Unit tests với Jest
+- [x] Unit tests với Jest (`npm test`)
+- [x] CI quality gate (GitHub Actions)
 - [ ] E2E tests với Playwright
 - [ ] PWA support
 - [ ] Analytics integration
@@ -297,5 +308,3 @@ Dự án này được phân phối dưới giấy phép **MIT License**. Xem fi
 ---
 
 ⭐ **Nếu dự án này hữu ích, hãy cho một star nhé!** ⭐
-
-_Cập nhật lần cuối: 21 tháng 6, 2025_

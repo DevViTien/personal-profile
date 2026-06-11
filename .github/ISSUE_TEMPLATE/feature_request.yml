@@ -1,0 +1,22 @@
+name: 🚀 Feature Request
+description: Đề xuất tính năng hoặc cải tiến
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Vấn đề / Nhu cầu
+      description: Tính năng này giải quyết vấn đề gì?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Giải pháp đề xuất
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Giải pháp thay thế đã cân nhắc

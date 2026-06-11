@@ -2,7 +2,7 @@
 
 ## 📌 Giới thiệu dự án
 
-Đây là dự án xây dựng website profile cá nhân của **TruongNBN** sử dụng **Next.js 15**, **React 19**, **TypeScript** và **Tailwind CSS v4**. Website này thay thế CV truyền thống bằng một trang web hiện đại, tương tác và đa ngôn ngữ.
+Đây là dự án xây dựng website profile cá nhân của **TruongNBN** sử dụng **Next.js 15**, **React 19**, **TypeScript** và **Tailwind CSS 3.4.1**. Website này thay thế CV truyền thống bằng một trang web hiện đại, tương tác và đa ngôn ngữ.
 
 ---
 
@@ -14,7 +14,7 @@
 - **React 19**: Library JavaScript để xây dựng giao diện người dùng hiện đại  
 - **TypeScript 5**: Ngôn ngữ lập trình tăng cường tính an toàn và dễ bảo trì
 - **Tailwind CSS 3.4.1**: Framework CSS utility-first với PostCSS, hỗ trợ dark mode và responsive
-- **next-intl 4.1.0**: Thư viện quốc tế hóa cho Next.js với 4 ngôn ngữ (vi, en, zh, hi)
+- **next-intl 4.1.0**: Thư viện quốc tế hóa cho Next.js với 6 ngôn ngữ (vi, en, zh, hi, ja, ko)
 - **next-themes 0.4.6**: Quản lý theme light/dark/system mode
 - **react-toastify 11.0.5**: Hệ thống thông báo toast notifications
 - **@emailjs/browser 4.4.1**: Dịch vụ gửi email từ client-side với rate limiting
@@ -109,7 +109,7 @@ src/
 
 - **Middleware**: `middleware.ts` - Xử lý routing đa ngôn ngữ
 - **Default locale**: `vi` (tiếng Việt)
-- **Supported locales**: `vi`, `en`, `zh`, `hi`
+- **Supported locales**: `vi`, `en`, `zh`, `hi`, `ja`, `ko`
 - **Locale detection**: Tự động detect từ browser
 - **Locale prefix**: `as-needed` (default locale không có prefix)
 
@@ -120,8 +120,13 @@ messages/
 ├── vi.json    # Tiếng Việt (default)
 ├── en.json    # English
 ├── zh.json    # 中文 (Chinese)
-└── hi.json    # हिन्दी (Hindi)
+├── hi.json    # हिन्दी (Hindi)
+├── ja.json    # 日本語 (Japanese)
+└── ko.json    # 한국어 (Korean)
 ```
+
+> 🔄 6 file `messages/` và 6 file `src/constants/profileData/` PHẢI luôn cùng tập key.
+> Chạy `npm run check:i18n` để kiểm tra, hoặc `/i18n-sync` (Claude Code) để đồng bộ tự động.
 
 ### Profile data đa ngôn ngữ
 
@@ -328,7 +333,7 @@ async headers() {
 
 1. **Layout System**: Header, Sidebar, Footer responsive
 2. **Theme System**: Dark/Light mode với next-themes
-3. **Internationalization**: 4 ngôn ngữ với next-intl
+3. **Internationalization**: 6 ngôn ngữ với next-intl
 4. **Profile Management**: Dynamic loading theo ngôn ngữ
 5. **Contact System**: EmailJS với validation và rate limiting
 6. **Toast Notifications**: Comprehensive feedback system
@@ -394,7 +399,7 @@ async headers() {
 
 - **ESLint**: Next.js config với custom rules
 - **TypeScript**: Strict mode enabled
-- **Prettier**: Code formatting (cần cấu hình)
+- **Prettier**: CHƯA cấu hình trong dự án — format dựa vào ESLint + `.editorconfig`. Nếu cần, cài Prettier như một bước riêng.
 - **File naming**: PascalCase cho components, camelCase cho functions
 
 ### Component Patterns
@@ -417,7 +422,7 @@ async headers() {
 
 - **Commit Message:** Sử dụng conventional commits (ví dụ: `feat: add new feature`, `fix: resolve a bug`, `docs: update documentation`).
 - **Branch Naming:** Sử dụng format `feature/feature-name`, `bugfix/bug-name`, `hotfix/hotfix-name`.
-- **Code Style:** Tuân thủ theo ESLint và Prettier đã cấu hình trong dự án.
+- **Code Style:** Tuân thủ ESLint (`npm run lint`) và `.editorconfig`. Prettier chưa được cấu hình.
 - **Naming Conventions:**
   - Components: PascalCase (ví dụ: `MyComponent.tsx`)
   - Functions/Variables: camelCase (ví dụ: `myFunction`, `myVariable`)
