@@ -142,6 +142,8 @@ export interface Translation {
       challenges: string;
       solutions: string;
       results: string;
+      project: string;
+      projects: string;
     };
     contact: {
       title: string;

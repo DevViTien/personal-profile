@@ -37,6 +37,7 @@ export interface Experience {
   endDate: string;
   title: string;
   company: string;
+  leadershipSummary?: string;
   projects: Project[];
 }
 

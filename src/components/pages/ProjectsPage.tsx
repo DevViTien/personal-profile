@@ -6,6 +6,10 @@ import { ProfileContext } from "@/contexts/ProfileContext";
 import { useTranslations } from "next-intl";
 import { Experience, Project } from "@/types/profile";
 import {
+  calculateExperienceYears,
+  countProjects,
+} from "@/utils/profileStats";
+import {
   CalendarIcon,
   BuildingOfficeIcon,
   CodeBracketIcon,
@@ -93,24 +97,8 @@ export default function ProjectsPage() {
 
   const { experience = [] } = profileData || {};
 
-  // Calculate total experience in months
-  const calculateExperience = () => {
-    let totalMonths = 0;
-    experience.forEach((exp: Experience) => {
-      const startDate = new Date(exp.startDate.split("/").reverse().join("-"));
-      const endDate = ["hiện nay", "present", "वर्तमान", "至今"].includes(
-        exp.endDate
-      )
-        ? new Date()
-        : new Date(exp.endDate.split("/").reverse().join("-"));
-      const diffTime = Math.abs(endDate.getTime() - startDate.getTime());
-      const diffMonths = Math.ceil(diffTime / (1000 * 60 * 60 * 24 * 30));
-      totalMonths += diffMonths;
-    });
-    return Math.floor(totalMonths / 12);
-  };
-
-  const totalYears = calculateExperience();
+  const totalYears = calculateExperienceYears(experience);
+  const projectCount = countProjects(experience);
 
   return (
     <div className="space-y-8 lg:space-y-12">
@@ -180,11 +168,7 @@ export default function ProjectsPage() {
                   <SparklesIcon className="w-8 h-8 text-purple-600 dark:text-purple-400" />
                 </div>
                 <div className="text-4xl lg:text-5xl font-bold text-purple-600 dark:text-purple-400">
-                  {experience.reduce(
-                    (total: number, exp: Experience) =>
-                      total + exp.projects.length,
-                    0
-                  )}
+                  {projectCount}
                 </div>
               </div>
               <div className="text-sm lg:text-base font-semibold text-gray-600 dark:text-gray-400 text-center">
@@ -237,6 +221,12 @@ export default function ProjectsPage() {
                             <span className="font-medium">{exp.company}</span>
                           </div>
 
+                          {exp.leadershipSummary && (
+                            <p className="max-w-4xl text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                              {exp.leadershipSummary}
+                            </p>
+                          )}
+
                           {/* Quick Stats */}
                           <div className="flex flex-wrap items-center gap-4 text-sm">
                             <div className="flex items-center space-x-2 text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 px-3 py-1 rounded-full">
@@ -250,8 +240,8 @@ export default function ProjectsPage() {
                               <span className="font-medium">
                                 {exp.projects.length}{" "}
                                 {exp.projects.length === 1
-                                  ? "project"
-                                  : "projects"}
+                                  ? t("pages.projects.project")
+                                  : t("pages.projects.projects")}
                               </span>
                             </div>
                           </div>

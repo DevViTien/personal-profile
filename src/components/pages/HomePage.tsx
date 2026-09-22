@@ -7,6 +7,7 @@ import ProfileCard from "@/components/cards/ProfileCard";
 import Image from "next/image";
 import Link from "next/link";
 import { downloadCV } from "@/utils/downloadUtils";
+import { calculateExperienceYears, countProjects } from "@/utils/profileStats";
 import {
   ArrowDownTrayIcon,
   ChatBubbleLeftRightIcon,
@@ -50,8 +51,11 @@ export default function HomePage() {
     bio,
     skills = [],
     education = [],
+    experience = [],
     avatarUrl,
   } = profileData || {};
+  const yearsOfExperience = calculateExperienceYears(experience);
+  const projectCount = countProjects(experience);
 
   return (
     <div className="space-y-8 sm:space-y-12 lg:space-y-16">
@@ -272,7 +276,7 @@ export default function HomePage() {
           </div>
           <div className="text-center group hover:scale-105 transition-transform duration-300">
             <div className="text-3xl lg:text-4xl font-bold text-green-600 dark:text-green-400 mb-2">
-              4+
+              {yearsOfExperience}+
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
               {t("profile.yearsOfExperience")}
@@ -288,7 +292,7 @@ export default function HomePage() {
           </div>
           <div className="text-center group hover:scale-105 transition-transform duration-300">
             <div className="text-3xl lg:text-4xl font-bold text-orange-600 dark:text-orange-400 mb-2">
-              10+
+              {projectCount}
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
               {t("profile.projects")}

@@ -11,7 +11,7 @@
     "short": "6 Hẻm 1/62/23 Bùi Xương Trạch, Thanh Xuân, Hà Nội",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d232.81411919042972!2d105.81977747479935!3d20.991598600000025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac8dca8cd4d1%3A0x951da39d67af948d!2zNiBI4bq7bSAxLzYyLzIzIELDuWkgWMawxqFuZyBUcuG6oWNoLCBLaMawxqFuZyDEkMOsbmgsIFRoYW5oIFh1w6JuLCBIw6AgTuG7mWksIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1748450167186!5m2!1sen!2s"
   },
-  "bio": "Chào mừng bạn đến với trang cá nhân của tôi! Tôi là một Frontend Developer chuyên nghiệp với hơn 3 năm kinh nghiệm phát triển ứng dụng web hiện đại. Tôi chuyên sâu về Next.js, React, TypeScript và tích hợp AI vào quy trình phát triển để tối ưu hóa hiệu suất công việc và chất lượng sản phẩm.",
+  "bio": "Chào mừng bạn đến với trang cá nhân của tôi! Tôi là một Frontend Developer chuyên nghiệp với hơn 5 năm kinh nghiệm phát triển ứng dụng web hiện đại. Tôi chuyên sâu về Next.js, React, TypeScript và tích hợp AI vào quy trình phát triển để tối ưu hóa hiệu suất công việc và chất lượng sản phẩm.",
   "avatarUrl": "/assets/avatar.jpg",
   "cvUrl": "/assets/cv-nguyen-bui-nam-truong.vi.pdf",
   "socialLinks": {
@@ -58,7 +58,7 @@
     {
       "type": "Kỹ năng phát triển phần mềm",
       "data": [
-        "Phát triển phần mềm Agile: Hiểu biết cơ bản về quy trình phát triển phần mềm Agile và Scrum.",
+        "Quản lý dự án phần mềm: Có kiến thức về Agile/Scrum và Waterfall; hiểu cách lập kế hoạch, phân chia công việc, theo dõi tiến độ và phối hợp nhóm theo đặc thù từng dự án.",
         "Kiểm thử phần mềm: Kinh nghiệm viết và thực hiện các bài kiểm thử đơn vị và kiểm thử tích hợp.",
         "Tối ưu hóa mã: Khả năng phân tích và tối ưu hóa hiệu suất mã nguồn."
       ]
@@ -83,12 +83,13 @@
       "startDate": "08/2025",
       "endDate": "hiện nay",
       "title": "Frontend Developer / Technical Leader",
-      "company": "SY Partner",
+      "company": "SY Partners",
+      "leadershipSummary": "Đảm nhiệm vai trò Technical Leader trong các dự án với quy mô nhóm 7–10 thành viên, tham gia phân tích yêu cầu, thiết kế giải pháp, phát triển Frontend và điều phối công việc kỹ thuật. Vận dụng kiến thức Agile/Scrum và Waterfall phù hợp với đặc thù dự án, đồng thời hỗ trợ phối hợp nhóm và theo dõi tiến độ triển khai.",
       "projects": [
         {
           "name": "Hệ thống họp trực tuyến (Online Meeting)",
           "description": "Hệ thống họp trực tuyến xây dựng dựa trên Zoom SDK, hỗ trợ nền tảng web và Chrome Extension. Thời gian: 12/2025 – hiện nay.",
-          "mainResponsibilities": "Technical Leader — Phân tích thiết kế, phát triển Frontend và quản lý nhóm.",
+          "mainResponsibilities": "Technical Leader — Phân tích yêu cầu và thiết kế giải pháp, định hướng kỹ thuật Frontend, phân chia và theo dõi các hạng mục kỹ thuật, hỗ trợ review code, phối hợp với các thành viên trong nhóm và theo dõi tiến độ phát triển.",
           "technologies": [
             "Zoom SDK",
             "Chrome Extension",

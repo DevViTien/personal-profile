@@ -121,6 +121,8 @@
       "liveDemo": "Live Demo",
       "sourceCode": "Source Code",
       "projectDetails": "Project Details",
+      "project": "project",
+      "projects": "projects",
       "challenges": "Challenges",
       "solutions": "Solutions",
       "results": "Results",

@@ -44,6 +44,21 @@ describe.each(LOCALES)("profileData/%s.json", (locale) => {
       });
     });
   });
+
+  it("kinh nghiệm Technical Leader có thông tin leadership", () => {
+    const technicalLeaderExperience = data.experience.find((exp) =>
+      exp.title.toLowerCase().includes("technical leader") ||
+      exp.title.includes("テクニカルリーダー") ||
+      exp.title.includes("테크니컬 리더") ||
+      exp.title.includes("技术负责人") ||
+      exp.title.includes("टेक्निकल लीडर")
+    );
+
+    expect(technicalLeaderExperience?.leadershipSummary).toEqual(
+      expect.any(String)
+    );
+    expect(technicalLeaderExperience?.leadershipSummary).not.toHaveLength(0);
+  });
 });
 
 describe("profileData — đồng bộ số lượng experience & projects giữa các ngôn ngữ", () => {
